@@ -16,6 +16,7 @@
 /*---- librairies ------------------------------------------------------------*/
 
 # include <iostream>
+# include <iomanip>
 # include <string>
 # include <array>
 
@@ -33,19 +34,11 @@ class Contact
 	public:
 		Contact();
 		~Contact();
-		void	Contact::SetContact(Contact New);
+		void	SetContact(int Index);
+		void	PrintContacts();
+		void	PrintContact();
 };
 
 /*---- constructor & destructor ----------------------------------------------*/
-
-Contact::Contact()
-{
-	std::cout << "default contact contructor called" << std::endl;
-}
-
-Contact::~Contact()
-{
-	std::cout << "default contact destructor called" << std::endl;
-}
 
 #endif

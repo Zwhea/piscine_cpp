@@ -6,7 +6,7 @@
 #    By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/09/12 15:39:38 by wangthea         ###   ########.fr        #
+#    Updated: 2023/09/13 15:36:35 by wangthea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC_DIR		=	sources
 HEADERS		=	$(HDR_DIR)/contact.hpp										\
 				$(HDR_DIR)/phonebook.hpp
 SOURCES		=	$(SRC_DIR)/contact.cpp										\
+				$(SRC_DIR)/main.cpp											\
 				$(SRC_DIR)/phonebook.cpp
 OBJ_DIR		=	.objs
 
@@ -98,7 +99,7 @@ leaks:
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_00 : megaphone${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_00 : my awesome phonebook${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
