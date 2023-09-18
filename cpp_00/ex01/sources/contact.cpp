@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:36:53 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/18 14:39:56 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/09/18 16:28:54 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,13 @@ void	Contact::SetNickname()
 	std::string	answer;
 
 	correct = true;
-	std::cout << BLUE << "* your nickname : " << END;
+	std::cout << BLUE << "your nickname : " << END;
 	std::getline(std::cin, answer);
-	if (answer.length() > 0)
-	{
-		for (int i = 0; i < (int)answer.length(); i++)
-			if (!isprint(answer[i]))
-				correct = false;
-	}
+	if (answer.length() <= 0)
+		correct = false;
+	for (int i = 0; i < (int)answer.length(); i++)
+		if (!isprint(answer[i]))
+			correct = false;
 	if (correct)
 		nickname = answer;
 	else
@@ -132,14 +131,13 @@ void	Contact::SetDarkestSecret()
 	std::string	answer;
 
 	correct = true;
-	std::cout << BLUE << "* your darkest secret ? " << END;
+	std::cout << BLUE << "your darkest secret ? " << END;
 	std::getline(std::cin, answer);
-	if (answer.length() > 0)
-	{
-		for (int i = 0; i < (int)answer.length(); i++)
-			if (!isprint(answer[i]))
-				correct = false;
-	}
+	if (answer.length() <= 0)
+		correct = false;
+	for (int i = 0; i < (int)answer.length(); i++)
+		if (!isprint(answer[i]))
+			correct = false;
 	if (correct)
 		darkest_secret = answer;
 	else
@@ -203,14 +201,16 @@ void	Contact::PrintContacts(int limit)
 
 void	Contact::PrintContact()
 {
-	std::cout << "first_name: \t";
+	std::cout << std::endl;
+	std::cout << "First_name: \t\t";
 	std::cout << first_name << std::endl;
-	std::cout << "last_name: \t";
+	std::cout << "Last_name: \t\t";
 	std::cout << last_name << std::endl;
-	std::cout << "nickname: \t";
+	std::cout << "Nickname: \t\t";
 	std::cout << nickname << std::endl;
-	std::cout << "phone_number: \t";
+	std::cout << "Phone number: \t\t";
 	std::cout << phone_number << std::endl;
-	std::cout << "darkest_secret: ";
+	std::cout << "Darkest secret: \t";
 	std::cout << darkest_secret << std::endl;
+	std::cout << std::endl;
 }
