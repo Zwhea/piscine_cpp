@@ -6,7 +6,7 @@
 #    By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/09/13 15:36:35 by wangthea         ###   ########.fr        #
+#    Updated: 2023/09/18 15:28:38 by wangthea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,12 @@ CC			=	c++
 HDR_DIR		=	includes
 SRC_DIR		=	sources
 HEADERS		=	$(HDR_DIR)/contact.hpp										\
-				$(HDR_DIR)/phonebook.hpp
+				$(HDR_DIR)/phonebook.hpp									\
+				$(HDR_DIR)/prints.hpp
 SOURCES		=	$(SRC_DIR)/contact.cpp										\
 				$(SRC_DIR)/main.cpp											\
-				$(SRC_DIR)/phonebook.cpp
+				$(SRC_DIR)/phonebook.cpp									\
+				$(SRC_DIR)/prints.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#

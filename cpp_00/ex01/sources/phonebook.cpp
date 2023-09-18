@@ -6,11 +6,13 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:03:02 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/13 16:45:50 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/09/18 15:59:14 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+
+/*---- constructor & destructor ----------------------------------------------*/
 
 PhoneBook::PhoneBook()
 {
@@ -23,6 +25,8 @@ PhoneBook::~PhoneBook()
 	std::cout << "default phone book destructor called" << std::endl;
 }
 
+/*---- functions -------------------------------------------------------------*/
+
 void	PhoneBook::AddContact(int Index)
 {
 	Contact New;
@@ -33,13 +37,62 @@ void	PhoneBook::AddContact(int Index)
 		limit++;
 }
 
+void	PhoneBook::SearchContact(int Index)
+{
+	(void)Index;
+	std::string	line;
+	
+	PrintRepertory();
+	std::cout << "The contact informations you want to look at: ";
+	std::getline(std::cin, line);
+	for (int i = 0; i < (int)line.length(); i++)
+	{
+		if (!isdigit(line[i]))
+		{
+			std::cout << RED << "wrong format start over" << END << std::endl;
+			return ;
+		}
+	}
+	PrintDetail(std::stoi(line));
+}
+
+void	PhoneBook::ExitPhoneBook(int Index)
+{
+	(void)Index;
+	std::cout << RED << "Ending program" << END << std::endl;
+	exit (0);
+}
+
 void	PhoneBook::PrintRepertory()
 {
+	print_banner();
+	print_box_up();
 	for (int i = 0; i < limit; i++)
-		Repertory[i].PrintContacts();
+		Repertory[i].PrintContacts(limit);
+	print_box_down();
 }
 
 void	PhoneBook::PrintDetail(int index)
 {
-	Repertory[index].PrintContact();
+	std::string	line;
+	
+	if (index < limit)
+		Repertory[index].PrintContact();
+	else
+	{
+		std::cout << RED;
+		std::cout << "Well...looks like you don't have that much friends pal !";
+		std::cout << END << std::endl;
+		std::cout << "The contact informations you want to look at: ";
+		std::getline(std::cin, line);
+		for (int i = 0; i < (int)line.length(); i++)
+		{
+			if (!isdigit(line[i]))
+			{
+				std::cout << RED << "wrong format start over" << END << std::endl;
+				return ;
+			}
+		}
+		PrintDetail(std::stoi(line));
+	}
 }

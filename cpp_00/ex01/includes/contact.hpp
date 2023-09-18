@@ -35,10 +35,13 @@ class Contact
 		Contact();
 		~Contact();
 		void	SetContact(int Index);
-		void	PrintContacts();
+		void	SetFirstName();
+		void	SetNickname();
+		void	SetLastName();
+		void	SetPhoneNumber();
+		void	SetDarkestSecret();
+		void	PrintContacts(int limit);
 		void	PrintContact();
 };
-
-/*---- constructor & destructor ----------------------------------------------*/
 
 #endif
