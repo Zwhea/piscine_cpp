@@ -7,14 +7,10 @@
 //                                                                            //
 // ************************************************************************** //
 
-#include <vector>
-#include <algorithm>
-#include <functional>
 #include "Account.hpp"
 
-
-int		main( void ) {
-
+int	main( void )
+{
 	typedef std::vector<Account::t>							  accounts_t;
 	typedef std::vector<int>								  ints_t;
 	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;
@@ -41,9 +37,9 @@ int		main( void ) {
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
 	for ( acc_int_t it( acc_begin, dep_begin );
-		  it.first != acc_end && it.second != dep_end;
-		  ++(it.first), ++(it.second) ) {
-
+			it.first != acc_end && it.second != dep_end;
+			++(it.first), ++(it.second) )
+	{
 		(*(it.first)).makeDeposit( *(it.second) );
 	}
 
@@ -51,9 +47,9 @@ int		main( void ) {
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
 	for ( acc_int_t it( acc_begin, wit_begin );
-		  it.first != acc_end && it.second != wit_end;
-		  ++(it.first), ++(it.second) ) {
-
+			it.first != acc_end && it.second != wit_end;
+			++(it.first), ++(it.second) )
+	{
 		(*(it.first)).makeWithdrawal( *(it.second) );
 	}
 
