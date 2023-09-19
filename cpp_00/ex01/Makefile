@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/09/19 09:49:24 by twang            ###   ########.fr        #
+#    Updated: 2023/09/19 10:52:13 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
 
-CPPFLAGS		=	-Wall -Wextra -std=c++98  -g3 -I $(HDR_DIR) #-Werror
+CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3 -I $(HDR_DIR)
 
 #--debug flags-----------------------------------------------------------------#
 
@@ -96,7 +96,7 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./megaphone 
+	$(LEAKS) ./my_awesome_phonebook
 
 #--print header----------------------------------------------------------------#
 
@@ -107,7 +107,7 @@ header:
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
 	printf "${PURPLE}compiler:\t${END}${BLUE}${CC}${END}\n"
 	printf "${PURPLE}flags:\t\t${END}${BLUE}${CPPFLAGS}${END}\n"
-	printf "${PURPLE}date:\t\t${END}${BLUE}2023/${END}\n"
+	printf "${PURPLE}date:\t\t${END}${BLUE}2023/09/19${END}\n"
 	printf "              ____________________________\n\n"
 
 welcome:

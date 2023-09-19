@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/09/19 10:52:41 by twang            ###   ########.fr        #
+#    Updated: 2023/09/19 10:53:02 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,21 +16,25 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	megaphone
+NAME		=	the_job_of_your_dreams
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
 TWANG		=	\e]8;;https://profile.intra.42.fr/users/twang\a\e[34mtwang\e[34m\e]8;;\a
 CC			=	c++
 
-#--sources & objects-----------------------------------------------------------#
+#--headers, sources & objects--------------------------------------------------#
 
-SOURCES		=	megaphone.cpp
+HDR_DIR		=	includes
+SRC_DIR		=	sources
+HEADERS		=	$(HDR_DIR)/Account.hpp
+SOURCES		=	$(SRC_DIR)/Account.cpp										\
+				$(SRC_DIR)/tests.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
 
-CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3
+CPPFLAGS		=	-Wall -Wextra -std=c++98  -g3 -I $(HDR_DIR) #-Werror
 
 #--debug flags-----------------------------------------------------------------#
 
@@ -75,7 +79,7 @@ $(NAME): $(OBJECTS)
 	$(CC) $(CPPFLAGS) $^ -o $@
 	$(PRINT_CREATING)
 
-$(OBJ_DIR)/%.o: %.cpp
+$(OBJ_DIR)/%.o: %.cpp $(HEADERS)
 	mkdir -p $(dir $@)
 	$(CC) $(CPPFLAGS) -c $< -o $@
 	$(PRINT_COMPILING)
@@ -88,18 +92,18 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./megaphone 
+	$(LEAKS) ./the_job_of_your_dreams 
 
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_00 : megaphone${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_00 : the job of your dreams${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
 	printf "${PURPLE}compiler:\t${END}${BLUE}${CC}${END}\n"
 	printf "${PURPLE}flags:\t\t${END}${BLUE}${CPPFLAGS}${END}\n"
-	printf "${PURPLE}date:\t\t${END}${BLUE}2023/09/12${END}\n"
+	printf "${PURPLE}date:\t\t${END}${BLUE}2023/09/${END}\n"
 	printf "              ____________________________\n\n"
 
 welcome:
