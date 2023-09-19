@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:03:02 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/19 10:37:48 by twang            ###   ########.fr       */
+/*   Updated: 2023/09/19 15:53:24 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ void	PhoneBook::PrintDetail(int index)
 				return ;
 			}
 		}
-		PrintDetail(std::atoi(line.c_str()));
+		std::istringstream	contact_id(line);
+		contact_id >> index;
+		PrintDetail(index);
 	}
 }

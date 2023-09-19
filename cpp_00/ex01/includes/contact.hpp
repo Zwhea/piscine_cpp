@@ -19,6 +19,7 @@
 # include <iomanip>
 # include <string>
 # include <cstdlib>
+# include <sstream>
 
 /*---- class defines ---------------------------------------------------------*/
 
@@ -35,11 +36,11 @@ class Contact
 		Contact();
 		~Contact();
 		void	SetContact(int Index);
-		void	SetFirstName();
-		void	SetNickname();
-		void	SetLastName();
-		void	SetPhoneNumber();
-		void	SetDarkestSecret();
+		int		SetFirstName();
+		int		SetNickname();
+		int		SetLastName();
+		int		SetPhoneNumber();
+		int		SetDarkestSecret();
 		void	PrintContacts(int limit);
 		void	PrintContact();
 };

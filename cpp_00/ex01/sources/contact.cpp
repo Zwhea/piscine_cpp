@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:36:53 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/19 10:33:31 by twang            ###   ########.fr       */
+/*   Updated: 2023/09/19 16:30:05 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Contact::~Contact()
 
 /*---- functions -------------------------------------------------------------*/
 
-void	Contact::SetFirstName()
+int	Contact::SetFirstName()
 {
 	bool		correct;
 	std::string	answer;
@@ -35,7 +35,7 @@ void	Contact::SetFirstName()
 	std::cout << BLUE << "please enter your first name : " << END;
 	std::getline(std::cin, answer);
 	if (std::cin.eof())
-		exit (-1);
+		return (1);
 	if (answer.length() < 2)
 		correct = false;
 	for (int i = 0; i < (int)answer.length(); i++)
@@ -48,9 +48,10 @@ void	Contact::SetFirstName()
 		std::cout << RED << "wrong format try again" << END << std::endl;
 		SetFirstName();
 	}
+	return (0);
 }
 
-void	Contact::SetLastName()
+int	Contact::SetLastName()
 {
 	bool		correct;
 	std::string	answer;
@@ -59,7 +60,7 @@ void	Contact::SetLastName()
 	std::cout << BLUE << "your last name : " << END;
 	std::getline(std::cin, answer);
 	if (std::cin.eof())
-		exit (-1);
+		return (1);
 	if (answer.length() < 2)
 		correct = false;
 	for (int i = 0; i < (int)answer.length(); i++)
@@ -72,9 +73,10 @@ void	Contact::SetLastName()
 		std::cout << RED << "wrong format try again" << END << std::endl;
 		SetLastName();
 	}
+	return (0);
 }
 
-void	Contact::SetNickname()
+int	Contact::SetNickname()
 {
 	bool		correct;
 	std::string	answer;
@@ -83,7 +85,7 @@ void	Contact::SetNickname()
 	std::cout << BLUE << "your nickname : " << END;
 	std::getline(std::cin, answer);
 	if (std::cin.eof())
-		exit (-1);
+		return (1);
 	if (answer.length() <= 0)
 		correct = false;
 	for (int i = 0; i < (int)answer.length(); i++)
@@ -96,9 +98,10 @@ void	Contact::SetNickname()
 		std::cout << RED << "wrong format try again" << END << std::endl;
 		SetNickname();
 	}
+	return (0);
 }
 
-void	Contact::SetPhoneNumber()
+int	Contact::SetPhoneNumber()
 {
 	bool		correct;
 	std::string	answer;
@@ -107,7 +110,7 @@ void	Contact::SetPhoneNumber()
 	std::cout << BLUE << "your phone number : " << END;
 	std::getline(std::cin, answer);
 	if (std::cin.eof())
-		exit (-1);
+		return (1);
 	if (answer.length() == 12)
 	{
 		if (answer[0] !=  '+')
@@ -131,9 +134,10 @@ void	Contact::SetPhoneNumber()
 		std::cout << RED << "wrong format try again" << END << std::endl;
 		SetPhoneNumber();
 	}
+	return (0);
 }
 
-void	Contact::SetDarkestSecret()
+int	Contact::SetDarkestSecret()
 {
 	bool		correct;
 	std::string	answer;
@@ -142,7 +146,7 @@ void	Contact::SetDarkestSecret()
 	std::cout << BLUE << "your darkest secret ? " << END;
 	std::getline(std::cin, answer);
 	if (std::cin.eof())
-		exit (-1);
+		return (1);
 	if (answer.length() <= 0)
 		correct = false;
 	for (int i = 0; i < (int)answer.length(); i++)
@@ -155,16 +159,22 @@ void	Contact::SetDarkestSecret()
 		std::cout << RED << "wrong format try again" << END << std::endl;
 		SetDarkestSecret();
 	}
+	return (0);
 }
 
 void	Contact::SetContact(int Index)
 {
 	index = Index;
-	SetFirstName();
-	SetLastName();
-	SetNickname();
-	SetPhoneNumber();
-	SetDarkestSecret();
+	if (SetFirstName())
+		return ;
+	if (SetLastName())
+		return ;
+	if (SetNickname())
+		return ;
+	if (SetPhoneNumber())
+		return ;
+	if (SetDarkestSecret())
+		return ;
 }
 
 void	Contact::PrintContacts(int limit)

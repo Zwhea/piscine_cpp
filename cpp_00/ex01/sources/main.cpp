@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:33:54 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/19 10:36:15 by twang            ###   ########.fr       */
+/*   Updated: 2023/09/19 15:42:26 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	main(void)
 			return (-1);
 		for (int j = 0; j < 3; j++)
 		{
+			if (j == 2)
+				return (0);
 			if (line == List[j].Keyword)
 			{
 				(New.*(List[j].Function))(i);
@@ -46,6 +48,7 @@ int	main(void)
 					if (i == 8)
 						i = 0;
 				}
+				
 			}
 		}
 	}
