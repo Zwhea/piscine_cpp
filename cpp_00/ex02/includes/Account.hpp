@@ -8,13 +8,13 @@
 // ************************************************************************** //
 
 #pragma once
-# ifndef __ACCOUNT_H__
-#  define __ACCOUNT_H__
+#ifndef __ACCOUNT_H__
+# define __ACCOUNT_H__
 
-#  include <vector>
-#  include <algorithm>
-#  include <functional>
-#  include <iostream>
+# include <vector>
+# include <algorithm>
+# include <functional>
+# include <iostream>
 
 // ************************************************************************** //
 //                               Account Class                                //
@@ -58,7 +58,6 @@ class Account
 		Account( void );
 
 };
-
 
 
 // ************************************************************************** //
