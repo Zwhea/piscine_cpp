@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prints.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:25:28 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/18 15:26:40 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/09/19 10:07:05 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 void	print_banner();
 void	print_box_up();
 void	print_box_down();
+void	print_limit_down();
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:23:01 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/18 15:27:41 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/09/19 09:56:23 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class PhoneBook
 {
 	private:
 		int						limit;
-		std::array <Contact, 8>	Repertory;
+		Contact					Repertory[8];
 	public:
 		PhoneBook();
 		~PhoneBook();

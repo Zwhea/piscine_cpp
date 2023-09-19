@@ -18,7 +18,7 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
-# include <array>
+# include <cstdlib>
 
 /*---- class defines ---------------------------------------------------------*/
 

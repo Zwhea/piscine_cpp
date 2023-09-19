@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prints.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:24:11 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/18 15:24:51 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/09/19 10:06:32 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,21 @@ void	print_box_down()
 	for (int i = 0; i < 10; i++)
 		std::cout << "\u2550";
 	std::cout << "\u255D\002\n" << END;
+}
+
+void	print_limit_down()
+{
+	std::cout << "\u2560";
+	for (int i = 0; i < 10; i++)
+		std::cout << "\u2550";
+	std::cout << "\u256C";
+	for (int i = 0; i < 10; i++)
+		std::cout << "\u2550";
+	std::cout << "\u256C";
+	for (int i = 0; i < 10; i++)
+		std::cout << "\u2550";
+	std::cout << "\u256C";
+	for (int i = 0; i < 10; i++)
+		std::cout << "\u2550";
+	std::cout << "\u2563\n";
 }
