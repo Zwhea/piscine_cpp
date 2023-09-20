@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:03:02 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/19 15:53:24 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:22:06 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,13 @@ void	PhoneBook::AddContact(int Index)
 
 void	PhoneBook::SearchContact(int Index)
 {
-	(void)Index;
 	std::string	line;
 	
 	PrintRepertory();
 	std::cout << "The contact informations you want to look at: ";
 	std::getline(std::cin, line);
 	if (std::cin.eof())
-		exit (-1);
+		return ;
 	for (int i = 0; i < (int)line.length(); i++)
 	{
 		if (!isdigit(line[i]))
@@ -55,7 +54,9 @@ void	PhoneBook::SearchContact(int Index)
 			return ;
 		}
 	}
-	PrintDetail(std::atoi(line.c_str()));
+	std::istringstream	contact_id(line);
+	contact_id >> Index;
+	PrintDetail(Index);
 }
 
 void	PhoneBook::ExitPhoneBook(int Index)
@@ -89,7 +90,7 @@ void	PhoneBook::PrintDetail(int index)
 		std::cout << "The contact informations you want to look at: ";
 		std::getline(std::cin, line);
 		if (std::cin.eof())
-			exit (-1);
+			return ;
 		for (int i = 0; i < (int)line.length(); i++)
 		{
 			if (!isdigit(line[i]))
