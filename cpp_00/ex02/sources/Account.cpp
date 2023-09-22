@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:48:20 by twang             #+#    #+#             */
-/*   Updated: 2023/09/22 13:08:42 by twang            ###   ########.fr       */
+/*   Updated: 2023/09/22 13:53:47 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,12 @@ int	Account::getNbWithdrawals( void )
 
 void	Account::displayAccountsInfos( void )
 {
+	if ("_totalNbDeposits" == 0 && "_totalNbWithdrawals" == 0)
+	{
+		std::cout << "[19920104_091532] accounts:" << PURPLE << "_nbAccounts" << END;
+		std::cout << std::endl;
+	}
+
 	std::cout << "display accounts infos" << std::endl;
 }
 
@@ -83,4 +89,11 @@ int		Account::checkAmount( void ) const
 void	Account::displayStatus( void ) const
 {
 	std::cout << "display status" << std::endl;
+}
+
+/*---- static functions ------------------------------------------------------*/
+
+static void		_displayTimestamp( void )
+{
+	std::cout << "display time stamp" << std::endl;
 }
