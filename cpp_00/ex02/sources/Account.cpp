@@ -3,27 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:48:20 by twang             #+#    #+#             */
-/*   Updated: 2023/09/22 13:53:47 by twang            ###   ########.fr       */
+/*   Updated: 2023/09/22 16:15:55 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 
+int	Account::_nbAccounts = 0;
+int	Account::_totalAmount = 0;
+int	Account::_totalNbDeposits = 0;
+int	Account::_totalNbWithdrawals = 0;
+
 /*---- constructor & destructor ----------------------------------------------*/
 
 Account::Account( int initial_deposit )
 {
-	std::cout << "[19920104_091532] index:" << PURPLE << _accountIndex << END;
-	std::cout << ";amount:" << PURPLE << initial_deposit << END;
+	_amount = initial_deposit;
+	_accountIndex = getNbAccounts();
+	_nbAccounts++;
+	
+	_displayTimestamp();
+	std::cout << "index:" << PURPLE << _accountIndex << END;
+	std::cout << ";amount:" << PURPLE << _amount << END;
 	std::cout << ";created" << std::endl;
 }
 
 Account::~Account( void )
 {
-	std::cout << "[19920104_091532] index:" << PURPLE << _accountIndex << END;
+	_nbAccounts--;
+	_displayTimestamp();
+	std::cout << "index:" << PURPLE << _accountIndex << END;
 	std::cout << ";amount:" << PURPLE << _amount << END;
 	std::cout << ";closed" << std::endl;
 }
@@ -32,33 +44,31 @@ Account::~Account( void )
 
 int	Account::getNbAccounts( void )
 {
-	std::cout << "get nb accounts" << std::endl;
-	return (0);
+	return (_nbAccounts);
 }
 
 int	Account::getTotalAmount( void )
 {
-	std::cout << "get total amount" << std::endl;
-	return (0);
+	return (_totalAmount);
 }
 
 int	Account::getNbDeposits( void )
 {
-	std::cout << "get nb deposit" << std::endl;
-	return (0);
+	return (_totalNbDeposits);
 }
 
 int	Account::getNbWithdrawals( void )
 {
-	std::cout << "get nb withdrawal" << std::endl;
-	return (0);
+	return (_totalNbWithdrawals);
 }
 
 void	Account::displayAccountsInfos( void )
 {
+	_displayTimestamp();
+	
 	if ("_totalNbDeposits" == 0 && "_totalNbWithdrawals" == 0)
 	{
-		std::cout << "[19920104_091532] accounts:" << PURPLE << "_nbAccounts" << END;
+		std::cout << "accounts:" << PURPLE << "_nbAccounts" << END;
 		std::cout << std::endl;
 	}
 
@@ -88,12 +98,21 @@ int		Account::checkAmount( void ) const
 
 void	Account::displayStatus( void ) const
 {
+	_displayTimestamp();
+	
 	std::cout << "display status" << std::endl;
 }
 
 /*---- static functions ------------------------------------------------------*/
 
-static void		_displayTimestamp( void )
+void	Account::_displayTimestamp( void )
 {
-	std::cout << "display time stamp" << std::endl;
+	time_t		now;
+	struct tm	tstruct;
+	char		buffer[16];
+
+	now = time(0);
+	tstruct = *localtime(&now);
+	strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", &tstruct);
+	std::cout << "[" << buffer << "] ";
 }
