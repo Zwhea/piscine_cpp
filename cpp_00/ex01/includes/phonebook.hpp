@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:23:01 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/19 09:56:23 by twang            ###   ########.fr       */
+/*   Updated: 2023/09/22 13:29:30 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@
 class PhoneBook
 {
 	private:
-		int						limit;
-		Contact					Repertory[8];
+		int		limit;
+		Contact	Repertory[8];
 	public:
 		PhoneBook();
 		~PhoneBook();
+		bool	EmptyPhoneBook();
 		void	AddContact(int Index);
 		void	SearchContact(int Index);
 		void	ExitPhoneBook(int Index);
@@ -58,8 +59,8 @@ typedef struct s_options	t_options;
 
 struct s_options
 {
-	std::string		Keyword;
-	void			(PhoneBook::*Function)(int);
+	std::string	Keyword;
+	void		(PhoneBook::*Function)(int);
 };
 
 #endif

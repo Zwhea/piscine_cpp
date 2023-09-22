@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:48:20 by twang             #+#    #+#             */
-/*   Updated: 2023/09/19 13:17:11 by twang            ###   ########.fr       */
+/*   Updated: 2023/09/22 13:08:42 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@
 
 Account::Account( int initial_deposit )
 {
-	( void )initial_deposit;
-	std::cout << "default account constructor called" << std::endl;
+	std::cout << "[19920104_091532] index:" << PURPLE << _accountIndex << END;
+	std::cout << ";amount:" << PURPLE << initial_deposit << END;
+	std::cout << ";created" << std::endl;
 }
 
 Account::~Account( void )
 {
-	std::cout << "default account destructor called" << std::endl;
+	std::cout << "[19920104_091532] index:" << PURPLE << _accountIndex << END;
+	std::cout << ";amount:" << PURPLE << _amount << END;
+	std::cout << ";closed" << std::endl;
 }
 
 /*---- static functions ------------------------------------------------------*/
