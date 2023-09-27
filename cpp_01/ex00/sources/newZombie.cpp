@@ -6,14 +6,16 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:57:42 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/26 17:06:55 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:06:12 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* newZombie( std::string name )
+Zombie*	Zombie::newZombie( std::string name )
 {
-	( void )name;
-	return (NULL);
+	Zombie*	new_zombie;
+
+	new_zombie = new Zombie(name);
+	return (new_zombie);
 }

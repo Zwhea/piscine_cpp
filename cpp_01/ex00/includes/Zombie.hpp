@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:26:23 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/26 17:03:25 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:28:14 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 /*---- includes --------------------------------------------------------------*/
 
+# include <iostream>
+# include <sstream>
+# include <string>
 # include "Zombie.h"
 
 /*---- class defines ---------------------------------------------------------*/
@@ -22,12 +25,18 @@
 class Zombie
 {
 	private:
+
 		std::string	name;
+
 	public:
-		Zombie();
-		~Zombie();
-		void	announce( void );
-		Zombie* newZombie( std::string name );
+
+		Zombie( void );
+		Zombie( std::string name );
+		~Zombie( void );
+		void			announce( void );
+		static Zombie*	newZombie( std::string name );
+		void			randomChump( std::string name );
+
 };
 
 #endif

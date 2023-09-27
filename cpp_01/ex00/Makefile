@@ -6,7 +6,7 @@
 #    By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/09/26 16:41:08 by wangthea         ###   ########.fr        #
+#    Updated: 2023/09/27 20:54:42 by wangthea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,9 @@ CC			=	c++
 #--headers, sources & objects--------------------------------------------------#
 
 HDR_DIR		=	includes
+SRC_DIR		=	sources
 HEADERS		=	$(HDR_DIR)/Zombie.h											\
 				$(HDR_DIR)/Zombie.hpp
-SRC_DIR		=	sources
 SOURCES		=	$(SRC_DIR)/main.cpp											\
 				$(SRC_DIR)/newZombie.cpp									\
 				$(SRC_DIR)/randomChump.cpp									\
