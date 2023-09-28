@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:26:23 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/28 08:35:46 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/09/28 14:11:56 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ class Zombie
 		Zombie( std::string name );
 		~Zombie( void );
 		void			announce( void );
-		Zombie*	newZombie( std::string name );
-		void			randomChump( std::string name );
+		Zombie
 
 };
 

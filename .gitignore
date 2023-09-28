@@ -1,5 +1,7 @@
 # Prerequisites
 *.d
+*.vscode
+*.DS_Store
 
 # Compiled Object files
 *.slo
@@ -30,3 +32,6 @@
 *.exe
 *.out
 *.app
+megaphone
+my_awesome_phonebook
+the_job_of_your_dreams
