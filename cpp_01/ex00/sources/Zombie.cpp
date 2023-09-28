@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:35:00 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/27 21:31:16 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/09/28 15:54:55 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@
 
 Zombie::Zombie( void )
 {
-	std::cout << name ;
-	std::cout << "\t: default zombie destructor called" << std::endl;
+	cout << name ;
+	cout << "\t: default zombie destructor called" << endl;
 }
 
 Zombie::Zombie( std::string name ) : name( name )
 {
-	std::cout << name ;
-	std::cout << "\t: default zombie contructor called" << std::endl;
+	cout << name ;
+	cout << "\t: default zombie contructor called" << endl;
 }
 
 Zombie::~Zombie( void )
 {
-	std::cout << name ;
-	std::cout << "\t: default zombie destructor called" << std::endl;
+	cout << name ;
+	cout << "\t: default zombie destructor called" << endl;
 }
 
 /*---- functions -------------------------------------------------------------*/
 
 void	Zombie::announce( void )
 {
-	std::cout << name << "\t: BraiiiiiiinnnzzzZ..." << std::endl;
+	cout << name << "\t: BraiiiiiiinnnzzzZ..." << endl;
 }

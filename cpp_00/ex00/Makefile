@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/09/19 10:52:41 by twang            ###   ########.fr        #
+#    Updated: 2023/09/28 15:53:38 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,13 +93,13 @@ leaks:
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_00 : megaphone${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_00 : ex00 : megaphone${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
 	printf "${PURPLE}compiler:\t${END}${BLUE}${CC}${END}\n"
 	printf "${PURPLE}flags:\t\t${END}${BLUE}${CPPFLAGS}${END}\n"
-	printf "${PURPLE}date:\t\t${END}${BLUE}2023/09/12${END}\n"
+	printf "${PURPLE}date:\t\t${END}${BLUE}2023/09${END}\n"
 	printf "              ____________________________\n\n"
 
 welcome:
