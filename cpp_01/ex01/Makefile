@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/09/29 12:14:27 by twang            ###   ########.fr        #
+#    Updated: 2023/09/29 13:14:26 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,7 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./BraiiiiiiinnnzzzZ
+	$(LEAKS) ./moar_brainz!
 
 #--print header----------------------------------------------------------------#
 
