@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/09/28 15:53:10 by twang            ###   ########.fr        #
+#    Updated: 2023/09/29 12:14:27 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,8 @@ SRC_DIR		=	sources
 HEADERS		=	$(HDR_DIR)/Zombie.h											\
 				$(HDR_DIR)/Zombie.hpp
 SOURCES		=	$(SRC_DIR)/main.cpp											\
-				$(SRC_DIR)/newZombie.cpp									\
-				$(SRC_DIR)/randomChump.cpp									\
-				$(SRC_DIR)/Zombie.cpp
+				$(SRC_DIR)/Zombie.cpp										\
+				$(SRC_DIR)/ZombieHorde.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#

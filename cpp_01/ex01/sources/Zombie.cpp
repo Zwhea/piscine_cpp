@@ -6,19 +6,13 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:35:00 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/28 15:56:18 by twang            ###   ########.fr       */
+/*   Updated: 2023/09/29 12:24:31 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 /*---- constructor & destructor ----------------------------------------------*/
-
-Zombie::Zombie( void )
-{
-	cout << name ;
-	cout << "\t: default zombie destructor called" << endl;
-}
 
 Zombie::Zombie( std::string name ) : name( name )
 {
