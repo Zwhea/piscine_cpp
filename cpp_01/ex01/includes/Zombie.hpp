@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:26:23 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/29 13:17:51 by twang            ###   ########.fr       */
+/*   Updated: 2023/09/30 10:29:50 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ class Zombie
 	public:
 
 		Zombie( void );
-		Zombie( std::string name );
 		~Zombie( void );
 		Zombie*	zombieHorde( int N, std::string name );
 		void	announce( void );
