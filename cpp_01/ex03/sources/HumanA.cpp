@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 16:35:00 by wangthea          #+#    #+#             */
-/*   Updated: 2023/10/06 09:31:50 by wangthea         ###   ########.fr       */
+/*   Created: 2023/10/06 11:26:12 by wangthea          #+#    #+#             */
+/*   Updated: 2023/10/06 15:35:59 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
 /*---- constructor & destructor ----------------------------------------------*/
 
-Zombie::Zombie( std::string name ) : name( name )
+HumanA::HumanA( std::string new_name, Weapon& new_weapon) : name ( new_name ), weapon ( new_weapon )
 {
-	cout << name ;
-	cout << "\t: default zombie contructor called" << endl;
+	std::cout << GREY << name ;
+	std::cout << ": humanA constructor called with type ";
+	std::cout << weapon.getType() << END << std::endl;
 }
 
-Zombie::~Zombie( void )
+HumanA::~HumanA()
 {
-	cout << name ;
-	cout << "\t: default zombie destructor called" << endl;
+	std::cout << GREY << name ;
+	std::cout << " : humanA destructor called" << END << std::endl;
 }
 
 /*---- functions -------------------------------------------------------------*/
 
-void	Zombie::announce( void )
+void	HumanA::attack( void )
 {
-	cout << name << "\t: BraiiiiiiinnnzzzZ..." << endl;
+	std::cout << RED << name;
+	std::cout << " attacks with their ";
+	std::cout << weapon.getType() << END << std::endl;
 }

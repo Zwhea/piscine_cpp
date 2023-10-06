@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 16:35:00 by wangthea          #+#    #+#             */
-/*   Updated: 2023/10/06 09:31:50 by wangthea         ###   ########.fr       */
+/*   Created: 2023/10/06 11:22:45 by wangthea          #+#    #+#             */
+/*   Updated: 2023/10/06 15:39:23 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
 /*---- constructor & destructor ----------------------------------------------*/
 
-Zombie::Zombie( std::string name ) : name( name )
+Weapon::Weapon( std::string new_type ) : type (new_type)
 {
-	cout << name ;
-	cout << "\t: default zombie contructor called" << endl;
+	std::cout << GREY << type ;
+	std::cout << " : weapon contructor called" << END << std::endl;
 }
 
-Zombie::~Zombie( void )
+Weapon::~Weapon()
 {
-	cout << name ;
-	cout << "\t: default zombie destructor called" << endl;
+	std::cout << GREY << type ;
+	std::cout << " : weapon destructor called" << END << std::endl;
 }
 
 /*---- functions -------------------------------------------------------------*/
 
-void	Zombie::announce( void )
+const std::string&	Weapon::getType( void )
 {
-	cout << name << "\t: BraiiiiiiinnnzzzZ..." << endl;
+	return (type);
+}
+
+void	Weapon::setType( std::string const &type_ref )
+{
+	type = type_ref;
 }

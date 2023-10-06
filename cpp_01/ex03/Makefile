@@ -6,7 +6,7 @@
 #    By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/10/06 10:27:26 by wangthea         ###   ########.fr        #
+#    Updated: 2023/10/06 13:53:15 by wangthea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	moar_brainz!
+NAME		=	unnecessary_violence
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
@@ -27,16 +27,18 @@ CC			=	c++
 
 HDR_DIR		=	includes
 SRC_DIR		=	sources
-HEADERS		=	$(HDR_DIR)/Zombie.h											\
-				$(HDR_DIR)/Zombie.hpp
-SOURCES		=	$(SRC_DIR)/main.cpp											\
-				$(SRC_DIR)/Zombie.cpp										\
-				$(SRC_DIR)/ZombieHorde.cpp
+HEADERS		=	$(HDR_DIR)/HumanA.hpp										\
+				$(HDR_DIR)/HumanB.hpp										\
+				$(HDR_DIR)/Weapon.hpp
+SOURCES		=	$(SRC_DIR)/HumanA.cpp										\
+				$(SRC_DIR)/HumanB.cpp										\
+				$(SRC_DIR)/main.cpp											\
+				$(SRC_DIR)/Weapon.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
 
-CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3 -I $(HDR_DIR)
+CPPFLAGS		=	-Wall -Wextra -std=c++98 -g3 -I $(HDR_DIR) #-Werror
 
 #--debug flags-----------------------------------------------------------------#
 

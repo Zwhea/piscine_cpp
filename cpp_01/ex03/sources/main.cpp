@@ -6,23 +6,30 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:26:16 by wangthea          #+#    #+#             */
-/*   Updated: 2023/10/06 10:10:15 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/10/06 14:03:00 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
 int main( void )
 {
-	Zombie*	newZombieHorde = NULL;
-
-	newZombieHorde = newZombieHorde->zombieHorde(10, "Bob");
-
-	/* to test if the array is not empty
-	for (int i = 0; i < 10; i++)
-		newZombieHorde[i].announce();
-	*/
-
-	delete [] newZombieHorde;
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 	return (0);
 }

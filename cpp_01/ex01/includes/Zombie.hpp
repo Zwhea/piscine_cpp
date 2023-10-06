@@ -6,18 +6,12 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:26:23 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/30 10:29:50 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/10/06 10:14:01 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
-
-/*---- libraries -------------------------------------------------------------*/
-
-# include <iostream>
-# include <sstream>
-# include <string>
 
 /*---- includes --------------------------------------------------------------*/
 

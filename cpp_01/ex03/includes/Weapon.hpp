@@ -1,40 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:26:23 by wangthea          #+#    #+#             */
-/*   Updated: 2023/10/06 09:33:00 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/10/06 15:45:37 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-/*---- includes --------------------------------------------------------------*/
+/*---- librairies ------------------------------------------------------------*/
 
 # include <iostream>
-# include <sstream>
+# include <iomanip>
 # include <string>
-# include "Zombie.h"
+# include <cstdlib>
+# include <sstream>
+
+/*---- defines ---------------------------------------------------------------*/
+
+# define BLUE	"\001\033[1;34m\002"
+# define RED	"\001\033[1;31m\002"
+# define YELLOW "\001\033[1;33m\002"
+# define GREEN	"\001\033[1;32m\002"
+# define PURPLE	"\001\033[1;35m\002"
+# define GREY	"\001\033[1;30m\002"
+# define END	"\001\033[0m\002"
 
 /*---- class defines ---------------------------------------------------------*/
 
-class Zombie
+class Weapon
 {
 	private:
 
-		std::string	name;
+		std::string	type;
 
 	public:
 
-		Zombie( std::string name );
-		~Zombie( void );
-		Zombie*		newZombie( std::string name );
-		void		announce( void );
-		void		randomChump( std::string name );
+		Weapon( std::string new_type );
+		~Weapon();
+		const std::string&	getType( void );
+		void				setType( std::string const &type_ref );
 
 };
 

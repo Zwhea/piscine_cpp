@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
+#    By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/09/28 15:53:00 by twang            ###   ########.fr        #
+#    Updated: 2023/10/06 10:27:57 by wangthea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ endif
 
 #--leaks flags-----------------------------------------------------------------#
 
-LEAKS	=	valgrind --leak-check=full --show-leak-kinds=all
+LEAKS	=	valgrind --leak-check=full --show-leak-kinds=all --quiet
 
 #--define flags----------------------------------------------------------------#
 

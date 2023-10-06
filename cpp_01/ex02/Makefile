@@ -6,7 +6,7 @@
 #    By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/10/06 10:27:26 by wangthea         ###   ########.fr        #
+#    Updated: 2023/10/06 10:27:05 by wangthea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	moar_brainz!
+NAME		=	hi_this_is_brain
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
@@ -25,18 +25,13 @@ CC			=	c++
 
 #--headers, sources & objects--------------------------------------------------#
 
-HDR_DIR		=	includes
 SRC_DIR		=	sources
-HEADERS		=	$(HDR_DIR)/Zombie.h											\
-				$(HDR_DIR)/Zombie.hpp
-SOURCES		=	$(SRC_DIR)/main.cpp											\
-				$(SRC_DIR)/Zombie.cpp										\
-				$(SRC_DIR)/ZombieHorde.cpp
+SOURCES		=	$(SRC_DIR)/main.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
 
-CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3 -I $(HDR_DIR)
+CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3
 
 #--debug flags-----------------------------------------------------------------#
 
@@ -81,7 +76,7 @@ $(NAME): $(OBJECTS)
 	$(CC) $(CPPFLAGS) $^ -o $@
 	$(PRINT_CREATING)
 
-$(OBJ_DIR)/%.o: %.cpp $(HEADERS)
+$(OBJ_DIR)/%.o: %.cpp
 	mkdir -p $(dir $@)
 	$(CC) $(CPPFLAGS) -c $< -o $@
 	$(PRINT_COMPILING)
@@ -94,18 +89,18 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./moar_brainz!
+	$(LEAKS) ./hi_this_is_brain
 
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_01 : ex01 : Moar brainz!${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_01 : ex02 : Hi This Is Brain!${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
 	printf "${PURPLE}compiler:\t${END}${BLUE}${CC}${END}\n"
 	printf "${PURPLE}flags:\t\t${END}${BLUE}${CPPFLAGS}${END}\n"
-	printf "${PURPLE}date:\t\t${END}${BLUE}2023/09${END}\n"
+	printf "${PURPLE}date:\t\t${END}${BLUE}2023/10${END}\n"
 	printf "              ____________________________\n\n"
 
 welcome:
