@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:26:23 by wangthea          #+#    #+#             */
-/*   Updated: 2023/10/06 15:45:37 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/10/09 17:33:15 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ class Weapon
 
 	public:
 
+		Weapon( void );
 		Weapon( std::string new_type );
-		~Weapon();
+		~Weapon( void );
 		const std::string&	getType( void );
 		void				setType( std::string const &type_ref );
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:24:04 by wangthea          #+#    #+#             */
-/*   Updated: 2023/10/06 15:46:18 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/10/09 17:38:53 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	HumanB::attack( void )
 	std::cout << weapon->getType() << END << std::endl;
 }
 
-void	HumanB::setWeapon( Weapon new_weapon )
+void	HumanB::setWeapon( Weapon &new_weapon )
 {
-	*weapon = new_weapon;
+	weapon = &new_weapon;
 }
