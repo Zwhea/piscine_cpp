@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:03:02 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/22 13:29:11 by twang            ###   ########.fr       */
+/*   Updated: 2023/10/25 14:45:33 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void	PhoneBook::AddContact(int Index)
 void	PhoneBook::SearchContact(int Index)
 {
 	std::string	line;
-	
+	int index_cpy;
+
 	PrintRepertory();
 	std::cout << "The contact informations you want to look at: ";
 	std::getline(std::cin, line);
@@ -58,18 +59,18 @@ void	PhoneBook::SearchContact(int Index)
 		if (!isdigit(line[i]))
 		{
 			std::cout << RED << "wrong format start over" << END << std::endl;
-			SearchContact(Index);
+			return (SearchContact(Index));
 		}
 	}
 	std::istringstream	contact_id(line);
-	contact_id >> Index;
-	PrintDetail(Index);
+	contact_id >> index_cpy;
+	PrintDetail(index_cpy);
 }
 
 void	PhoneBook::ExitPhoneBook(int Index)
 {
 	(void)Index;
-	
+
 	std::cout << RED << "Ending program" << END << std::endl;
 }
 

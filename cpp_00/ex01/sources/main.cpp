@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:33:54 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/22 13:32:11 by twang            ###   ########.fr       */
+/*   Updated: 2023/10/25 14:31:50 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	_instructions();
 
 /*----------------------------------------------------------------------------*/
 
-int	main(void)
+int	main( void )
 {
 	int				i;
 	std::string		line;
@@ -29,7 +29,7 @@ int	main(void)
 	
 	i = 0;
 	std::cout << BLUE << "Welcome to my awesome phonebook!" << END << std::endl;
-	while (POLLUX)
+	while (1)
 	{
 		_instructions();
 		std::getline(std::cin, line);
@@ -41,7 +41,9 @@ int	main(void)
 				return (0);
 			if (line == List[j].Keyword)
 			{
-				if (j == 1 && !New.EmptyPhoneBook())
+				if (j == 1 && New.EmptyPhoneBook())
+					std::cout << "Looks like your don't have any friends !" << std::endl;
+				else
 				{
 					(New.*(List[j].Function))(i);
 					if (j == 0)
@@ -51,8 +53,6 @@ int	main(void)
 							i = 0;
 					}
 				}
-				else if (j == 1 && New.EmptyPhoneBook())
-					std::cout << "Looks like your don't have any friends !" << std::endl;
 			}
 		}
 	}

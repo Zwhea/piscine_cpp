@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/10/25 15:28:29 by twang            ###   ########.fr        #
+#    Updated: 2023/10/25 15:29:10 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	unnecessary_violence
+NAME		=	sed_is_for_losers
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
@@ -27,18 +27,13 @@ CC			=	c++
 
 HDR_DIR		=	includes
 SRC_DIR		=	sources
-HEADERS		=	$(HDR_DIR)/HumanA.hpp										\
-				$(HDR_DIR)/HumanB.hpp										\
-				$(HDR_DIR)/Weapon.hpp
-SOURCES		=	$(SRC_DIR)/HumanA.cpp										\
-				$(SRC_DIR)/HumanB.cpp										\
-				$(SRC_DIR)/main.cpp											\
-				$(SRC_DIR)/Weapon.cpp
+HEADERS		=	$(HDR_DIR)/Sed.hpp
+SOURCES		=	$(SRC_DIR)/main.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
 
-CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3 -I $(HDR_DIR)
+CPPFLAGS		=	-Wall -Wextra -std=c++98 -g3 -I $(HDR_DIR) #-Werror
 
 #--debug flags-----------------------------------------------------------------#
 
@@ -96,18 +91,18 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./unnecessary_violence
+	$(LEAKS) ./sed_is_for_losers
 
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_01 : ex03 : Unnecessary Violence!${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_01 : ex04 : Sed is for Losers!${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
 	printf "${PURPLE}compiler:\t${END}${BLUE}${CC}${END}\n"
 	printf "${PURPLE}flags:\t\t${END}${BLUE}${CPPFLAGS}${END}\n"
-	printf "${PURPLE}date:\t\t${END}${BLUE}2023/09${END}\n"
+	printf "${PURPLE}date:\t\t${END}${BLUE}2023/10${END}\n"
 	printf "              ____________________________\n\n"
 
 welcome:
