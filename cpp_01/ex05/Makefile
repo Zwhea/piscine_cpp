@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/10/26 15:20:29 by twang            ###   ########.fr        #
+#    Updated: 2023/10/26 15:21:42 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	sed_is_for_losers
+NAME		=	harl_2_0
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
@@ -27,15 +27,14 @@ CC			=	c++
 
 HDR_DIR		=	includes
 SRC_DIR		=	sources
-HEADERS		=	$(HDR_DIR)/Sed.hpp
-SOURCES		=	$(SRC_DIR)/main.cpp											\
-				$(SRC_DIR)/Sed.cpp											\
-				$(SRC_DIR)/utils.cpp
+HEADERS		=	$(HDR_DIR)/Harl.hpp
+SOURCES		=	$(SRC_DIR)/Harl.cpp											\
+				$(SRC_DIR)/main.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
 
-CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3 -I $(HDR_DIR)
+CPPFLAGS		=	-Wall -Wextra -std=c++98 -g3 -I $(HDR_DIR) #-Werror
 
 #--debug flags-----------------------------------------------------------------#
 
@@ -93,12 +92,12 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./sed_is_for_losers file.txt : a
+	$(LEAKS) ./harl_2_0
 
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_01 : ex04 : Sed is for Losers!${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_01 : ex05 : Harl 2.0${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
@@ -118,7 +117,6 @@ re:
 	$(MAKE) -j all
 
 clean:
-	$(RM) -rf *.replace
 	$(RM) -rf $(OBJECTS)
 	$(RM) -rf $(OBJ_DIR)
 	$(PRINT_CLEAN)
