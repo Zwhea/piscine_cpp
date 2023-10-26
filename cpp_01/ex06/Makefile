@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/10/26 16:14:41 by twang            ###   ########.fr        #
+#    Updated: 2023/10/26 16:31:35 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	harl_2_0
+NAME		=	harlFilter
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
@@ -34,7 +34,7 @@ OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
 
-CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3 -I $(HDR_DIR)
+CPPFLAGS		=	-Wall -Wextra -std=c++98 -g3 -I $(HDR_DIR) #-Werror
 
 #--debug flags-----------------------------------------------------------------#
 
@@ -92,12 +92,12 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./harl_2_0
+	$(LEAKS) ./harlFilter "DEBUG"
 
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_01 : ex05 : Harl 2.0${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_01 : ex06 : Harl filter${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
