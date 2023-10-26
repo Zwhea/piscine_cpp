@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/10/26 12:24:50 by twang            ###   ########.fr        #
+#    Updated: 2023/10/26 15:13:15 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,7 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./sed_is_for_losers file.txt a b
+	$(LEAKS) ./sed_is_for_losers file.txt : a
 
 #--print header----------------------------------------------------------------#
 
@@ -118,6 +118,7 @@ re:
 	$(MAKE) -j all
 
 clean:
+	$(RM) -rf *.replace
 	$(RM) -rf $(OBJECTS)
 	$(RM) -rf $(OBJ_DIR)
 	$(PRINT_CLEAN)

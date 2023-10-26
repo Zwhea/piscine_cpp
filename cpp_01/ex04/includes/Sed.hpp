@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:22:55 by twang             #+#    #+#             */
-/*   Updated: 2023/10/26 12:43:55 by twang            ###   ########.fr       */
+/*   Updated: 2023/10/26 14:28:05 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@
 
 void	print_error( std::string msg );
 char	*get_infile( char *file );
-void	sed_is_for_losers( char *buffer, char *to_replace, char *replace_with );
+void	sed_is_for_losers( char *buffer, char *name, char *to_replace, char *replace_with );
 
 #endif
