@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/10/25 15:29:10 by twang            ###   ########.fr        #
+#    Updated: 2023/10/26 12:24:50 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ CC			=	c++
 HDR_DIR		=	includes
 SRC_DIR		=	sources
 HEADERS		=	$(HDR_DIR)/Sed.hpp
-SOURCES		=	$(SRC_DIR)/main.cpp
+SOURCES		=	$(SRC_DIR)/main.cpp											\
+				$(SRC_DIR)/Sed.cpp											\
+				$(SRC_DIR)/utils.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
@@ -91,7 +93,7 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./sed_is_for_losers
+	$(LEAKS) ./sed_is_for_losers file.txt a b
 
 #--print header----------------------------------------------------------------#
 
