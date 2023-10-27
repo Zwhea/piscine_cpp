@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 16:57:42 by wangthea          #+#    #+#             */
-/*   Updated: 2023/10/27 13:28:33 by twang            ###   ########.fr       */
+/*   Created: 2023/10/27 13:20:40 by twang             #+#    #+#             */
+/*   Updated: 2023/10/27 13:25:06 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-Zombie*	Zombie::newZombie( std::string name )
+/*---- includes --------------------------------------------------------------*/
+
+# include "Fixed.h"
+
+/*---- class defines ---------------------------------------------------------*/
+
+class	Fixed
 {
-	Zombie*	new_zombie;
 
-	new_zombie = new Zombie(name);
-	if (!new_zombie)
-		std::cout << "error :: memory allocation's failed" << endl;
-	return (new_zombie);
-}
+	private :
+		
+	public :
+
+		Fixed( void );
+		~Fixed( void );
+
+};
+
+#endif

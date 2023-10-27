@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:18:57 by twang             #+#    #+#             */
-/*   Updated: 2023/10/26 16:54:12 by twang            ###   ########.fr       */
+/*   Updated: 2023/10/27 13:12:05 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	Harl::complain( std::string level )
 	int	i;
 	for ( i = 0; i < 4; i++ )
 	{
-		if (level == complains[i])
+		if ( level == complains[i] )
 			break ;
 	}
 	if ( i == 4 )

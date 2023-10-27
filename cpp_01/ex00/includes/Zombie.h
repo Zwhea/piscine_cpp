@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:35:24 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/26 17:08:28 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/10/27 13:28:16 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,5 @@
 # define ITALIC "\001\033[3m\002"
 # define UNDERLINE "\001\033[4m\002"
 # define DEL_LINE "\001\033[2K\r\002"
-
-using std::cout;
-using std::endl;
 
 #endif

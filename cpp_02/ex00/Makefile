@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/10/27 14:51:19 by twang            ###   ########.fr        #
+#    Updated: 2023/10/27 13:19:42 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	the_job_of_your_dreams
+NAME		=	mon_premier_canon
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
@@ -27,14 +27,14 @@ CC			=	c++
 
 HDR_DIR		=	includes
 SRC_DIR		=	sources
-HEADERS		=	$(HDR_DIR)/Account.hpp
-SOURCES		=	$(SRC_DIR)/Account.cpp										\
-				$(SRC_DIR)/tests.cpp
+HEADERS		=	$(HDR_DIR)/Harl.hpp
+SOURCES		=	$(SRC_DIR)/Harl.cpp											\
+				$(SRC_DIR)/main.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
 
-CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98  -g3 -I $(HDR_DIR)
+CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3 -I $(HDR_DIR)
 
 #--debug flags-----------------------------------------------------------------#
 
@@ -46,7 +46,7 @@ endif
 
 #--leaks flags-----------------------------------------------------------------#
 
-LEAKS	=	valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes
+LEAKS	=	valgrind --leak-check=full --show-leak-kinds=all --quiet
 
 #--define flags----------------------------------------------------------------#
 
@@ -92,29 +92,18 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./the_job_of_your_dreams 
+	$(LEAKS) ./harl_2_0
 
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_00 : ex02 : the job of your dreams${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_01 : ex05 : Harl 2.0${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
 	printf "${PURPLE}compiler:\t${END}${BLUE}${CC}${END}\n"
 	printf "${PURPLE}flags:\t\t${END}${BLUE}${CPPFLAGS}${END}\n"
-	printf "${PURPLE}date:\t\t${END}${BLUE}2023/09${END}\n"std::
-std::
-std::
-std::
-std::
-std::
-std::
-std::
-std::
-std::
-std::
-std::
+	printf "${PURPLE}date:\t\t${END}${BLUE}2023/10${END}\n"
 	printf "              ____________________________\n\n"
 
 welcome:

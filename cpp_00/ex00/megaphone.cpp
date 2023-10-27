@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:11:05 by wangthea          #+#    #+#             */
-/*   Updated: 2023/09/12 13:45:44 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/10/27 14:48:25 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main(int ac, char **av)
 			j = -1;
 			while (av[i][++j])
 				std::cout << (char) toupper(av[i][j]);
-			std::cout << " ";
 		}
 		std::cout << std::endl;
 	}

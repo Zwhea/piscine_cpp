@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 16:57:42 by wangthea          #+#    #+#             */
-/*   Updated: 2023/10/27 13:28:33 by twang            ###   ########.fr       */
+/*   Created: 2023/10/27 13:26:25 by twang             #+#    #+#             */
+/*   Updated: 2023/10/27 13:27:16 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Fixed.h"
 
-Zombie*	Zombie::newZombie( std::string name )
+int	main( void )
 {
-	Zombie*	new_zombie;
-
-	new_zombie = new Zombie(name);
-	if (!new_zombie)
-		std::cout << "error :: memory allocation's failed" << endl;
-	return (new_zombie);
+	
+	return ( 0 );
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:48:20 by twang             #+#    #+#             */
-/*   Updated: 2023/09/25 16:12:51 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/10/27 14:49:31 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	Account::displayStatus( void ) const
 {
 	_displayTimestamp();
 	std::cout << "index:" << PURPLE << _accountIndex << END;
-	std::cout << ";total:" << PURPLE << _amount << END;
+	std::cout << ";amount:" << PURPLE << _amount << END;
 	std::cout << ";deposits:" << PURPLE << _nbDeposits << END;
 	std::cout << ";withdrawals:";
 	std::cout << PURPLE << _nbWithdrawals << END << std::endl;

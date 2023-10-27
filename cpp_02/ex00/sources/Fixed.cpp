@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 16:35:00 by wangthea          #+#    #+#             */
-/*   Updated: 2023/10/27 13:28:44 by twang            ###   ########.fr       */
+/*   Created: 2023/10/27 13:25:10 by twang             #+#    #+#             */
+/*   Updated: 2023/10/27 13:26:22 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Fixed.h"
 
 /*---- constructor & destructor ----------------------------------------------*/
 
-Zombie::Zombie( std::string name ) : name( name )
+Fixed::Fixed( void )
 {
-	std::cout << name ;
-	std::cout << "\t: default zombie contructor called" << endl;
+	
 }
 
-Zombie::~Zombie( void )
+~Fixed::Fixed( void )
 {
-	std::cout << name ;
-	std::cout << "\t: default zombie destructor called" << endl;
+	
 }
 
 /*---- functions -------------------------------------------------------------*/
 
-void	Zombie::announce( void )
-{
-	std::cout << name << "\t: BraiiiiiiinnnzzzZ..." << endl;
-}
