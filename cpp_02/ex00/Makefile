@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/10/27 13:19:42 by twang            ###   ########.fr        #
+#    Updated: 2023/10/27 16:20:01 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,9 @@ CC			=	c++
 
 HDR_DIR		=	includes
 SRC_DIR		=	sources
-HEADERS		=	$(HDR_DIR)/Harl.hpp
-SOURCES		=	$(SRC_DIR)/Harl.cpp											\
+HEADERS		=	$(HDR_DIR)/Fixed.h											\
+				$(HDR_DIR)/Fixed.hpp
+SOURCES		=	$(SRC_DIR)/Fixed.cpp										\
 				$(SRC_DIR)/main.cpp
 OBJ_DIR		=	.objs
 
@@ -97,7 +98,7 @@ leaks:
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_01 : ex05 : Harl 2.0${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_02 : ex00 : Mon premier canon${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
