@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:25:10 by twang             #+#    #+#             */
-/*   Updated: 2023/10/27 16:35:50 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/01 14:12:13 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 Fixed::Fixed( void ) : raw_bits( 0 )
 {
 	std::cout << GREY << "Default constructor called" << END << std::endl;
-
+	// bits_value = 8;
 	return ;
 }
 
@@ -44,7 +44,7 @@ Fixed &	Fixed::operator=( Fixed const & op_copy )
 	std::cout << GREY << "Copy assignment operator called" << END << std::endl;
 
 	if ( this != &op_copy )
-		raw_bits = getRawBits();
+		raw_bits = op_copy.getRawBits();
 
 	return ( *this );
 }

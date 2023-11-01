@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:20:40 by twang             #+#    #+#             */
-/*   Updated: 2023/10/27 16:31:17 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:24:08 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	Fixed
 	private :
 
 		int					raw_bits;
-		static const int	bits_value;
+		static const int	bits_value = 8;
 
 	public :
 
