@@ -8,6 +8,7 @@
 *.lo
 *.o
 *.obj
+*.objs
 
 # Precompiled Headers
 *.gch
@@ -42,4 +43,6 @@ hi_this_is_brain
 unnecessary_violence
 sed_is_for_losers
 harl_2_0
-harl_filter
+harlFilter
+mon_premier_canon
+vers_une_classe_utile
