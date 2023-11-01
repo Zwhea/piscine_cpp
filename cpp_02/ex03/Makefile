@@ -6,7 +6,7 @@
 #    By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/01 20:18:13 by wangthea         ###   ########.fr        #
+#    Updated: 2023/11/01 20:19:32 by wangthea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	on_peut_parler
+NAME		=	BSP
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
@@ -93,12 +93,12 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./on_peut_parler
+	$(LEAKS) ./BSP
 
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_02 : ex02 : Maintenant, on peut parler${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_02 : ex03 : BSP${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
