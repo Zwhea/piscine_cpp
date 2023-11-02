@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:24:04 by wangthea          #+#    #+#             */
-/*   Updated: 2023/10/09 17:38:53 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/02 15:46:20 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*---- constructor & destructor ----------------------------------------------*/
 
-HumanB::HumanB( std::string new_name ) : name ( new_name )
+HumanB::HumanB( std::string new_name ) : name ( new_name ), weapon ( NULL )
 {
 	std::cout << GREY << name ;
 	std::cout << " : humanB constructor called" << END << std::endl;
@@ -30,6 +30,12 @@ HumanB::~HumanB()
 
 void	HumanB::attack( void )
 {
+	if (!weapon)
+	{
+		std::cout << RED << name;
+		std::cout << RED << " has no weapons" << std::endl;
+		return ;
+	}
 	std::cout << RED << name;
 	std::cout << " attacks with their ";
 	std::cout << weapon->getType() << END << std::endl;

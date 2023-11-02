@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+         #
+#    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/01 20:19:32 by wangthea         ###   ########.fr        #
+#    Updated: 2023/11/02 13:24:37 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,12 @@ CC			=	c++
 HDR_DIR		=	includes
 SRC_DIR		=	sources
 HEADERS		=	$(HDR_DIR)/Fixed.h											\
-				$(HDR_DIR)/Fixed.hpp
-SOURCES		=	$(SRC_DIR)/Fixed.cpp										\
-				$(SRC_DIR)/main.cpp
+				$(HDR_DIR)/Fixed.hpp										\
+				$(HDR_DIR)/Point.hpp
+SOURCES		=	$(SRC_DIR)/bsp.cpp											\
+				$(SRC_DIR)/Fixed.cpp										\
+				$(SRC_DIR)/main.cpp											\
+				$(SRC_DIR)/Point.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#

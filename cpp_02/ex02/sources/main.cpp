@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:31:51 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/01 16:47:02 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/02 13:11:52 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main( void )
 	std::cout << std::endl;
 
 	std::cout << Fixed::max( a, b ) << std::endl;
-	
+
 	std::cout << std::endl;
 
 	std::cout << c + d << std::endl;
@@ -42,21 +42,3 @@ int	main( void )
 
 	return ( 0 );
 }
-
-/*
-
-0 //a
-
-0.00390625 //++a
-
-0.00390625 //a
-
-0.00390625 //a++
-
-0.0078125 //a
-
-10.1016 //b
-
-10.1016 //result max
-
-*/
