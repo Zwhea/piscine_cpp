@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:20:46 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/02 15:29:51 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/02 16:30:40 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,13 @@ Point &	Point::operator=( Point const & right_value )
 }
 
 /*---- functions -------------------------------------------------------------*/
+
+Fixed	Point::getX( void ) const
+{
+	return ( x );
+}
+
+Fixed	Point::getY( void ) const
+{
+	return ( y );
+}
