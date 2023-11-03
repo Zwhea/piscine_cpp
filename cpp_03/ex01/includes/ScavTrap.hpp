@@ -1,46 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 17:20:42 by twang             #+#    #+#             */
-/*   Updated: 2023/11/03 14:26:30 by twang            ###   ########.fr       */
+/*   Created: 2023/11/03 13:20:25 by twang             #+#    #+#             */
+/*   Updated: 2023/11/03 14:51:36 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 /*---- includes --------------------------------------------------------------*/
 
-#include "ClapTrap.h"
+# include "ClapTrap.hpp"
 
 /*---- class defines ---------------------------------------------------------*/
 
-class	ClapTrap
+class	ScavTrap : public ClapTrap
 {
 
 	public :
 
-		ClapTrap( std::string _name );
-		ClapTrap( ClapTrap const & copy );
-		~ClapTrap( void );
+		ScavTrap( void );
+		ScavTrap( std::string _name );
+		ScavTrap( ScavTrap const & copy );
+		~ScavTrap( void );
 
-		ClapTrap &	operator=( ClapTrap const & right_value );
+		ScavTrap &	operator=( ScavTrap const & right_value);
 
-		void	attack( const std::string& target );
-		void	beRepaired( unsigned int amount );
-		void	takeDamage( unsigned int amount );
-
-	private :
-
-		ClapTrap( void );
-		std::string	_name;
-		std::size_t	_hit_points;
-		std::size_t	_energy_points;
-		std::size_t	_attack_damage;
+		void	guardGate( void );
 
 };
 

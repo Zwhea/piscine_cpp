@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/03 13:12:37 by twang            ###   ########.fr        #
+#    Updated: 2023/11/03 14:37:12 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	aaaand_OPEN!
+NAME		=	Serena_my_love!
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
@@ -28,9 +28,11 @@ CC			=	c++
 HDR_DIR		=	includes
 SRC_DIR		=	sources
 HEADERS		=	$(HDR_DIR)/ClapTrap.h										\
-				$(HDR_DIR)/ClapTrap.hpp
+				$(HDR_DIR)/ClapTrap.hpp										\
+				$(HDR_DIR)/ScavTrap.hpp
 SOURCES		=	$(SRC_DIR)/ClapTrap.cpp										\
-				$(SRC_DIR)/main.cpp
+				$(SRC_DIR)/main.cpp											\
+				$(SRC_DIR)/ScavTrap.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
@@ -93,12 +95,12 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./aaaand_OPEN!
+	$(LEAKS) ./Serena_my_love!
 
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_03 : ex00 : Aaaaand... OPEN!${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_03 : ex01 : Serena, my love!${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"

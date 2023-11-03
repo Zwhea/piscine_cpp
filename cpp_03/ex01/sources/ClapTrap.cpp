@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:26:43 by twang             #+#    #+#             */
-/*   Updated: 2023/11/03 14:26:19 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/03 14:54:50 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 /*---- constructors & destructor ---------------------------------------------*/
 
-ClapTrap::ClapTrap( void ) : _name( NULL ), _hit_points( 10 ), \
+ClapTrap::ClapTrap( void ) : _name( "Undefined" ), _hit_points( 10 ), \
 								_energy_points( 10 ), _attack_damage( 0 )
 {
-	std::cout << GREY << D_CONSTRUCTOR << END << std::endl;
+	std::cout << GREY << D_CONSTRUCTOR << " ~ from ClapTrap." << END << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string _name ) : _name( _name ), _hit_points( 10 ), \
 								_energy_points( 10 ), _attack_damage( 0 )
 {
-	std::cout << GREY << _name << CONSTRUCTOR << END << std::endl;
+	std::cout << GREY << _name << CONSTRUCTOR << " ~ from ClapTrap." << END << std::endl;
 }
 
 ClapTrap::ClapTrap( ClapTrap const & copy ) : _name( copy._name ), _hit_points( 10 ), \
 								_energy_points( 10 ), _attack_damage( 0 )
 {
-	std::cout << GREY << C_CONSTRUCTOR << END << std::endl;
+	std::cout << GREY << C_CONSTRUCTOR << " ~ from ClapTrap." << END << std::endl;
 }
 
 ClapTrap::~ClapTrap( void )
 {
-	std::cout << GREY << DESTRUCTOR << END << std::endl;
+	std::cout << GREY << DESTRUCTOR << " ~ from ClapTrap." << END << std::endl;
 }
 
 /*---- affectation operator overloading --------------------------------------*/
@@ -75,10 +75,10 @@ void	ClapTrap::beRepaired( unsigned int amount )
 	{
 		_energy_points--;
 		_hit_points += amount;
-		if ( _hit_points > 10 )
+		if ( _hit_points > 100 )
 		{
 			std::cout << "Max hit points set to 10 !" << std::endl;
-			_hit_points = 10;
+			_hit_points = 100;
 		}
 		std::cout << _name << " has now " << _hit_points;
 		std::cout << " hit points total !" << std::endl;
