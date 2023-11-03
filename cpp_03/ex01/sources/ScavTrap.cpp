@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:39:38 by twang             #+#    #+#             */
-/*   Updated: 2023/11/03 15:03:44 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/03 17:06:37 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ ScavTrap::ScavTrap( std::string _name ) :
 	ClapTrap::ClapTrap( _name )
 {
 	this->_name = _name;
+	this->_hit_points = 100;
+	this->_energy_points = 50;
+	this->_attack_damage = 20;
 	std::cout << GREY << _name << CONSTRUCTOR << " ~ from ScavTrap." << END << std::endl;
 }
 

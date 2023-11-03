@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:26:43 by twang             #+#    #+#             */
-/*   Updated: 2023/11/03 14:54:50 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/03 17:10:34 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,16 @@ void	ClapTrap::attack( const std::string& target )
 	else
 		std::cout << _name << " has no more energy points !" << std::endl;
 
+
+
+	//takeDamage (  ); to code yet???
+	std::cout << _name << std::endl;
+	std::cout << _attack_damage << std::endl;
+	std::cout << _hit_points << std::endl;
+	std::cout << _energy_points << std::endl;
+
+
+	
 	return ;
 }
 
