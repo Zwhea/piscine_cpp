@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:45:47 by twang             #+#    #+#             */
-/*   Updated: 2023/11/03 17:08:58 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/03 21:28:53 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 
 int	main( void )
 {
-	ClapTrap	Blep( "Blep" );
-	ScavTrap	Mlep( "Mlep" );
+	ClapTrap	Isko( "Isko" );
+	ScavTrap	son_ombre( "son_ombre" );
 
-	Mlep.guardGate( );
-	Mlep.attack( "Blep" );
+	Isko.attack( "son_ombre" );
+	son_ombre.takeDamage( 20 );
+	son_ombre.attack( "Isko" );
+	Isko.takeDamage( 9 );
+	Isko.beRepaired( 10 );
+	Isko.attack( "son_ombre" );
+	son_ombre.takeDamage( 70 );
+	son_ombre.attack( "Isko" );
+	Isko.takeDamage( 20 );
+	son_ombre.guardGate( );
 
 	return ( 0 );
 }

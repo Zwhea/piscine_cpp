@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:26:43 by twang             #+#    #+#             */
-/*   Updated: 2023/11/03 17:10:34 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/03 21:29:04 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ ClapTrap	&	ClapTrap::operator=( ClapTrap const & right_value )
 
 void	ClapTrap::attack( const std::string& target )
 {
+	if ( _hit_points <= 0 )
+	{
+		std::cout << _name << " already died... too late bro 🫶" << std::endl;
+		return ;
+	}
 	if ( _energy_points > 0 )
 	{
 		_energy_points--;
@@ -65,29 +70,31 @@ void	ClapTrap::attack( const std::string& target )
 	}
 	else
 		std::cout << _name << " has no more energy points !" << std::endl;
-
-
-
-	//takeDamage (  ); to code yet???
-	std::cout << _name << std::endl;
-	std::cout << _attack_damage << std::endl;
-	std::cout << _hit_points << std::endl;
-	std::cout << _energy_points << std::endl;
-
-
-	
+/* to look at stats : 
+	std::cout << RED << _name << " - ";
+	std::cout << _hit_points << " ";
+	std::cout << _energy_points << " ";
+	std::cout << _attack_damage << END << std::endl;
+*/
 	return ;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount )
 {
+	if ( _hit_points <= 0 )
+	{
+		std::cout << _name << " already died... too late bro 🫶" << std::endl;
+		return ;
+	}
+	std::cout << GREEN << _name << " is repairing himself with " << amount;
+	std::cout << " hit points !" << END << std::endl;
 	if ( _energy_points > 0 )
 	{
 		_energy_points--;
 		_hit_points += amount;
 		if ( _hit_points > 100 )
 		{
-			std::cout << "Max hit points set to 10 !" << std::endl;
+			std::cout << "Max hit points set to 100 !" << std::endl;
 			_hit_points = 100;
 		}
 		std::cout << _name << " has now " << _hit_points;
@@ -101,16 +108,31 @@ void	ClapTrap::beRepaired( unsigned int amount )
 
 void	ClapTrap::takeDamage( unsigned int amount )
 {
-	if ( _hit_points > 0 )
+	if ( _hit_points <= 0)
+	{
+		std::cout << _name << " is already dead !" << std::endl;
+		return ;
+	}
+	std::cout << RED << _name << " takes " << amount;
+	std::cout << " of damage !" << END << std::endl;
+	if (amount > _hit_points)
+	{
+		_hit_points = 0;
+		std::cout << "Oh no !" << ITALIC << " \"Coup de grace\" ! ";
+		std::cout << _name << " died !" << std::endl;
+	}
+	else 
 	{
 		_hit_points -= amount;
+		if ( _hit_points <= 0 )
+		{
+			std::cout << "Oh no !" << ITALIC << " \"Coup de grace\" ! " << END;
+			std::cout << _name << " died !" << std::endl;
+			return ;
+		}
 		std::cout << _name << " has now " << _hit_points;
 		std::cout << " hit points total !" << std::endl;
-		if ( _hit_points < 0 )
-			std::cout << _name << " died !" << std::endl;
 	}
-	else
-		std::cout << _name << " is already dead !" << std::endl;
 
 	return ;
 }

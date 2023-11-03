@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:39:38 by twang             #+#    #+#             */
-/*   Updated: 2023/11/03 17:06:37 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/03 21:20:18 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,14 @@ ScavTrap	&	ScavTrap::operator=( ScavTrap const & right_value )
 
 void	ScavTrap::guardGate( void )
 {
-	std::cout << _name << " is now in Gate keeper mode ! " << std::endl;
-	std::cout << _attack_damage << std::endl;
-	std::cout << _hit_points << std::endl;
-	std::cout << _energy_points << std::endl;
+	if ( _hit_points <= 0 )
+	{
+		std::cout << _name << " already died... too late bro 🫶" << std::endl;
+		return ;
+	}
+	std::cout << PURPLE << _name;
+	std::cout << " is now in Gate keeper mode ! ";
+	std::cout << END << std::endl;
+
+	return ;
 }
