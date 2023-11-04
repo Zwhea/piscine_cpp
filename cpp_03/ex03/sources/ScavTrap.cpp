@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:39:38 by twang             #+#    #+#             */
-/*   Updated: 2023/11/03 23:11:30 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 12:24:47 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@
 
 ScavTrap::ScavTrap( void )
 {
+	this->_name = "Undefined";
+	this->_hit_points = 100;
+	this->_energy_points = 50;
+	this->_attack_damage = 20;
+
+	std::cout << RED << _name << " - ";
+	std::cout << this->_hit_points << " ";
+	std::cout << this->_energy_points << " ";
+	std::cout << this->_attack_damage << END << std::endl;
 	std::cout << GREY << D_CONSTRUCTOR << " ~ from ScavTrap." << END << std::endl;
 }
 
@@ -70,9 +79,4 @@ void	ScavTrap::guardGate( void )
 	std::cout << END << std::endl;
 
 	return ;
-}
-
-std::size_t	ScavTrap::getEnergyPoints( void )
-{
-	return ( _energy_points );
 }

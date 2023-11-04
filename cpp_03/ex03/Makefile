@@ -6,7 +6,7 @@
 #    By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/03 23:20:34 by wangthea         ###   ########.fr        #
+#    Updated: 2023/11/04 12:10:22 by wangthea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,18 +30,18 @@ SRC_DIR		=	sources
 HEADERS		=	$(HDR_DIR)/ClapTrap.h										\
 				$(HDR_DIR)/ClapTrap.hpp										\
 				$(HDR_DIR)/DiamondTrap.hpp									\
-				$(HDR_DIR)/FrapTrap.hpp										\
+				$(HDR_DIR)/FragTrap.hpp										\
 				$(HDR_DIR)/ScavTrap.hpp
 SOURCES		=	$(SRC_DIR)/ClapTrap.cpp										\
 				$(SRC_DIR)/DiamondTrap.cpp									\
-				$(SRC_DIR)/FrapTrap.cpp										\
+				$(SRC_DIR)/FragTrap.cpp										\
 				$(SRC_DIR)/main.cpp											\
 				$(SRC_DIR)/ScavTrap.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
 
-CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I $(HDR_DIR) #-Wno-shadow
+CPPFLAGS		=	-Wall -Wextra -Werror -Wno-shadow -std=c++98 -I $(HDR_DIR)
 
 #--debug flags-----------------------------------------------------------------#
 

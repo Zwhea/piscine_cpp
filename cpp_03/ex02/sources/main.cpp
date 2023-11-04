@@ -6,19 +6,19 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:45:47 by twang             #+#    #+#             */
-/*   Updated: 2023/11/03 21:47:51 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 11:53:03 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-#include "FrapTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main( void )
 {
 	ClapTrap	Isko( "Isko" );
 	ScavTrap	son_ombre( "son ombre" );
-	FrapTrap	son_doudou( "son doudou" );
+	FragTrap	son_doudou( "son doudou" );
 
 	Isko.attack( "son ombre" );
 	son_ombre.takeDamage( 20 );

@@ -6,13 +6,13 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:52:21 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/03 23:25:02 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 12:31:24 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-#include "FrapTrap.hpp"
+#include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
 
 /*---- constructors & destructor ---------------------------------------------*/
@@ -22,17 +22,24 @@ DiamondTrap::DiamondTrap( void )
 	std::cout << GREY << D_CONSTRUCTOR << " ~ from DiamondTrap." << END << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string _name ) :
-	ClapTrap::ClapTrap( _name + "_clap_name" ), ScavTrap::ScavTrap( _name ), FrapTrap::FrapTrap( _name )
+DiamondTrap::DiamondTrap( std::string _name )
 {
 	this->_name = _name;
-	this->_hit_points = FrapTrap::getHitPoints( );
-	this->_energy_points = ScavTrap::getEnergyPoints( );
-	this->_attack_damage = FrapTrap::getAttackDamage( );
-	std::cout << RED << _name << " - ";
+	ClapTrap::_name = _name + "_clap_name";
+	this->_hit_points = FragTrap::_hit_points;
+	this->_energy_points = ScavTrap::_energy_points;
+	this->_attack_damage = FragTrap::_attack_damage;
+	
+	std::cout << GREEN << _name << " - ";
 	std::cout << this->_hit_points << " ";
 	std::cout << this->_energy_points << " ";
 	std::cout << this->_attack_damage << END << std::endl;
+	
+	std::cout << RED << "donnee envoyees " << " - ";
+	std::cout << FragTrap::_hit_points << " ";
+	std::cout << ScavTrap::_energy_points << " ";
+	std::cout << FragTrap::_attack_damage << END << std::endl;
+	
 	std::cout << GREY << _name << CONSTRUCTOR << " ~ from DiamondTrap." << END << std::endl;
 }
 

@@ -6,7 +6,7 @@
 #    By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/03 21:46:51 by wangthea         ###   ########.fr        #
+#    Updated: 2023/11/04 11:52:52 by wangthea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,10 @@ HDR_DIR		=	includes
 SRC_DIR		=	sources
 HEADERS		=	$(HDR_DIR)/ClapTrap.h										\
 				$(HDR_DIR)/ClapTrap.hpp										\
-				$(HDR_DIR)/FrapTrap.hpp										\
+				$(HDR_DIR)/FragTrap.hpp										\
 				$(HDR_DIR)/ScavTrap.hpp
 SOURCES		=	$(SRC_DIR)/ClapTrap.cpp										\
-				$(SRC_DIR)/FrapTrap.cpp										\
+				$(SRC_DIR)/FragTrap.cpp										\
 				$(SRC_DIR)/main.cpp											\
 				$(SRC_DIR)/ScavTrap.cpp
 OBJ_DIR		=	.objs

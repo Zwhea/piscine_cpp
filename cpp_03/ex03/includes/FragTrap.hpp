@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FrapTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:32:22 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/03 21:40:09 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 11:55:39 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAPTRAP_HPP
-# define FRAPTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 /*---- includes --------------------------------------------------------------*/
 
@@ -19,19 +19,19 @@
 
 /*---- class defines ---------------------------------------------------------*/
 
-class	FrapTrap : public ClapTrap
+class	FragTrap : virtual public ClapTrap
 {
 
 	public :
 
-		FrapTrap( void );
-		FrapTrap( std::string _name );
-		FrapTrap( FrapTrap const & copy );
-		~FrapTrap( void );
+		FragTrap( void );
+		FragTrap( std::string _name );
+		FragTrap( FragTrap const & copy );
+		~FragTrap( void );
 
-		FrapTrap &	operator=( FrapTrap const & right_value);
+		FragTrap &	operator=( FragTrap const & right_value);
 
-		void	highFivesGuys( void );
+		void		highFivesGuys( void );
 
 };
 

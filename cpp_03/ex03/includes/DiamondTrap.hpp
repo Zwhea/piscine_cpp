@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:52:51 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/03 22:05:16 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 11:53:03 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 /*---- includes --------------------------------------------------------------*/
 
 #include "ScavTrap.hpp"
-#include "FrapTrap.hpp"
+#include "FragTrap.hpp"
 
 /*---- class defines ---------------------------------------------------------*/
 
-class	DiamondTrap : public ScavTrap, public FrapTrap
+class	DiamondTrap : public ScavTrap, public FragTrap
 {
 
 	public :
