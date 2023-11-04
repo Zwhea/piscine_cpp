@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:52:51 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/04 11:53:03 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 20:34:19 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class	DiamondTrap : public ScavTrap, public FragTrap
 
 	public :
 
-		DiamondTrap( void );
 		DiamondTrap( std::string _name );
 		DiamondTrap( DiamondTrap const & copy );
 		~DiamondTrap( void );
@@ -34,9 +33,10 @@ class	DiamondTrap : public ScavTrap, public FragTrap
 
 		void			whoAmI( void );
 
-		private :
+	private :
 
-			std::string	_name;
+		DiamondTrap( void );
+		std::string	_name;
 
 };
 

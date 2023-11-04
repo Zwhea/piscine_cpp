@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:52:21 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:18:03 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 20:25:31 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 
 DiamondTrap::DiamondTrap( void )
 {
+	this->_name = "Undefined";
+	this->_hit_points = FragTrap::_hit_points;
+	this->_energy_points = ScavTrap::_energy_points;
+	this->_attack_damage = FragTrap::_attack_damage;
+
 	std::cout << GREY << D_CONSTRUCTOR << " ~ from DiamondTrap." << END << std::endl;
 }
 
@@ -46,7 +51,7 @@ DiamondTrap::DiamondTrap( std::string _name )
 	std::cout << GREY << _name << CONSTRUCTOR << " ~ from DiamondTrap." << END << std::endl;
 }
 
-DiamondTrap::DiamondTrap( DiamondTrap const & copy )
+DiamondTrap::DiamondTrap( DiamondTrap const & copy ) : ClapTrap( ), ScavTrap( ), FragTrap( )
 {
 	*this = copy;
 	std::cout << GREY << C_CONSTRUCTOR << " ~ from DiamondTrap." << END << std::endl;

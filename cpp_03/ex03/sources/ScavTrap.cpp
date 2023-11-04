@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:39:38 by twang             #+#    #+#             */
-/*   Updated: 2023/11/04 20:07:20 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 20:29:29 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ ScavTrap::ScavTrap( void )
 	this->_energy_points = 50;
 	this->_attack_damage = 20;
 
-	std::cout << RED << _name << " - ";
-	std::cout << this->_hit_points << " ";
-	std::cout << this->_energy_points << " ";
-	std::cout << this->_attack_damage << END << std::endl;
 	std::cout << GREY << D_CONSTRUCTOR << " ~ from ScavTrap." << END << std::endl;
 }
 
@@ -39,7 +35,7 @@ ScavTrap::ScavTrap( std::string _name ) :
 	std::cout << GREY << _name << CONSTRUCTOR << " ~ from ScavTrap." << END << std::endl;
 }
 
-ScavTrap::ScavTrap( ScavTrap const & copy )
+ScavTrap::ScavTrap( ScavTrap const & copy ) : ClapTrap( )
 {
 	*this = copy;
 	std::cout << GREY << C_CONSTRUCTOR << " ~ from ScavTrap." << END << std::endl;

@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:35:09 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/04 12:24:53 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 20:29:14 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ FragTrap::FragTrap( void )
 	this->_hit_points = 100;
 	this->_energy_points = 100;
 	this->_attack_damage = 30;
-	std::cout << RED << _name << " - ";
-	std::cout << this->_hit_points << " ";
-	std::cout << this->_energy_points << " ";
-	std::cout << this->_attack_damage << END << std::endl;
+
 	std::cout << GREY << D_CONSTRUCTOR << " ~ from FragTrap." << END << std::endl;
 }
 
@@ -38,7 +35,7 @@ FragTrap::FragTrap( std::string _name ) :
 	std::cout << GREY << _name << CONSTRUCTOR << " ~ from FragTrap." << END << std::endl;
 }
 
-FragTrap::FragTrap( FragTrap const & copy )
+FragTrap::FragTrap( FragTrap const & copy ) :  ClapTrap( )
 {
 	*this = copy;
 	std::cout << GREY << C_CONSTRUCTOR << " ~ from FragTrap." << END << std::endl;
