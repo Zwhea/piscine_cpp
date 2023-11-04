@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:20:42 by twang             #+#    #+#             */
-/*   Updated: 2023/11/03 22:30:49 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 20:05:50 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class	ClapTrap
 
 		ClapTrap &	operator=( ClapTrap const & right_value );
 
-		void	attack( const std::string& target );
+		virtual void	attack( const std::string& target );
 		void	beRepaired( unsigned int amount );
 		void	takeDamage( unsigned int amount );
 

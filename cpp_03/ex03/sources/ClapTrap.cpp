@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:26:43 by twang             #+#    #+#             */
-/*   Updated: 2023/11/03 23:17:24 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 20:06:22 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,6 @@ void	ClapTrap::attack( const std::string& target )
 	}
 	else
 		std::cout << _name << " has no more energy points !" << std::endl;
-/* to look at stats : */
-	// std::cout << RED << _name << " - ";
-	// std::cout << _hit_points << " ";
-	// std::cout << _energy_points << " ";
-	// std::cout << _attack_damage << END << std::endl;
 
 	return ;
 }

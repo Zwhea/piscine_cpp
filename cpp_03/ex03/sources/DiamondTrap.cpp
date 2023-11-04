@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:52:21 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/04 12:31:24 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 20:18:03 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ DiamondTrap::DiamondTrap( std::string _name )
 	ClapTrap::_name = _name + "_clap_name";
 	this->_hit_points = FragTrap::_hit_points;
 	this->_energy_points = ScavTrap::_energy_points;
+	// this->_energy_points = ScavTrap::getEnergyPoints;
+	// il faut un getter ou un setter pour les donnees des FragTrap et ScavTrap, 
+	// qui eux vont set leurs donnes, et c'est cette fonction qu'on appelle ici.
 	this->_attack_damage = FragTrap::_attack_damage;
 	
 	std::cout << GREEN << _name << " - ";

@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:20:25 by twang             #+#    #+#             */
-/*   Updated: 2023/11/04 11:55:34 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/04 20:06:00 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class	ScavTrap : virtual public ClapTrap
 		ScavTrap &	operator=( ScavTrap const & right_value);
 
 		void	guardGate( void );
+		void	attack( const std::string& target );
 
 };
 
