@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:39:38 by twang             #+#    #+#             */
-/*   Updated: 2023/11/04 20:29:29 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/06 10:37:34 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
+
+std::size_t	ScavTrap::_hit_points_sets;
+std::size_t	ScavTrap::_energy_points_sets;
+std::size_t	ScavTrap::_attack_damage_sets;
 
 /*---- constructors & destructor ---------------------------------------------*/
 
@@ -21,6 +25,10 @@ ScavTrap::ScavTrap( void )
 	this->_hit_points = 100;
 	this->_energy_points = 50;
 	this->_attack_damage = 20;
+
+	this->_hit_points_sets = 100;
+	this->_energy_points_sets = 50;
+	this->_attack_damage_sets = 20;
 
 	std::cout << GREY << D_CONSTRUCTOR << " ~ from ScavTrap." << END << std::endl;
 }
@@ -32,6 +40,11 @@ ScavTrap::ScavTrap( std::string _name ) :
 	this->_hit_points = 100;
 	this->_energy_points = 50;
 	this->_attack_damage = 20;
+
+	this->_hit_points_sets = 100;
+	this->_energy_points_sets = 50;
+	this->_attack_damage_sets = 20;
+
 	std::cout << GREY << _name << CONSTRUCTOR << " ~ from ScavTrap." << END << std::endl;
 }
 
@@ -59,6 +72,23 @@ ScavTrap	&	ScavTrap::operator=( ScavTrap const & right_value )
 	_attack_damage = right_value._attack_damage;
 
 	return ( *this );
+}
+
+/*---- getters & setters -----------------------------------------------------*/
+
+std::size_t	ScavTrap::hitPointsGet( void ) const
+{
+	return ( _hit_points_sets );
+}
+
+std::size_t	ScavTrap::energyPointsGet( void ) const
+{
+	return ( _energy_points_sets );
+}
+
+std::size_t	ScavTrap::attackDamageGet( void ) const
+{
+	return ( _attack_damage_sets );
 }
 
 /*---- functions -------------------------------------------------------------*/

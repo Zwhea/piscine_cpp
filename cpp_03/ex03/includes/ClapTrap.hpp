@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:20:42 by twang             #+#    #+#             */
-/*   Updated: 2023/11/04 20:05:50 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/06 09:35:17 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ class	ClapTrap
 		ClapTrap &	operator=( ClapTrap const & right_value );
 
 		virtual void	attack( const std::string& target );
-		void	beRepaired( unsigned int amount );
-		void	takeDamage( unsigned int amount );
+		void			beRepaired( unsigned int amount );
+		void			takeDamage( unsigned int amount );
 
 	protected :
 

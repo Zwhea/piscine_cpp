@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:20:25 by twang             #+#    #+#             */
-/*   Updated: 2023/11/04 20:36:40 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/06 10:13:04 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,18 @@ class	ScavTrap : virtual public ClapTrap
 
 		ScavTrap &	operator=( ScavTrap const & right_value);
 
-		void	guardGate( void );
-		void	attack( const std::string& target );
+		std::size_t	hitPointsGet( void ) const;
+		std::size_t	energyPointsGet( void ) const;
+		std::size_t	attackDamageGet( void ) const;
+
+		void		guardGate( void );
+		void		attack( const std::string& target );
+
+		private :
+
+			static std::size_t	_hit_points_sets;
+			static std::size_t	_energy_points_sets;
+			static std::size_t	_attack_damage_sets;
 
 };
 

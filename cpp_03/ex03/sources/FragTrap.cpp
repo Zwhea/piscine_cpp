@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 21:35:09 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/04 20:29:14 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/06 10:36:37 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ClapTrap.hpp"
+
+std::size_t	FragTrap::_hit_points_sets;
+std::size_t	FragTrap::_energy_points_sets;
+std::size_t	FragTrap::_attack_damage_sets;
 
 /*---- constructors & destructor ---------------------------------------------*/
 
@@ -22,6 +26,10 @@ FragTrap::FragTrap( void )
 	this->_energy_points = 100;
 	this->_attack_damage = 30;
 
+	this->_hit_points_sets = 100;
+	this->_energy_points_sets = 100;
+	this->_attack_damage_sets = 30;
+	
 	std::cout << GREY << D_CONSTRUCTOR << " ~ from FragTrap." << END << std::endl;
 }
 
@@ -32,6 +40,11 @@ FragTrap::FragTrap( std::string _name ) :
 	this->_hit_points = 100;
 	this->_energy_points = 100;
 	this->_attack_damage = 30;
+
+	this->_hit_points_sets = 100;
+	this->_energy_points_sets = 100;
+	this->_attack_damage_sets = 30;
+
 	std::cout << GREY << _name << CONSTRUCTOR << " ~ from FragTrap." << END << std::endl;
 }
 
@@ -59,6 +72,23 @@ FragTrap	&	FragTrap::operator=( FragTrap const & right_value )
 	_attack_damage = right_value._attack_damage;
 
 	return ( *this );
+}
+
+/*---- getters & setters -----------------------------------------------------*/
+
+std::size_t	FragTrap::hitPointsGet( void ) const
+{
+	return ( _hit_points_sets );
+}
+
+std::size_t	FragTrap::energyPointsGet( void ) const
+{
+	return ( _energy_points_sets );
+}
+
+std::size_t	FragTrap::attackDamageGet( void ) const
+{
+	return ( _attack_damage_sets );
 }
 
 /*---- functions -------------------------------------------------------------*/
