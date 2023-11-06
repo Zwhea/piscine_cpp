@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:26:43 by twang             #+#    #+#             */
-/*   Updated: 2023/11/03 14:26:19 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/06 11:17:56 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,16 +91,31 @@ void	ClapTrap::beRepaired( unsigned int amount )
 
 void	ClapTrap::takeDamage( unsigned int amount )
 {
-	if ( _hit_points > 0 )
+	if ( _hit_points <= 0)
+	{
+		std::cout << _name << " is already dead !" << std::endl;
+		return ;
+	}
+	std::cout << RED << _name << " takes " << amount;
+	std::cout << " of damage !" << END << std::endl;
+	if (amount > _hit_points)
+	{
+		_hit_points = 0;
+		std::cout << "Oh no !" << ITALIC << " \"Coup de grace\" ! ";
+		std::cout << _name << " died !" << std::endl;
+	}
+	else 
 	{
 		_hit_points -= amount;
+		if ( _hit_points <= 0 )
+		{
+			std::cout << "Oh no !" << ITALIC << " \"Coup de grace\" ! " << END;
+			std::cout << _name << " died !" << std::endl;
+			return ;
+		}
 		std::cout << _name << " has now " << _hit_points;
 		std::cout << " hit points total !" << std::endl;
-		if ( _hit_points < 0 )
-			std::cout << _name << " died !" << std::endl;
 	}
-	else
-		std::cout << _name << " is already dead !" << std::endl;
 
 	return ;
 }
