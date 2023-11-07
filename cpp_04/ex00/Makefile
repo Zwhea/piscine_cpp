@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/07 09:17:42 by twang            ###   ########.fr        #
+#    Updated: 2023/11/07 13:04:16 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,15 @@ SRC_DIR		=	sources
 HEADERS		=	$(HDR_DIR)/Animal.hpp										\
 				$(HDR_DIR)/Cat.hpp											\
 				$(HDR_DIR)/Dog.hpp											\
-				$(HDR_DIR)/main.h
+				$(HDR_DIR)/main.h											\
+				$(HDR_DIR)/WrongAnimal.hpp									\
+				$(HDR_DIR)/WrongCat.hpp
 SOURCES		=	$(SRC_DIR)/Animal.cpp										\
 				$(SRC_DIR)/Cat.cpp											\
 				$(SRC_DIR)/Dog.cpp											\
-				$(SRC_DIR)/main.cpp
+				$(SRC_DIR)/main.cpp											\
+				$(SRC_DIR)/WrongAnimal.cpp									\
+				$(SRC_DIR)/WrongCat.cpp
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#

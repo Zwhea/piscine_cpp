@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:23:33 by twang             #+#    #+#             */
-/*   Updated: 2023/11/07 09:22:53 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/07 12:58:59 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,13 @@ Animal	&	Animal::operator=( Animal const & right_value )
 }
 
 /*---- functions -------------------------------------------------------------*/
+
+std::string	Animal::getType( void ) const
+{
+	return ( type );
+}
+
+void	Animal::makeSound( void ) const
+{
+	std::cout << PURPLE << "Hey, I am an Animal & I am making a sound yo..." << END << std::endl;
+}
