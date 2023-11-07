@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:23:50 by twang             #+#    #+#             */
-/*   Updated: 2023/11/07 14:45:14 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/07 16:08:27 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ Cat::Cat( void )
 	this->_Brain = new Brain();
 
 	type = "Cat";
+	for ( int i = 0; i < 100; i++ )
+		_Brain->_ideas[i] = "I want to burn the world";
+	
 	std::cout << GREY << D_CONSTRUCTOR << " ~ from Cat." << END << std::endl;
 }
 
@@ -57,4 +60,14 @@ Cat	&	Cat::operator=( Cat const & right_value )
 void	Cat::makeSound( void ) const
 {
 	std::cout << PURPLE << "Meow..." << END << std::endl;
+}
+
+std::string	Cat::getBrainIdea( int place ) const
+{
+	return ( _Brain->_ideas[place] );
+}
+
+void	Cat::setBrainIdea( std::string new_idea, int place ) const
+{
+	_Brain->_ideas[place] = new_idea;
 }

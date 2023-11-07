@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:08:13 by twang             #+#    #+#             */
-/*   Updated: 2023/11/07 14:27:52 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/07 16:08:18 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ class	Cat : public Animal
 		Cat & operator=( Cat const & right_value );
 		~Cat( void );
 
-		void	makeSound( void ) const;
+		void		makeSound( void ) const;
+		std::string	getBrainIdea( int place ) const;
+		void		setBrainIdea( std::string new_idea, int place ) const;
 
 	private :
 

@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:24:09 by twang             #+#    #+#             */
-/*   Updated: 2023/11/07 14:45:19 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/07 16:08:03 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ Dog::Dog( void )
 	this->_Brain = new Brain();
 
 	type = "Dog";
+	for ( int i = 0; i < 100; i++ )
+		_Brain->_ideas[i] = "I want food";
+
 	std::cout << GREY << D_CONSTRUCTOR << " ~ from Dog." << END << std::endl;
 }
 
@@ -57,4 +60,14 @@ Dog	&	Dog::operator=( Dog const & right_value )
 void	Dog::makeSound( void ) const
 {
 	std::cout << PURPLE << "Woof..." << END << std::endl;
+}
+
+std::string	Dog::getBrainIdea( int place ) const
+{
+	return ( _Brain->_ideas[place] );
+}
+
+void	Dog::setBrainIdea( std::string new_idea, int place ) const
+{
+	_Brain->_ideas[place] = new_idea;
 }
