@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/06 13:08:04 by twang            ###   ########.fr        #
+#    Updated: 2023/11/07 09:17:42 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,12 @@ CC			=	c++
 
 HDR_DIR		=	includes
 SRC_DIR		=	sources
-HEADERS		=	$(HDR_DIR)/Cat.hpp											\
+HEADERS		=	$(HDR_DIR)/Animal.hpp										\
+				$(HDR_DIR)/Cat.hpp											\
 				$(HDR_DIR)/Dog.hpp											\
 				$(HDR_DIR)/main.h
-SOURCES		=	$(SRC_DIR)/Cat.cpp											\
+SOURCES		=	$(SRC_DIR)/Animal.cpp										\
+				$(SRC_DIR)/Cat.cpp											\
 				$(SRC_DIR)/Dog.cpp											\
 				$(SRC_DIR)/main.cpp
 OBJ_DIR		=	.objs
