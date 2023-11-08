@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:23:33 by twang             #+#    #+#             */
-/*   Updated: 2023/11/07 17:34:37 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/08 09:18:39 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,4 @@ A_Animal	&	A_Animal::operator=( A_Animal const & right_value )
 std::string	A_Animal::getType( void ) const
 {
 	return ( type );
-}
-
-void	A_Animal::makeSound( void ) const
-{
-	std::cout << PURPLE << "Hey, I am an A_Animal & I am making a sound yo..." << END << std::endl;
-}
-
-std::string	A_Animal::getBrainIdea( int place ) const
-{
-	( void )place;
-	return ( "I don't have a Brain yet..." );
-}
-
-void	A_Animal::setBrainIdea( std::string new_idea, int place ) const
-{
-	( void )new_idea;
-	( void )place;
-	std::cout << "I don't have a Brain yet..." << std::endl;
 }
