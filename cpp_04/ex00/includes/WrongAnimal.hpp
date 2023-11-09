@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 09:29:52 by twang             #+#    #+#             */
-/*   Updated: 2023/11/07 13:12:11 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 13:52:01 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class	WrongAnimal
 		virtual	~WrongAnimal( void );
 
 		std::string		getType( void ) const;
-		virtual void	makeSound( void ) const;
+		void			makeSound( void ) const;
 
 	protected :
 

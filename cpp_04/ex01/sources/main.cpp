@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:24:26 by twang             #+#    #+#             */
-/*   Updated: 2023/11/07 17:24:57 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/09 14:16:31 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,22 @@ int	main( void )
 		std::cout << array[i]->getBrainIdea( 0 ) << std::endl;
 	}
 
+	Cat*	a = new Cat();
+	Cat* 	b = new Cat();
+	*b = *a;
+	b->setBrainIdea( "I have a new idea !", 0 ); /*change the place if you want to check*/
 	std::cout << "\n";
 	for ( int i = 0; i < 100; i++ )
-		std::cout << RED << i << " : " << array[0]->getBrainIdea( i ) << END << std::endl;
-	array[0]->setBrainIdea( "I have a new idea !", 0 ); /*change the place if you want to check*/
+		std::cout << RED << i << " : " << a->getBrainIdea(i) << END << std::endl;
 	for ( int i = 0; i < 100; i++ )
-		std::cout << GREEN << i << " : " << array[0]->getBrainIdea( i ) << END << std::endl;
+		std::cout << GREEN << i << " : " << b->getBrainIdea(i) << END << std::endl;
+	
 
 	for ( int i = 0; i < 10; i++ )
 		delete array[i];
+
+	delete a;
+	delete b;
 
 	return ( 0 );
 }

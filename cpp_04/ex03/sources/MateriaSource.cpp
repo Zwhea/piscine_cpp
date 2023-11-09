@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:04:03 by twang             #+#    #+#             */
-/*   Updated: 2023/11/09 13:20:53 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 17:11:53 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ MateriaSource::MateriaSource( void )
 
 MateriaSource::MateriaSource( MateriaSource const & copy )
 {
-	*this = copy;
+	for ( int i = 0; i < 4; i++ )
+		_spells_inventory[i] = copy._spells_inventory[i]->clone( );
 	// std::cout << GREY << C_CONSTRUCTOR << " ~ from MateriaSource." << END << std::endl;
 }
 
@@ -47,6 +48,12 @@ MateriaSource &	MateriaSource::operator=( MateriaSource const & right_value )
 {
 	if ( this == &right_value )
 		return ( *this );
+
+	for ( int i = 0; i < 4; i++ )
+	{
+		delete _spells_inventory[i];
+		_spells_inventory[i] = right_value._spells_inventory[i]->clone( );
+	}
 
 	return ( *this );
 }

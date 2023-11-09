@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:50:09 by twang             #+#    #+#             */
-/*   Updated: 2023/11/09 13:36:05 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 17:12:30 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ Character::Character( std::string name ) : _name( name )
 
 Character::Character( Character const & copy ) : _name( copy._name )
 {
+	for ( int i = 0; i < 4; i++ )
+		_items_inventory[i] = copy._items_inventory[i]->clone( );
 	// std::cout << GREY << C_CONSTRUCTOR << " ~ from Character." << END << std::endl;
 }
 
@@ -54,6 +56,12 @@ Character &	Character::operator=( Character const & right_value )
 {
 	if ( this == &right_value )
 		return ( *this );
+
+	for ( int i = 0; i < 4; i++ )
+	{
+		delete _items_inventory[i];
+		_items_inventory[i] = right_value._items_inventory[i]->clone( );
+	}
 
 	return ( *this );
 }
@@ -88,6 +96,12 @@ void	Character::equip( AMateria* m )
 
 void	Character::unequip( int idx )
 {
+	if ( idx < 0 )
+	{
+		std::cout << RED;
+		std::cout << "Seriously... the inventory goes from 0 to 3, learn to count." << END << std::endl;
+		return ;
+	}
 	if ( idx > 3 )
 	{
 		std::cout << RED;
@@ -112,6 +126,12 @@ void	Character::unequip( int idx )
 
 void	Character::use( int idx, ICharacter& target )
 {
+	if ( idx < 0 )
+	{
+		std::cout << RED;
+		std::cout << "Seriously... the inventory goes from 0 to 3, learn to count." << END << std::endl;
+		return ;
+	}
 	if ( idx > 3 )
 	{
 		std::cout << RED;

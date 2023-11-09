@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/08 15:44:40 by twang            ###   ########.fr        #
+#    Updated: 2023/11/09 17:09:51 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,6 @@ SOURCES		=	$(SRC_DIR)/AMateria.cpp										\
 				$(SRC_DIR)/Character.cpp									\
 				$(SRC_DIR)/Cure.cpp											\
 				$(SRC_DIR)/Ice.cpp											\
-				$(SRC_DIR)/ICharacter.cpp									\
-				$(SRC_DIR)/IMateriaSource.cpp								\
 				$(SRC_DIR)/main.cpp											\
 				$(SRC_DIR)/MateriaSource.cpp
 OBJ_DIR		=	.objs

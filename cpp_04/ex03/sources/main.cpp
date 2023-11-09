@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:13:54 by twang             #+#    #+#             */
-/*   Updated: 2023/11/09 13:43:29 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 14:27:23 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	main( void )
 	ombre->use( 2, *ombre );
 
 	Isko->use( 3, *ombre );
-	ombre->use( 3, *ombre );
+	ombre->use( -1, *ombre );
 
 	delete Isko;
 	delete ombre;
