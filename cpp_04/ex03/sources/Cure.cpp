@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:31:07 by twang             #+#    #+#             */
-/*   Updated: 2023/11/09 11:47:37 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 13:48:41 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ Cure::Cure( void ) : AMateria( "cure" )
 
 Cure::Cure( Cure const & copy ) : AMateria( "cure" )
 {
-	( void )copy;
-	std::cout << GREY << C_CONSTRUCTOR << " ~ from Cure." << END << std::endl;
+	*this = copy;
+	// std::cout << GREY << C_CONSTRUCTOR << " ~ from Cure." << END << std::endl;
 }
 
 Cure::~Cure( void )

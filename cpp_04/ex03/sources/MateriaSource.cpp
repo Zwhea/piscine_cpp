@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:04:03 by twang             #+#    #+#             */
-/*   Updated: 2023/11/09 11:43:18 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 13:20:53 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ MateriaSource::~MateriaSource( void )
 	for ( int i = 0; i < 4; i++ )
 	{
 		if ( _spells_inventory[i] )
+		{
 			delete _spells_inventory[i];
+			_spells_inventory[i] = NULL;
+		}
 	}
 	// std::cout << GREY << DESTRUCTOR << " ~ from MateriaSource." << END << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:49:34 by twang             #+#    #+#             */
-/*   Updated: 2023/11/09 11:41:50 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 13:48:36 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ Ice::Ice( void ) : AMateria( "ice" )
 
 Ice::Ice( Ice const & copy ): AMateria( "ice" )
 {
-	( void )copy;
-	std::cout << GREY << C_CONSTRUCTOR << " ~ from Ice." << END << std::endl;
+	*this = copy;
+	// std::cout << GREY << C_CONSTRUCTOR << " ~ from Ice." << END << std::endl;
 }
 
 Ice::~Ice( void )

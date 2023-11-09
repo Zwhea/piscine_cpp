@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:50:09 by twang             #+#    #+#             */
-/*   Updated: 2023/11/09 12:50:10 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 13:36:05 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ Character::~Character( void )
 	for ( int i = 0; i < 4; i++ )
 	{
 		if ( _items_inventory[i] )
+		{
 			delete _items_inventory[i];
+			_items_inventory[i] = NULL;
+		}
 	}
 	// std::cout << GREY << DESTRUCTOR << " ~ from Character." << END << std::endl;
 }
@@ -98,8 +101,10 @@ void	Character::unequip( int idx )
 		return ;
 	}
 	std::cout << GREY;
+	std::cout << "The spell *" << END;
 	std::cout << _items_inventory[idx]->getType( );
-	std::cout << "is unequiped and left on the floor" << END << std::endl;
+	std::cout << GREY;
+	std::cout << "* is unequiped and left on the floor" << END << std::endl;
 	_items_inventory[idx] = NULL;
 }
 
@@ -119,6 +124,15 @@ void	Character::use( int idx, ICharacter& target )
 		std::cout << "This inventory's slot is empty." << END << std::endl;
 		return ;
 	}
+	if ( target.getName() == _name )
+	{
+		if ( _items_inventory[idx]->getType() == "ice" )
+		{
+			std::cout << "Wow stop ! I can't attack myself !" << std::endl;
+			return ;
+		}
+	}
+	std::cout << _name << " : ";
 	_items_inventory[idx]->use( target );
 	delete _items_inventory[idx];
 	_items_inventory[idx] = NULL;
