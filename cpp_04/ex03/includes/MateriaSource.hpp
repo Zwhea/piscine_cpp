@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:20:33 by twang             #+#    #+#             */
-/*   Updated: 2023/11/08 15:12:49 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 09:31:19 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class MateriaSource : public IMateriaSource
 		MateriaSource & operator=( MateriaSource const & right_value );
 		~MateriaSource( void );
 
-		void		learnMateria( AMateria* ); //peut etre donne un nom
+		void		learnMateria( AMateria* type );
 		AMateria*	createMateria( std::string const & type );
 
 	private :

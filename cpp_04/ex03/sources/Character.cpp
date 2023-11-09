@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:50:09 by twang             #+#    #+#             */
-/*   Updated: 2023/11/08 16:35:08 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 12:50:10 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,33 @@
 
 Character::Character( void ) : _name( "Undefined" )
 {
-	for ( int i = 0; i < 3; i++ )
+	for ( int i = 0; i < 4; i++ )
 		_items_inventory[i] = NULL;
 
-	std::cout << GREY << D_CONSTRUCTOR << " ~ from Character." << END << std::endl;
+	// std::cout << GREY << D_CONSTRUCTOR << " ~ from Character." << END << std::endl;
 }
 
 Character::Character( std::string name ) : _name( name )
 {
-	for ( int i = 0; i < 3; i++ )
+	for ( int i = 0; i < 4; i++ )
 		_items_inventory[i] = NULL;
 
-	std::cout << GREY << D_CONSTRUCTOR << " ~ from Character." << END << std::endl;
+	// std::cout << GREY << D_CONSTRUCTOR << " ~ from Character." << END << std::endl;
 }
 
 Character::Character( Character const & copy ) : _name( copy._name )
 {
-	std::cout << GREY << C_CONSTRUCTOR << " ~ from Character." << END << std::endl;
+	// std::cout << GREY << C_CONSTRUCTOR << " ~ from Character." << END << std::endl;
 }
 
 Character::~Character( void )
 {
-	std::cout << GREY << DESTRUCTOR << " ~ from Character." << END << std::endl;
+	for ( int i = 0; i < 4; i++ )
+	{
+		if ( _items_inventory[i] )
+			delete _items_inventory[i];
+	}
+	// std::cout << GREY << DESTRUCTOR << " ~ from Character." << END << std::endl;
 }
 
 /*---- affectation operator overloading --------------------------------------*/
@@ -59,24 +64,62 @@ std::string const &	Character::getName( void ) const
 
 void	Character::equip( AMateria* m )
 {
-	( void )m;
-	std::cout << "equip" << std::endl;
+	int	i;
+
+	if ( m == 0 )
+		return ;
+	for ( i = 0; i < 4; i++ )
+	{
+		if ( !_items_inventory[i] )
+		{
+			_items_inventory[i] = m;
+			return ;
+		}
+	}
+	std::cout << RED;
+	std::cout << "You've reached items inventory's limit ! ";
+	std::cout << END << std::endl;
+
+	delete m;
 }
 
 void	Character::unequip( int idx )
 {
-	( void )idx;
-	std::cout << "unequip" << std::endl;
+	if ( idx > 3 )
+	{
+		std::cout << RED;
+		std::cout << "The item's inventory has only 4 slot." << END << std::endl;
+		return ;
+	}
+	if ( !_items_inventory[idx] )
+	{
+		std::cout << RED;
+		std::cout << "This inventory's slot is empty." << END << std::endl;
+		return ;
+	}
+	std::cout << GREY;
+	std::cout << _items_inventory[idx]->getType( );
+	std::cout << "is unequiped and left on the floor" << END << std::endl;
+	_items_inventory[idx] = NULL;
 }
+
+
 
 void	Character::use( int idx, ICharacter& target )
 {
-	( void )idx;
-	( void )target;
-	/*
-	La fonction membre use(int, ICharacter&)
-	utilisera la Materia de l’emplacement[idx],
-	et passera la cible en paramètre à la fonction AMateria::use.
-	*/
-	std::cout << "use" << std::endl;
+	if ( idx > 3 )
+	{
+		std::cout << RED;
+		std::cout << "The item's inventory has only 4 slot." << END << std::endl;
+		return ;
+	}
+	if ( !_items_inventory[idx] )
+	{
+		std::cout << RED;
+		std::cout << "This inventory's slot is empty." << END << std::endl;
+		return ;
+	}
+	_items_inventory[idx]->use( target );
+	delete _items_inventory[idx];
+	_items_inventory[idx] = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:49:34 by twang             #+#    #+#             */
-/*   Updated: 2023/11/08 16:38:16 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 11:41:50 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Ice::Ice( void ) : AMateria( "ice" )
 {
-	std::cout << GREY << D_CONSTRUCTOR << " ~ from Ice." << END << std::endl;
+	// std::cout << GREY << D_CONSTRUCTOR << " ~ from Ice." << END << std::endl;
 }
 
 Ice::Ice( Ice const & copy ): AMateria( "ice" )
@@ -27,7 +27,7 @@ Ice::Ice( Ice const & copy ): AMateria( "ice" )
 
 Ice::~Ice( void )
 {
-	std::cout << GREY << DESTRUCTOR << " ~ from Ice." << END << std::endl;
+	// std::cout << GREY << DESTRUCTOR << " ~ from Ice." << END << std::endl;
 }
 
 /*---- affectation operator overloading --------------------------------------*/
@@ -44,11 +44,14 @@ Ice	&	Ice::operator=( Ice const & right_value )
 
 AMateria*	Ice::clone( void ) const
 {
-	return( NULL );
+	AMateria* clone = new Ice( );
+
+	return( clone );
 }
 
 void		Ice::use( ICharacter& target )
 {
-	( void )target;
-	std::cout << "use" << std::endl;
+	std::cout << BLUE;
+	std::cout << "* shoots an ice bolt at ";
+	std::cout << target.getName( ) << " *" << END << std::endl;
 }

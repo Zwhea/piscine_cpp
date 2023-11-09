@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:13:54 by twang             #+#    #+#             */
-/*   Updated: 2023/11/08 12:17:58 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 13:02:31 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,52 @@
 
 int	main( void )
 {
-	IMateriaSource* src = new MateriaSource();
+	IMateriaSource* spells_book = new MateriaSource( );
+	ICharacter* Isko = new Character( "Isko");
+	ICharacter* ombre = new Character( "ombre");
 
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+	AMateria* first_spell;
+	AMateria* second_spell;
+	AMateria* third_spell;
+	AMateria* fourth_spell;
+	AMateria* fifth_spell;
+	AMateria* bin;
 
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
+	spells_book->learnMateria( new Ice( ));
+	spells_book->learnMateria( new Cure( ));
+	spells_book->learnMateria( new Ice( ));
+	spells_book->learnMateria( new Cure( ));
+	// spells_book->learnMateria( new Cure( ));
 
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	first_spell = spells_book->createMateria( "ice");
+	second_spell = spells_book->createMateria( "cure");
+	third_spell = spells_book->createMateria( "ice");
+	fourth_spell = spells_book->createMateria( "fire");
+	fifth_spell = spells_book->createMateria( "cure");
 
-	ICharacter* bob = new Character("bob");
+	Isko->equip( first_spell);
+	Isko->equip( second_spell);
+	Isko->equip( third_spell);
+	Isko->equip( fourth_spell);
+	Isko->equip( fifth_spell);
 
-	me->use(0, *bob);
-	me->use(1, *bob);
+	son_ombre->equip( first_spell);
+	son_ombre->equip( second_spell);
+	son_ombre->equip( third_spell);
+	son_ombre->equip( fourth_spell);
 
+	Isko->unequip( 2);
+
+	Isko->use( 0, *bob);
+	// Isko->use( 0, *bob);
+	Isko->use( 1, *bob);
+	// Isko->use( 3, *bob);
+	// Isko->use( 4, *bob);
+
+	delete trash;
 	delete bob;
-	delete me;
-	delete src;
+	delete Isko;
+	delete spells_book;
 
 	return ( 0 );
 }

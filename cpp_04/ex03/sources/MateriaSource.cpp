@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:04:03 by twang             #+#    #+#             */
-/*   Updated: 2023/11/08 16:23:33 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 11:43:18 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,26 @@
 
 MateriaSource::MateriaSource( void )
 {
-	for ( int i = 0; i < 3; i++ )
+	for ( int i = 0; i < 4; i++ )
 		_spells_inventory[i] = NULL;
 
-	std::cout << GREY << D_CONSTRUCTOR << " ~ from MateriaSource." << END << std::endl;
+	// std::cout << GREY << D_CONSTRUCTOR << " ~ from MateriaSource." << END << std::endl;
 }
 
 MateriaSource::MateriaSource( MateriaSource const & copy )
 {
-	( void )copy;
-	std::cout << GREY << C_CONSTRUCTOR << " ~ from MateriaSource." << END << std::endl;
+	*this = copy;
+	// std::cout << GREY << C_CONSTRUCTOR << " ~ from MateriaSource." << END << std::endl;
 }
 
 MateriaSource::~MateriaSource( void )
 {
-	std::cout << GREY << DESTRUCTOR << " ~ from MateriaSource." << END << std::endl;
+	for ( int i = 0; i < 4; i++ )
+	{
+		if ( _spells_inventory[i] )
+			delete _spells_inventory[i];
+	}
+	// std::cout << GREY << DESTRUCTOR << " ~ from MateriaSource." << END << std::endl;
 }
 
 /*---- affectation operator overloading --------------------------------------*/
@@ -45,15 +50,36 @@ MateriaSource &	MateriaSource::operator=( MateriaSource const & right_value )
 
 /*---- functions -------------------------------------------------------------*/
 
-void	MateriaSource::learnMateria( AMateria* type ) //on va voir le nom
+void	MateriaSource::learnMateria( AMateria* type )
 {
-	( void )type;
-	std::cout << "learn Materia" << std::endl;
+	int	i;
+
+	for ( i = 0; i < 4; i++)
+	{
+		if ( !_spells_inventory[i] )
+			break ;
+	}
+	if ( i != 4 )
+		_spells_inventory[i] = type;
+	else
+	{
+		std::cout << RED;
+		std::cout << "You've reached spells inventory's limit ! ";
+		std::cout << END << std::endl;
+		delete type;
+	}
 }
 
 AMateria*	MateriaSource::createMateria( std::string const & type )
 {
-	( void )type;
-	std::cout << "create Materia" << std::endl;
-	return ( NULL );
+	int	i;
+
+	for ( i = 0; i < 4; i++ )
+	{
+		if ( _spells_inventory[i] && type == _spells_inventory[i]->getType() )
+			return ( _spells_inventory[i]->clone( ) );
+	}
+	std::cout << RED << "I don't know this one !\n" << END;
+
+	return ( 0 );
 }

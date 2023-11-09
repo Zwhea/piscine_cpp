@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:31:07 by twang             #+#    #+#             */
-/*   Updated: 2023/11/08 16:49:24 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/09 11:47:37 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Cure::Cure( void ) : AMateria( "cure" )
 {
-	std::cout << GREY << D_CONSTRUCTOR << " ~ from Cure." << END << std::endl;
+	// std::cout << GREY << D_CONSTRUCTOR << " ~ from Cure." << END << std::endl;
 }
 
 Cure::Cure( Cure const & copy ) : AMateria( "cure" )
@@ -27,7 +27,7 @@ Cure::Cure( Cure const & copy ) : AMateria( "cure" )
 
 Cure::~Cure( void )
 {
-	std::cout << GREY << DESTRUCTOR << " ~ from Cure." << END << std::endl;
+	// std::cout << GREY << DESTRUCTOR << " ~ from Cure." << END << std::endl;
 }
 
 /*---- affectation operator overloading --------------------------------------*/
@@ -44,12 +44,14 @@ Cure	&	Cure::operator=( Cure const & right_value )
 
 AMateria*	Cure::clone( void ) const
 {
-	return( NULL );
+	AMateria* clone = new Cure( );
+
+	return( clone );
 }
 
 void		Cure::use( ICharacter& target )
 {
 	std::cout << GREEN;
-	std::cout << type << " : \"* shoots an ice bolt at ";
-	std::cout << target.getName( ) << " \"" << END << std::endl;
+	std::cout << "* heals ";
+	std::cout << target.getName( ) << "'s wounds *" << END << std::endl;
 }
