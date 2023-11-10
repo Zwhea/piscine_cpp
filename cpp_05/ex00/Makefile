@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/10 09:41:48 by twang            ###   ########.fr        #
+#    Updated: 2023/11/10 09:41:35 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	Polymorphisme
+NAME		=	I_want_to_be_a_bureaucrat!
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
@@ -27,18 +27,13 @@ CC			=	c++
 
 HDR_DIR		=	includes
 SRC_DIR		=	sources
-HEADERS		=	$(HDR_DIR)/Animal.hpp										\
-				$(HDR_DIR)/Cat.hpp											\
-				$(HDR_DIR)/Dog.hpp											\
-				$(HDR_DIR)/main.h											\
-				$(HDR_DIR)/WrongAnimal.hpp									\
-				$(HDR_DIR)/WrongCat.hpp
-SOURCES		=	$(SRC_DIR)/Animal.cpp										\
-				$(SRC_DIR)/Cat.cpp											\
-				$(SRC_DIR)/Dog.cpp											\
-				$(SRC_DIR)/main.cpp											\
-				$(SRC_DIR)/WrongAnimal.cpp									\
-				$(SRC_DIR)/WrongCat.cpp
+
+HEADERS		=	$(HDR_DIR)/Bureaucrat.h										\
+				$(HDR_DIR)/Bureaucrat.hpp
+
+SOURCES		=	$(SRC_DIR)/Bureaucrat.cpp									\
+				$(SRC_DIR)/main.cpp
+
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
@@ -50,7 +45,7 @@ CPPFLAGS		=	-Wall -Wextra -Werror -Wno-shadow -std=c++98 -I $(HDR_DIR)
 DFLAGS		=	-g3 -fsanitize=address
 
 ifeq ($(DEBUG), yes)
-CPPFLAGS		+=	$(DFLAGS)
+	CPPFLAGS		+=	$(DFLAGS)
 endif
 
 #--leaks flags-----------------------------------------------------------------#
@@ -60,13 +55,13 @@ LEAKS	=	valgrind --leak-check=full --show-leak-kinds=all --quiet
 #--define flags----------------------------------------------------------------#
 
 ifeq ($(OS), Darwin)
-CPPFLAGS	+=	-DMACOS
+	CPPFLAGS	+=	-DMACOS
 endif
 
 ifeq ($(WHO), twang)
-WHO		=	Théa 🐼
+	WHO		=	Théa 🐼
 else
-WHO		=	!
+	WHO		=	!
 endif
 
 #--objects mandatory & bonus --------------------------------------------------#
@@ -101,12 +96,12 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./Polymorphisme
+	$(LEAKS) ./I_want_to_be_a_bureaucrat!
 
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_04 : ex00 : Polymorphisme${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_05 : ex00 : Mommy, when I grow up, I want to be a bureaucrat!${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
