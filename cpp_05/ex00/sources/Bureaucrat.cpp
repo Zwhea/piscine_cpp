@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:07:38 by twang             #+#    #+#             */
-/*   Updated: 2023/11/10 14:20:06 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/13 11:24:31 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ Bureaucrat::~Bureaucrat( void )
 }
 
 /*---- overload operators ----------------------------------------------------*/
+
+Bureaucrat &	Bureaucrat::operator=( Bureaucrat const & right_value )
+{
+	if ( this == &right_value )
+		return ( *this );
+	return ( *this );
+}
 
 std::ostream &	operator<<( std::ostream & os, Bureaucrat const & target )
 {

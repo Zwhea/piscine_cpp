@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AAForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:18:17 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 11:16:46 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/13 11:30:10 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AAFORM_HPP
+# define AAFORM_HPP
 
 /*---- includes --------------------------------------------------------------*/
 
@@ -20,23 +20,23 @@
 /*----------------------------------------------------------------------------*/
 class	Bureaucrat;
 
-class	Form
+class	AForm
 {
 	public :
 
-		Form( void );
-		Form( std::string new_name, bool is_signed, \
+		AForm( void );
+		AForm( std::string new_name, bool is_signed, \
 					std::size_t new_signgrade, std::size_t new_execgrade );
-		Form( Form const & copy );
-		Form & operator=( Form const & right_value );
-		~Form( void );
+		AForm( AForm const & copy );
+		AForm & operator=( AForm const & right_value );
+		~AForm( void );
 
 		std::string	getName( void ) const;
 		bool		getSignedResult( void ) const;
 		std::size_t	getSignGrade( void ) const;
 		std::size_t	getExecGrade( void ) const;
 
-		void		beSigned( Bureaucrat & target );
+		virtual void		beSigned( Bureaucrat & target ) = 0;
 
 	private :
 
@@ -95,6 +95,6 @@ class	Form
 
 };
 
-std::ostream & operator<<( std::ostream & os, Form const & target );
+std::ostream & operator<<( std::ostream & os, AForm const & target );
 
 #endif

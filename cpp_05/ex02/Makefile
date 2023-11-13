@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/13 10:13:43 by twang            ###   ########.fr        #
+#    Updated: 2023/11/13 11:40:42 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	Form_up,_maggots!
+NAME		=	No,_you_need_form_28B,_not_28C...
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
@@ -28,13 +28,19 @@ CC			=	c++
 HDR_DIR		=	includes
 SRC_DIR		=	sources
 
-HEADERS		=	$(HDR_DIR)/Bureaucrat.h										\
+HEADERS		=	$(HDR_DIR)/AForm.hpp										\
+				$(HDR_DIR)/Bureaucrat.h										\
 				$(HDR_DIR)/Bureaucrat.hpp									\
-				$(HDR_DIR)/Form.hpp
+				$(HDR_DIR)/PresidentialPardonForm.hpp						\
+				$(HDR_DIR)/RobotomyRequestForm.hpp							\
+				$(HDR_DIR)/ShrubberyCreationForm.hpp
 
-SOURCES		=	$(SRC_DIR)/Bureaucrat.cpp									\
-				$(SRC_DIR)/Form.cpp											\
-				$(SRC_DIR)/main.cpp
+SOURCES		=	$(SRC_DIR)/AForm.cpp										\
+				$(SRC_DIR)/Bureaucrat.cpp									\
+				$(SRC_DIR)/main.cpp											\
+				$(SRC_DIR)/PresidentialPardonForm.cpp						\
+				$(SRC_DIR)/RobotomyRequestForm.cpp							\
+				$(SRC_DIR)/ShrubberyCreationForm.cpp
 
 OBJ_DIR		=	.objs
 
@@ -98,12 +104,12 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./Form_up,_maggots!
+	$(LEAKS) ./No,_you_need_form_28B,_not_28C...
 
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_05 : ex01 : Form up, maggots!${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_05 : ex02 : No, you need form 28B, not 28C...${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
