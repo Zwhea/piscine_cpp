@@ -18,6 +18,7 @@
 # include "Bureaucrat.hpp"
 
 /*----------------------------------------------------------------------------*/
+
 class	Bureaucrat;
 
 class	AForm
@@ -31,20 +32,16 @@ class	AForm
 		AForm & operator=( AForm const & right_value );
 		~AForm( void );
 
-		std::string	getName( void ) const;
-		bool		getSignedResult( void ) const;
-		std::size_t	getSignGrade( void ) const;
-		std::size_t	getExecGrade( void ) const;
+		std::string		getName( void ) const;
+		bool			getSignedResult( void ) const;
+		std::size_t		getSignGrade( void ) const;
+		std::size_t		getExecGrade( void ) const;
 
-		virtual void		beSigned( Bureaucrat & target ) = 0;
+		void			setSignedResult( bool is_signed );
 
-	private :
+		virtual void	beSigned( Bureaucrat & target ) = 0;
+		virtual void	execute( Bureaucrat const & executor ) const = 0;
 
-		std::string const	_name;
-		bool				_signed;
-		std::size_t const	_sign_grade;
-		std::size_t const	_exec_grade;
-	
 	class	GradeTooHighException : public std::exception
 	{
 	
@@ -80,7 +77,7 @@ class	AForm
 			}
 
 	};
-	
+
 	class	AlreadySignedException : public std::exception
 	{
 	
@@ -92,6 +89,25 @@ class	AForm
 			}
 
 	};
+
+	class	ExecGradeTooLowException : public std::exception
+	{
+	
+		public:
+
+			virtual const char*	what( void ) const throw( )
+			{
+				return ( "the required grade for execution is too low.\n"END );
+			}
+
+	};
+
+	private :
+
+		std::string const	_name;
+		bool				_signed;
+		std::size_t const	_sign_grade;
+		std::size_t const	_exec_grade;
 
 };
 

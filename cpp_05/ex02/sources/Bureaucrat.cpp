@@ -6,12 +6,12 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:07:38 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 11:22:27 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/13 14:47:23 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 /*---- constructors & destructor ---------------------------------------------*/
 
@@ -95,7 +95,7 @@ void	Bureaucrat::decrement( void )
 	}
 }
 
-void	Bureaucrat::signForm( Form & target )
+void	Bureaucrat::signForm( AForm & target )
 {
 	try
 	{
@@ -106,6 +106,22 @@ void	Bureaucrat::signForm( Form & target )
 	catch ( std::exception & error )
 	{
 		std::cerr << RED << _name << " couldn't sign " << target.getName( );
+		std::cerr << " because ";
+		std::cerr << error.what( );
+	}
+}
+
+void	Bureaucrat::executeForm( AForm const & form )
+{
+	try
+	{
+		form.execute( *this );
+		std::cout << GREEN << _name << " executed ";
+		std::cout << form.getName( ) << END << std::endl;
+	}
+	catch ( std::exception & error )
+	{
+		std::cerr << YELLOW << _name << " couldn't execute " << form.getName( );
 		std::cerr << " because ";
 		std::cerr << error.what( );
 	}

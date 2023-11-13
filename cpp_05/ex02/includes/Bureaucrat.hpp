@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:45:02 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 10:46:16 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/13 14:43:45 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 /*---- includes --------------------------------------------------------------*/
 
 # include "Bureaucrat.h"
-# include "Form.hpp"
+# include "AForm.hpp"
 
 /*----------------------------------------------------------------------------*/
-class	Form;
+class	AForm;
 
 class	Bureaucrat
 {
@@ -38,7 +38,8 @@ class	Bureaucrat
 		void		increment( void );
 		void		decrement( void );
 
-		void		signForm( Form & target );
+		void		signForm( AForm & target );
+		void		executeForm( AForm const & form );
 
 	private :
 

@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:18:05 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 11:37:36 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/13 14:34:30 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,16 @@
 /*---- constructors & destructor ---------------------------------------------*/
 
 AForm::AForm( void ) : 
-	_name( "Undefined" ), _signed( false ), _sign_grade( 145 ), _exec_grade( 137 )
+	_name( "Undefined" ), _signed( false ), _sign_grade( 0 ), _exec_grade( 0 )
 {
 	// std::cout << GREY << D_CONSTRUCTOR << " ~ from AForm." << END << std::endl;
 }
 
 AForm::AForm( std::string new_name, bool is_signed, \
 					std::size_t new_signgrade, std::size_t new_execgrade ) : 
-			_name( new_name ), _signed( false ), \
+			_name( new_name ), _signed( is_signed ), \
 					_sign_grade( new_signgrade ), _exec_grade( new_execgrade )
 {
-	( void )is_signed;
-
-	if ( _exec_grade < 1  || _sign_grade < 1)
-		throw	AForm::GradeTooHighException( );
-	else if ( _exec_grade > 150 || _sign_grade > 150 )
-		throw	AForm::GradeTooLowException( );
-
 	// std::cout << GREY << _name << CONSTRUCTOR << " ~ from AForm." << END << std::endl;
 }
 
@@ -95,14 +88,7 @@ bool	AForm::getSignedResult( void ) const
 	return ( _signed );
 }
 
-/*---- functions -------------------------------------------------------------*/
-
-void	AForm::beSigned( Bureaucrat & target )
+void	AForm::setSignedResult( bool is_signed )
 {
-	if ( _signed != false)
-		throw AForm::AlreadySignedException( );
-	if ( target.getGrade( ) > _sign_grade )
-		throw AForm::SignGradeTooLowException( );
-	if ( target.getGrade( ) <= _sign_grade )
-		_signed = true;
+	_signed = is_signed;
 }

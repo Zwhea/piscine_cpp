@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/13 11:40:42 by twang            ###   ########.fr        #
+#    Updated: 2023/11/13 15:40:02 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -131,6 +131,7 @@ re:
 clean:
 	$(RM) -rf $(OBJECTS)
 	$(RM) -rf $(OBJ_DIR)
+	$(RM) -rf *_shrubbery
 	$(PRINT_CLEAN)
 
 fclean:
