@@ -6,10 +6,14 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:56:21 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 15:57:14 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 13:13:02 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include "Intern.hpp"
 
 /*---- constructors & destructor ---------------------------------------------*/
@@ -21,6 +25,7 @@ Intern::Intern( void )
 
 Intern::Intern( Intern const & copy )
 {
+	( void )copy;
 	// std::cout << GREY << C_CONSTRUCTOR << " ~ from Intern." << END << std::endl;
 }
 
@@ -33,19 +38,47 @@ Intern::~Intern( void )
 
 Intern &	Intern::operator=( Intern const & right_value )
 {
-	if ( this == &right_value )
-		return ( *this );
+	( void )right_value;
 
 	return ( *this );
 }
 
-std::ostream &	operator<<( std::ostream & os, Intern const & target )
-{
-	os << BLUE << "Intern's name : " << END;
-	os << target.getName( );
-	os << BLUE << "\t-> grade : " << END;
-	os << target.getGrade( );
-	os << std::endl;
+/*---- functions -------------------------------------------------------------*/
 
-	return ( os );
+AForm	*Intern::PresidentialForm( std::string target )
+{
+	std::cout << GREEN << "Intern creates presidential pardon form" << END << std::endl;
+	return ( new PresidentialPardonForm( target ) );
+}
+
+AForm	*Intern::RobotomyForm( std::string target )
+{
+	std::cout << GREEN << "Intern creates robotomy request form" << END << std::endl;
+	return ( new RobotomyRequestForm( target ) );
+
+}
+
+AForm	*Intern::ShrubberyForm( std::string target )
+{
+	std::cout << GREEN << "Intern creates shrubbery creation form" << END << std::endl;
+	return ( new ShrubberyCreationForm( target ) );
+
+}
+
+AForm	*Intern::makeForm( std::string form_name, std::string form_target )
+{
+	Intern	random;
+
+	const t_options list[] = {{ "presidential pardon", &Intern::PresidentialForm }, \
+							{ "robotomy request", &Intern::RobotomyForm}, \
+							{ "shrubbery creation", &Intern::ShrubberyForm}};
+
+	for ( int i = 0; i < 3; i++ )
+	{
+		if ( form_name == list[i].keyWord )
+			return ((random.*(list[i].Function))(form_target));
+	}
+	std::cout << RED << "This form does not exist." << END << std::endl;
+
+	return ( NULL );
 }

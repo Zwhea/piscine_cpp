@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:31:48 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 13:50:59 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 11:55:43 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ class	ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm & operator=( ShrubberyCreationForm const & right_value );
 		~ShrubberyCreationForm( void );
 
+		std::string	getTarget( void ) const;
+
 		void		beSigned( Bureaucrat & target );
 		void		execute( Bureaucrat const & executor ) const;
 
@@ -43,5 +45,7 @@ class	ShrubberyCreationForm : public AForm
 
 
 };
+
+std::ostream & operator<<( std::ostream & os, ShrubberyCreationForm const & form );
 
 #endif

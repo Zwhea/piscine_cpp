@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/13 15:46:32 by twang            ###   ########.fr        #
+#    Updated: 2023/11/14 09:50:27 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,12 +31,14 @@ SRC_DIR		=	sources
 HEADERS		=	$(HDR_DIR)/AForm.hpp										\
 				$(HDR_DIR)/Bureaucrat.h										\
 				$(HDR_DIR)/Bureaucrat.hpp									\
+				$(HDR_DIR)/Intern.hpp										\
 				$(HDR_DIR)/PresidentialPardonForm.hpp						\
 				$(HDR_DIR)/RobotomyRequestForm.hpp							\
 				$(HDR_DIR)/ShrubberyCreationForm.hpp
 
 SOURCES		=	$(SRC_DIR)/AForm.cpp										\
 				$(SRC_DIR)/Bureaucrat.cpp									\
+				$(SRC_DIR)/Intern.cpp										\
 				$(SRC_DIR)/main.cpp											\
 				$(SRC_DIR)/PresidentialPardonForm.cpp						\
 				$(SRC_DIR)/RobotomyRequestForm.cpp							\

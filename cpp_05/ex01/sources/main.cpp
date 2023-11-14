@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:20:00 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 11:22:56 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 13:15:22 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main( void )
 	try
 	{
 		Bureaucrat	Bob( "Bob", 10 );
-		Form		Attestation( "Attestation", false, 10, 10 );
+		Form		Attestation( "Attestation", 10, 10 );
 		std::cout << Bob;
 		std::cout << Attestation;
 		Bob.decrement( );

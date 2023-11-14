@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:07:38 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 11:24:31 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 13:12:04 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ Bureaucrat::~Bureaucrat( void )
 
 Bureaucrat &	Bureaucrat::operator=( Bureaucrat const & right_value )
 {
-	if ( this == &right_value )
-		return ( *this );
+	( void )right_value;
+
 	return ( *this );
 }
 
@@ -77,18 +77,18 @@ std::size_t	Bureaucrat::getGrade( void ) const
 
 void	Bureaucrat::increment( void )
 {
-	_grade--;
-	if ( _grade < 1 )
+	if ( _grade <= 1 )
 	{
 		throw	Bureaucrat::GradeTooHighException( );
 	}
+	_grade--;
 }
 
 void	Bureaucrat::decrement( void )
 {
-	_grade++;
-	if ( _grade > 150 )
+	if ( _grade >= 150 )
 	{
 		throw	Bureaucrat::GradeTooLowException( );
 	}
+	_grade++;
 }

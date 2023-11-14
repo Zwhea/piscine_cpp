@@ -26,11 +26,10 @@ class	AForm
 	public :
 
 		AForm( void );
-		AForm( std::string new_name, bool is_signed, \
-					std::size_t new_signgrade, std::size_t new_execgrade );
+		AForm( std::string new_name, std::size_t new_signgrade, std::size_t new_execgrade );
 		AForm( AForm const & copy );
 		AForm & operator=( AForm const & right_value );
-		~AForm( void );
+		virtual ~AForm( void );
 
 		std::string		getName( void ) const;
 		bool			getSignedResult( void ) const;
@@ -90,6 +89,18 @@ class	AForm
 
 	};
 
+	class	MissingSignException : public std::exception
+		{
+		
+			public:
+
+				virtual const char*	what( void ) const throw( )
+				{
+					return ( "the form is not signed for execution.\n"END );
+				}
+
+		};
+
 	class	ExecGradeTooLowException : public std::exception
 	{
 	
@@ -111,6 +122,6 @@ class	AForm
 
 };
 
-std::ostream & operator<<( std::ostream & os, AForm const & target );
+std::ostream & operator<<( std::ostream & os, AForm const & form );
 
 #endif

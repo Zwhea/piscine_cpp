@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:36:20 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 15:11:06 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 13:13:18 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@
 /*---- constructors & destructor ---------------------------------------------*/
 
 PresidentialPardonForm::PresidentialPardonForm( void ) : 
-							AForm( "random", false, 25, 5 ), _target( "random" )
+							AForm( "presidential pardon form", 25, 5 ), _target( "random" )
 {
 	// std::cout << GREY << D_CONSTRUCTOR << " ~ from PresidentialPardonForm." << END << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( std::string target ) : 
-								AForm( target, false, 25, 5 ), _target( target )
+								AForm( "presidential pardon form", 25, 5 ), _target( target )
 {
 	
 	// std::cout << GREY << _name << CONSTRUCTOR << " ~ from PresidentialPardonForm." << END << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & copy ) : 
-					AForm( copy._target, false, 25, 5 ), _target( copy._target )
+					AForm( "presidential pardon form", 25, 5 ), _target( copy._target )
 {
 	// std::cout << GREY << C_CONSTRUCTOR << " ~ from PresidentialPardonForm." << END << std::endl;
 }
@@ -39,26 +39,33 @@ PresidentialPardonForm::~PresidentialPardonForm( void )
 	// std::cout << GREY << DESTRUCTOR << " ~ from PresidentialPardonForm." << END << std::endl;
 }
 
+std::string	PresidentialPardonForm::getTarget( void ) const
+{
+	return ( _target );
+}
+
+
 /*---- overload operators ----------------------------------------------------*/
 
 PresidentialPardonForm &	PresidentialPardonForm::operator=( PresidentialPardonForm const & right_value )
 {
-	if ( this == &right_value )
-		return ( *this );
+	( void )right_value;
 
 	return ( *this );
 }
 
-std::ostream &	operator<<( std::ostream & os, PresidentialPardonForm const & target )
+std::ostream &	operator<<( std::ostream & os, PresidentialPardonForm const & form )
 {
-	os << PURPLE << "PresidentialPardonForm's name : " << END;
-	os << target.getName( );
+	os << PURPLE << "Form's name : " << END;
+	os << form.getName( );
+	os << PURPLE << "\nTarget's name : " << END;
+	os << form.getTarget( );
 	os << PURPLE << "\nSignature's status : " << END;
-	os << target.getSignedResult( );
+	os << form.getSignedResult( );
 	os << PURPLE << "\nRequired grade for signature : " << END;
-	os << target.getSignGrade( );
+	os << form.getSignGrade( );
 	os << PURPLE << "\nRequired grade for execution : " << END;
-	os << target.getExecGrade( );
+	os << form.getExecGrade( );
 	os << std::endl;
 
 	return ( os );
@@ -78,11 +85,13 @@ void	PresidentialPardonForm::beSigned( Bureaucrat & target )
 
 void	PresidentialPardonForm::execute( Bureaucrat const & executor ) const
 {
+	if ( getSignedResult( ) != true )
+		throw AForm::MissingSignException( );
 	if ( executor.getGrade( ) > getExecGrade( ) )
 		throw AForm::ExecGradeTooLowException( );
 	if ( executor.getGrade( ) <= getExecGrade( ) )
 	{
-		std::cout << YELLOW << executor.getName( );
+		std::cout << YELLOW << getTarget( );
 		std::cout << " has been pardoned by Zaphod Beeblebrox.";
 		std::cout << END << std::endl;
 	}

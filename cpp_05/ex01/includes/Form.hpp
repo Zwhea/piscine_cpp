@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:18:17 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 11:16:46 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 12:56:57 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ class	Form
 	public :
 
 		Form( void );
-		Form( std::string new_name, bool is_signed, \
-					std::size_t new_signgrade, std::size_t new_execgrade );
+		Form( std::string new_name, std::size_t new_signgrade, std::size_t new_execgrade );
 		Form( Form const & copy );
 		Form & operator=( Form const & right_value );
 		~Form( void );
@@ -44,7 +43,7 @@ class	Form
 		bool				_signed;
 		std::size_t const	_sign_grade;
 		std::size_t const	_exec_grade;
-	
+
 	class	GradeTooHighException : public std::exception
 	{
 	
@@ -76,7 +75,7 @@ class	Form
 
 			virtual const char*	what( void ) const throw( )
 			{
-				return ( "the required grade for signature is too low.\n"END );
+				return ( "the bureaucrat's grade for signature is too low.\n"END );
 			}
 
 	};

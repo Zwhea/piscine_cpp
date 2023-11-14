@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:34:32 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 13:29:54 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 11:45:06 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ class	PresidentialPardonForm : public AForm
 		PresidentialPardonForm & operator=( PresidentialPardonForm const & right_value );
 		~PresidentialPardonForm( void );
 
+		std::string	getTarget( void ) const;
+
 		void		beSigned( Bureaucrat & target );
 		void		execute( Bureaucrat const & executor ) const;
 
@@ -43,5 +45,7 @@ class	PresidentialPardonForm : public AForm
 
 
 };
+
+std::ostream & operator<<( std::ostream & os, PresidentialPardonForm const & form );
 
 #endif

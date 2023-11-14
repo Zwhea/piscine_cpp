@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:33:24 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 13:33:32 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 11:55:32 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ class	RobotomyRequestForm : public AForm
 		RobotomyRequestForm & operator=( RobotomyRequestForm const & right_value );
 		~RobotomyRequestForm( void );
 
+		std::string	getTarget( void ) const;
+
 		void		beSigned( Bureaucrat & target );
 		void		execute( Bureaucrat const & executor ) const;
 
@@ -43,5 +45,7 @@ class	RobotomyRequestForm : public AForm
 
 
 };
+
+std::ostream & operator<<( std::ostream & os, RobotomyRequestForm const & form );
 
 #endif

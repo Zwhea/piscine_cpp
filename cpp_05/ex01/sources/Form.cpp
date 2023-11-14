@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:18:05 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 11:21:18 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 13:14:51 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,9 @@ Form::Form( void ) :
 	// std::cout << GREY << D_CONSTRUCTOR << " ~ from Form." << END << std::endl;
 }
 
-Form::Form( std::string new_name, bool is_signed, \
-					std::size_t new_signgrade, std::size_t new_execgrade ) : 
-			_name( new_name ), _signed( false ), \
-					_sign_grade( new_signgrade ), _exec_grade( new_execgrade )
+Form::Form( std::string new_name, std::size_t new_signgrade, std::size_t new_execgrade ) : 
+	_name( new_name ), _signed( false ), _sign_grade( new_signgrade ), _exec_grade( new_execgrade )
 {
-	( void )is_signed;
-
 	if ( _exec_grade < 1  || _sign_grade < 1)
 		throw	Form::GradeTooHighException( );
 	else if ( _exec_grade > 150 || _sign_grade > 150 )
@@ -52,8 +48,7 @@ Form::~Form( void )
 
 Form &	Form::operator=( Form const & right_value )
 {
-	if ( this == &right_value )
-		return ( *this );
+	( void )right_value;
 
 	return ( *this );
 }

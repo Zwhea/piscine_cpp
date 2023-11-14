@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:07:38 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 14:47:23 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 13:13:53 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ Bureaucrat::~Bureaucrat( void )
 
 Bureaucrat &	Bureaucrat::operator=( Bureaucrat const & right_value )
 {
-	if ( this == &right_value )
-		return ( *this );
+	( void )right_value;
 
 	return ( *this );
 }

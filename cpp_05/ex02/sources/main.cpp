@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:20:00 by twang             #+#    #+#             */
-/*   Updated: 2023/11/13 14:53:39 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 12:53:19 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	main( void )
 		Bureaucrat				Bub( "Bub", 45 ); //can execute Robotomy
 		Bureaucrat				Byb( "Byb", 137 ); //can execute Shrubbery
 
-		PresidentialPardonForm	Attestation_1( "attestation 1" );
-		RobotomyRequestForm		Attestation_2( "attestation 2" );
-		ShrubberyCreationForm	Attestation_3( "attestation 3" );
+		PresidentialPardonForm	Attestation_1( "Georges" );
+		RobotomyRequestForm		Attestation_2( "Wall_E" );
+		ShrubberyCreationForm	Attestation_3( "home" );
 
 		std::cout << Bab;
 		std::cout << Beb;
@@ -38,6 +38,8 @@ int	main( void )
 		std::cout << Bob;
 		std::cout << Bub;
 		std::cout << Byb;
+
+		std::cout << std::endl;
 
 		std::cout << Attestation_1;
 		std::cout << Attestation_2;
@@ -47,6 +49,8 @@ int	main( void )
 		// Beb.decrement( );
 		// Bib.decrement( );
 
+		std::cout << std::endl;
+
 		Bab.signForm( Attestation_1 );
 		Beb.signForm( Attestation_2 );
 		Bib.signForm( Attestation_3 );
@@ -54,6 +58,8 @@ int	main( void )
 		// Bob.decrement( );
 		// Bub.decrement( );
 		// Byb.decrement( );
+
+		std::cout << std::endl;
 
 		Bob.executeForm( Attestation_1 );
 		Bub.executeForm( Attestation_2 );
@@ -64,10 +70,11 @@ int	main( void )
 		// Bib.signForm( Attestation_3 );
 
 	}
-
 	catch ( std::exception & error )
 	{
+
 		std::cerr << error.what( );
+
 	}
 
 	return ( 0 );
