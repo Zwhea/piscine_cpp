@@ -113,6 +113,18 @@ class	AForm
 
 	};
 
+	class	FormNotFoundException : public std::exception
+	{
+	
+		public:
+
+			virtual const char*	what( void ) const throw( )
+			{
+				return ( RED "This form does not exist.\n" END );
+			}
+
+	};
+
 	private :
 
 		std::string const	_name;

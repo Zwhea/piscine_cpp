@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:20:00 by twang             #+#    #+#             */
-/*   Updated: 2023/11/14 12:13:08 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 15:46:05 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	main( void )
 		Intern someRandomIntern;
 		AForm* rrf;
 		std::cout << std::endl;
-		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+		rrf = someRandomIntern.makeForm("presidential  pardon", "Bender");
 		std::cout << std::endl;
 		Bab.signForm( *rrf );
 		std::cout << std::endl;

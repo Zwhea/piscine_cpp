@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:56:21 by twang             #+#    #+#             */
-/*   Updated: 2023/11/14 13:13:02 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/14 15:45:57 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ AForm	*Intern::makeForm( std::string form_name, std::string form_target )
 		if ( form_name == list[i].keyWord )
 			return ((random.*(list[i].Function))(form_target));
 	}
-	std::cout << RED << "This form does not exist." << END << std::endl;
-
+	throw AForm::FormNotFoundException( );
 	return ( NULL );
 }
