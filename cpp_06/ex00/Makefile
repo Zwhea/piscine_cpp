@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/14 13:29:44 by twang            ###   ########.fr        #
+#    Updated: 2023/11/15 15:25:47 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	Conversion_of_scalar_types
+NAME		=	convert
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
@@ -28,17 +28,17 @@ CC			=	c++
 HDR_DIR		=	includes
 SRC_DIR		=	sources
 
-HEADERS		=	$(HDR_DIR)/Bureaucrat.h										\
-				$(HDR_DIR)/Bureaucrat.hpp
+HEADERS		=	$(HDR_DIR)/main.h											\
+				$(HDR_DIR)/ScalarConvert.hpp
 
-SOURCES		=	$(SRC_DIR)/Bureaucrat.cpp									\
-				$(SRC_DIR)/main.cpp
+SOURCES		=	$(SRC_DIR)/main.cpp											\
+				$(SRC_DIR)/ScalarConvert.cpp
 
 OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
 
-CPPFLAGS		=	-Wall -Wextra -Werror -Wno-shadow -std=c++98 -I $(HDR_DIR)
+CPPFLAGS		=	-Wall -Wextra -Werror -Wno-conversion -std=c++98 -I $(HDR_DIR)
 
 #--debug flags-----------------------------------------------------------------#
 
@@ -96,12 +96,12 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./I_want_to_be_a_bureaucrat!
+	$(LEAKS) ./convert
 
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_05 : ex00 : Mommy, when I grow up, I want to be a bureaucrat!${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_06 : ex00 : Conversion of scalar types!${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"

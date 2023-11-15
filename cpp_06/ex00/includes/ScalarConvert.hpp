@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:32:19 by twang             #+#    #+#             */
-/*   Updated: 2023/11/14 14:28:50 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/15 14:51:38 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,18 @@ class ScalarConvert
 		~ScalarConvert( void );
 
 		static void	convert( std::string base );
+
+	class	NotPrintableException : public std::exception
+	{
+
+		public:
+
+			virtual const char*	what( void ) const throw( )
+			{
+				return ( RED"This char is not printable\n"END );
+			}
+
+	};
 
 };
 
