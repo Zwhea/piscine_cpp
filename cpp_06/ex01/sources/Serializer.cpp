@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:50:29 by twang             #+#    #+#             */
-/*   Updated: 2023/11/16 17:19:37 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/16 17:25:20 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ Serializer & Serializer::operator=( Serializer const & right_value )
 
 uintptr_t	Serializer::serialize( Data *ptr )
 {
-	uintptr_t	u_i = reinterpret_cast<uintptr_t>( ptr );
+	uintptr_t	u_i = reinterpret_cast< uintptr_t >( ptr );
 
 	return ( u_i );
 }
 
 Data*		Serializer::deserialize( uintptr_t raw )
 {
-	Data	*Data = reinterpret_cast<Data *>( raw );
+	Data	*Data = reinterpret_cast< ::Data * >( raw );
 
 	return ( Data );
 }
