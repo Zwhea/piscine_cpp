@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:43:32 by twang             #+#    #+#             */
-/*   Updated: 2023/11/16 16:27:38 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/16 16:57:44 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 
 /*---- librairies ------------------------------------------------------------*/
 
-# include <sstream>
 # include <iostream>
 # include <ostream>
 # include <string>
-# include <cstdlib>
-# include <limits.h>
-# include <cmath>
+# include <stdint.h>
 
 /*---- defines ---------------------------------------------------------------*/
 
@@ -44,13 +41,5 @@
 # define CONSTRUCTOR	" : constructor called"
 # define C_CONSTRUCTOR	"Copy constructor called"
 # define DESTRUCTOR		"Default destructor called"
-
-enum e_type
-{
-	CHAR,
-	INT,
-	DOUBLE,
-	FLOAT
-};
 
 #endif

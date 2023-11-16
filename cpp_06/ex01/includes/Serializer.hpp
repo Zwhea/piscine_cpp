@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConvert.hpp                                  :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:32:19 by twang             #+#    #+#             */
-/*   Updated: 2023/11/16 12:57:54 by twang            ###   ########.fr       */
+/*   Created: 2023/11/16 15:49:23 by twang             #+#    #+#             */
+/*   Updated: 2023/11/16 17:17:57 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERT_HPP
-# define SCALARCONVERT_HPP
+#ifndef SERIALIZER_HPP
+# define SERIALIZER_HPP
 
 /*---- includes --------------------------------------------------------------*/
 
@@ -19,20 +19,26 @@
 
 /*----------------------------------------------------------------------------*/
 
-class ScalarConvert
-{
+typedef struct s_data	Data;
 
+struct s_data
+{
+	int	ptr;
+};
+
+class	Serializer
+{
 	public :
 
-		static void	convert( std::string base );
+		Serializer( void );
+		Serializer( Serializer const & copy );
+		Serializer & operator=( Serializer const & right_value );
+		~Serializer( void );
 
-	private :
-
-		ScalarConvert( void );
-		ScalarConvert( ScalarConvert const & copy );
-		ScalarConvert & operator=( ScalarConvert const & right_value );
-		~ScalarConvert( void );
+		static uintptr_t	serialize( Data *ptr );
+		static Data*		deserialize( uintptr_t raw );
 
 };
+
 
 #endif
