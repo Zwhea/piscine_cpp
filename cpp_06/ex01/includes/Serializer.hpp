@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:49:23 by twang             #+#    #+#             */
-/*   Updated: 2023/11/17 13:14:17 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/17 13:21:39 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,5 @@ class	Serializer
 		Serializer & operator=( Serializer const & right_value );
 
 };
-
 
 #endif
