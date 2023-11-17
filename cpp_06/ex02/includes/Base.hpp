@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:30:20 by twang             #+#    #+#             */
-/*   Updated: 2023/11/17 09:23:12 by twang            ###   ########.fr       */
+/*   Created: 2023/11/17 09:30:55 by twang             #+#    #+#             */
+/*   Updated: 2023/11/17 09:59:33 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
-# include <typeinfo>
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int	main( void )
+/*---- includes --------------------------------------------------------------*/
+
+# include "main.h"
+
+/*----------------------------------------------------------------------------*/
+
+class	Base
 {
-	Data	*data = new ::Data;
 
-	uintptr_t	i;
-	
-	std::cout << data << std::endl;
-	
-	i = Serializer::serialize( data );
-	data		= Serializer::deserialize( i );
+	public :
 
-	std::cout << data << std::endl;
+		Base( void );
+		virtual ~Base( void );
 
-	return ( 0 );
-}
+		Base*	generate( void );
+		void	identify( Base* p );
+		void	identify( Base& p );
+
+};
+
+#endif

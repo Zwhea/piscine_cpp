@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:30:20 by twang             #+#    #+#             */
-/*   Updated: 2023/11/17 09:23:12 by twang            ###   ########.fr       */
+/*   Created: 2023/11/17 09:28:36 by twang             #+#    #+#             */
+/*   Updated: 2023/11/17 09:43:21 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
-# include <typeinfo>
+#ifndef C_HPP
+# define C_HPP
 
-int	main( void )
+/*---- includes --------------------------------------------------------------*/
+
+# include "main.h"
+# include "Base.hpp"
+
+/*----------------------------------------------------------------------------*/
+
+class	C : public Base
 {
-	Data	*data = new ::Data;
 
-	uintptr_t	i;
-	
-	std::cout << data << std::endl;
-	
-	i = Serializer::serialize( data );
-	data		= Serializer::deserialize( i );
+	public :
 
-	std::cout << data << std::endl;
+		C( void );
+		~C( void );
 
-	return ( 0 );
-}
+};
+
+#endif

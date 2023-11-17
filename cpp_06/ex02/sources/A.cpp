@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   A.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:30:20 by twang             #+#    #+#             */
-/*   Updated: 2023/11/17 09:23:12 by twang            ###   ########.fr       */
+/*   Created: 2023/11/17 09:38:10 by twang             #+#    #+#             */
+/*   Updated: 2023/11/17 13:00:07 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
-# include <typeinfo>
+#include "Base.hpp"
+#include "A.hpp"
 
-int	main( void )
-{
-	Data	*data = new ::Data;
+/*---- constructors & destructor ---------------------------------------------*/
 
-	uintptr_t	i;
-	
-	std::cout << data << std::endl;
-	
-	i = Serializer::serialize( data );
-	data		= Serializer::deserialize( i );
+A::A( void ) { }
 
-	std::cout << data << std::endl;
-
-	return ( 0 );
-}
+A::~A( void ) { }

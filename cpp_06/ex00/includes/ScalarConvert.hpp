@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:32:19 by twang             #+#    #+#             */
-/*   Updated: 2023/11/16 12:57:54 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/17 12:54:57 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ScalarConvert
 
 	public :
 
+		~ScalarConvert( void );
 		static void	convert( std::string base );
 
 	private :
@@ -31,7 +32,6 @@ class ScalarConvert
 		ScalarConvert( void );
 		ScalarConvert( ScalarConvert const & copy );
 		ScalarConvert & operator=( ScalarConvert const & right_value );
-		~ScalarConvert( void );
 
 };
 

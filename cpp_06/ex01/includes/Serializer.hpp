@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:49:23 by twang             #+#    #+#             */
-/*   Updated: 2023/11/16 17:17:57 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/17 13:14:17 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,16 @@ class	Serializer
 {
 	public :
 
-		Serializer( void );
-		Serializer( Serializer const & copy );
-		Serializer & operator=( Serializer const & right_value );
 		~Serializer( void );
 
 		static uintptr_t	serialize( Data *ptr );
 		static Data*		deserialize( uintptr_t raw );
+
+	private :
+
+		Serializer( void );
+		Serializer( Serializer const & copy );
+		Serializer & operator=( Serializer const & right_value );
 
 };
 
