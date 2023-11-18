@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/17 13:31:22 by twang            ###   ########.fr        #
+#    Updated: 2023/11/18 14:43:27 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ CC			=	c++
 HDR_DIR		=	includes
 SRC_DIR		=	sources
 
-HEADERS		=	$(HDR_DIR)/whatever.hpp
+HEADERS		=	$(HDR_DIR)/whatever.h										\
+				$(HDR_DIR)/whatever.hpp
 
 SOURCES		=	$(SRC_DIR)/main.cpp
 

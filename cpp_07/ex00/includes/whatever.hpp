@@ -1,42 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:43:32 by twang             #+#    #+#             */
-/*   Updated: 2023/11/17 13:24:20 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/18 14:43:03 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-/*---- librairies ------------------------------------------------------------*/
+/*---- includes --------------------------------------------------------------*/
 
-# include <iostream>
+# include "whatever.h"
 
-/*---- defines ---------------------------------------------------------------*/
+/*---- templates defines -----------------------------------------------------*/
 
-# define BLUE		"\001\033[1;34m\002"
-# define RED		"\001\033[1;31m\002"
-# define YELLOW		"\001\033[1;33m\002"
-# define GREEN		"\001\033[1;32m\002"
-# define PURPLE		"\001\033[1;35m\002"
-# define GREY		"\001\033[1;30m\002"
+template< typename T >
 
-# define END		"\001\033[0m\002"
-# define BOLD		"\001\033[1m\002"
-# define ITALIC		"\001\033[3m\002"
-# define UNDERLINE	"\001\033[4m\002"
-# define DEL_LINE	"\001\033[2K\r\002"
+T const & min( T const & x, T const & y )
+{
+	return ( x <= y ? x : y );
+}
 
-/*---- verboses --------------------------------------------------------------*/
+template< typename T >
 
-# define D_CONSTRUCTOR	"Default constructor called"
-# define CONSTRUCTOR	" : constructor called"
-# define C_CONSTRUCTOR	"Copy constructor called"
-# define DESTRUCTOR		"Default destructor called"
+T const & max( T const & x, T const & y )
+{
+	return ( x >= y ? x : y );
+}
+
+template< typename T>
+
+void	swap( T & x, T & y )
+{
+	T	tmp;
+
+	tmp = x;
+	x = y;
+	y = tmp;
+}
 
 #endif
