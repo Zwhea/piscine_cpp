@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:24:26 by twang             #+#    #+#             */
-/*   Updated: 2023/11/09 14:16:31 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/21 15:13:11 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main( void )
 	}
 
 	Cat*	a = new Cat();
-	Cat* 	b = new Cat();
+	Cat*	b = new Cat();
 	*b = *a;
 	b->setBrainIdea( "I have a new idea !", 0 ); /*change the place if you want to check*/
 	std::cout << "\n";

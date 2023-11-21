@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 14:49:18 by twang             #+#    #+#             */
-/*   Updated: 2023/11/18 15:46:00 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/21 09:15:18 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 
 template< typename T, typename U, typename V >
 
-void	iter( T *array, U arrayLen, V arrayFt )
+void	iter( T *array, U arrayLen, V function )
 {
 	for ( U i = 0; i < arrayLen; i++ )
-		( arrayFt )( array[i] );
+		( function )( array[i] );
 }
 
 #endif
