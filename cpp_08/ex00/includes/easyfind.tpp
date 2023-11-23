@@ -1,47 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   easyfind.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 09:43:32 by twang             #+#    #+#             */
-/*   Updated: 2023/11/18 14:43:03 by twang            ###   ########.fr       */
+/*   Created: 2023/11/23 16:50:25 by twang             #+#    #+#             */
+/*   Updated: 2023/11/23 16:59:40 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#ifndef EASYFIND_TPP
+# define EASYFIND_TPP
 
 /*---- includes --------------------------------------------------------------*/
 
-# include "whatever.h"
+# include "easyfind.h"
 
-/*---- templates defines -----------------------------------------------------*/
+/*---- templates functions defines -------------------------------------------*/
 
-template< typename T >
+templates< typename T >
 
-T const & min( T const & x, T const & y )
-{
-	return ( x <= y ? x : y );
-}
-
-template< typename T >
-
-T const & max( T const & x, T const & y )
-{
-	return ( x >= y ? x : y );
-}
-
-template< typename T>
-
-void	swap( T & x, T & y )
-{
-	T	tmp;
-
-	tmp = x;
-	x = y;
-	y = tmp;
-}
 
 #endif

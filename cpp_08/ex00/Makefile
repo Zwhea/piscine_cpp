@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/18 14:43:27 by twang            ###   ########.fr        #
+#    Updated: 2023/11/23 15:26:13 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ include ../config/print.mk
 
 #--variables-------------------------------------------------------------------#
 
-NAME		=	Start_with_a_few_functions
+NAME		=	Easy_find
 DEBUG		=	no
 VALGRIND	=	no
 OS			=	$(shell uname)
@@ -95,12 +95,12 @@ debug:
 leaks:
 	clear
 	$(MAKE) -j VALGRIND=yes
-	$(LEAKS) ./Start_with_a_few_functions
+	$(LEAKS) ./Easy_find
 
 #--print header----------------------------------------------------------------#
 
 header:
-	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_07 : ex00 : Start with a few functions${END}\n"
+	printf "\n${PURPLE}project:\t${END}${BLUE}cpp_08 : ex00 : Easy find${END}\n"
 	printf "${PURPLE}author:\t\t${END}${BLUE}${TWANG}${END}\n"
 	printf "${PURPLE}leaks mode:\t${END}${BLUE}${VALGRIND}${END}\n"
 	printf "${PURPLE}debug mode:\t${END}${BLUE}${DEBUG}${END}\n"
