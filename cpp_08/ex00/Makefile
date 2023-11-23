@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/23 15:26:13 by twang            ###   ########.fr        #
+#    Updated: 2023/11/23 17:32:31 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,8 @@ CC			=	c++
 HDR_DIR		=	includes
 SRC_DIR		=	sources
 
-HEADERS		=	$(HDR_DIR)/whatever.h										\
-				$(HDR_DIR)/whatever.hpp
+HEADERS		=	$(HDR_DIR)/easyfind.h										\
+				$(HDR_DIR)/easyfind.tpp
 
 SOURCES		=	$(SRC_DIR)/main.cpp
 
@@ -37,7 +37,7 @@ OBJ_DIR		=	.objs
 
 #--flags mandatory & bonus ----------------------------------------------------#
 
-CPPFLAGS		=	-Wall -Wextra -Werror -Wno-conversion -std=c++98 -I $(HDR_DIR)
+CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I $(HDR_DIR)
 
 #--debug flags-----------------------------------------------------------------#
 

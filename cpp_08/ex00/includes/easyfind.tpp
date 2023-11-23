@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:50:25 by twang             #+#    #+#             */
-/*   Updated: 2023/11/23 16:59:40 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/23 17:33:06 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 
 /*---- templates functions defines -------------------------------------------*/
 
-templates< typename T >
-
-
+// templates< typename T >
+// T	easyfind( T container, int found )
+// {
+// 	return ( found );
+// }
 #endif
