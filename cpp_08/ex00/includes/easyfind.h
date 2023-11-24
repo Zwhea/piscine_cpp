@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:58:03 by twang             #+#    #+#             */
-/*   Updated: 2023/11/23 17:24:50 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/24 10:36:34 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,5 @@
 # define ITALIC		"\001\033[3m\002"
 # define UNDERLINE	"\001\033[4m\002"
 # define DEL_LINE	"\001\033[2K\r\002"
-
-/*---- verboses --------------------------------------------------------------*/
-
-# define D_CONSTRUCTOR	"Default constructor called"
-# define CONSTRUCTOR	" : constructor called"
-# define C_CONSTRUCTOR	"Copy constructor called"
-# define DESTRUCTOR		"Default destructor called"
 
 #endif

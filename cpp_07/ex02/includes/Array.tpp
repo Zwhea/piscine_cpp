@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:49:34 by twang             #+#    #+#             */
-/*   Updated: 2023/11/21 15:16:02 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/24 10:47:20 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # include "Array.h"
 
-/*----------------------------------------------------------------------------*/
+/*---- templates classes defines ---------------------------------------------*/
 
 template< typename T >
 class	Array
@@ -31,7 +31,7 @@ class	Array
 		T &			operator[]( unsigned int index );
 		~Array< T >( void );
 
-		std::size_t	size( void ) const;
+		std::size_t		size( void ) const;
 
 	private :
 
@@ -40,6 +40,7 @@ class	Array
 
 	class	OutOfBoundException : public std::exception
 	{
+
 		public :
 
 			virtual const char *what() const throw();
@@ -47,7 +48,9 @@ class	Array
 	};
 };
 
-/*---- constructors & destructor ---------------------------------------------*/
+/*---- templates functions defines -------------------------------------------*/
+
+/*---- constructors & destructors ----*/
 
 template< typename T >
 Array< T >::Array( void )
@@ -75,6 +78,15 @@ Array< T >::Array( Array< T > const & copy )
 }
 
 template< typename T >
+Array< T >::~Array( void )
+{
+	if ( _array )
+		delete[] _array;
+}
+
+/*---- operators overload ----*/
+
+template< typename T >
 Array< T >&	Array< T >::operator=( Array< T > const & right_value )
 {
 	if ( _array )
@@ -97,18 +109,15 @@ T&	Array< T >::operator[]( unsigned int index )
 	return ( _array[index] );
 }
 
-template< typename T >
-Array< T >::~Array( void )
-{
-	if ( _array )
-		delete[] _array;
-}
+/*---- functions ----*/
 
 template< typename T >
 std::size_t	Array< T >::size( void ) const
 {
 	return ( _size );
 }
+
+/*---- exceptions ----*/
 
 template< typename T >
 const char*	Array< T >::OutOfBoundException::what() const throw()
