@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:49:21 by twang             #+#    #+#             */
-/*   Updated: 2023/11/28 09:11:39 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/28 09:14:19 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main( void )
 {
-	Span				sp = Span(5);
-	Span				st = Span(20);
+	Span sp =			Span(5);
+	Span st =			Span(20);
 	std::vector< int >	test( 10 );
 
 	try

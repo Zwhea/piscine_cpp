@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 19:35:26 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/27 20:41:10 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/28 13:27:46 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,32 @@ int	main( void )
 {
 	MutantStack< int > mstack;
 
+	mstack.displayStatus();
+
 	mstack.push( 5 );
 	mstack.push( 17 );
 
-	std::cout << mstack.top( ) << std::endl;
 	mstack.pop( );
-	std::cout << mstack.size( ) << std::endl;
+	mstack.displayStatus();
 
 	mstack.push( 3 );
 	mstack.push( 5 );
 	mstack.push( 737 );
 	//[...]
 	mstack.push( 0 );
+	mstack.displayStatus();
 
 	MutantStack< int >::iterator it = mstack.begin( );
 	MutantStack< int >::iterator ite = mstack.end( );
 
+	mstack.displayStack( it, ite );
 	++it;
+	mstack.displayStack( it, ite );
 	--it;
+	mstack.displayStack( it, ite );
 
-	while ( it != ite )
-	{
-		std::cout << *it << std::endl;
-		++it;
-	}
 	std::stack< int > s( mstack );
+	std::cout << "size : " << s.size( ) << std::endl;
 
 	return ( 0 );
 }

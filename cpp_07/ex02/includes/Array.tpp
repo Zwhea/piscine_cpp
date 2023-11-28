@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:49:34 by twang             #+#    #+#             */
-/*   Updated: 2023/11/27 10:24:10 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/28 09:50:40 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ std::size_t	Array< T >::size( void ) const
 }
 
 /*---- exceptions ----*/
-
+::
 template< typename T >
 const char*	Array< T >::OutOfBoundException::what() const throw()
 {

@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:54:38 by twang             #+#    #+#             */
-/*   Updated: 2023/11/28 09:11:58 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/28 13:24:37 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 /*---- constructors & destructor ---------------------------------------------*/
 
-Span::Span( unsigned int n ) : _n( n ) {}
+Span::Span( unsigned int n ) : _n( n ) { }
 
 Span::Span( Span const & copy ) : _n( copy._n ), \
-				_container( std::vector<int>( copy._container ) ) {}
+				_container( std::vector<int>( copy._container ) ) { }
 
-Span::~Span( void ) {}
+Span::~Span( void ) { }
 
 /*---- operator overload -----------------------------------------------------*/
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 19:32:38 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/27 19:33:45 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/28 09:15:53 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <iostream>
 # include <stack>
 # include <algorithm>
-# include <cmath>
 
 /*---- defines ---------------------------------------------------------------*/
 
