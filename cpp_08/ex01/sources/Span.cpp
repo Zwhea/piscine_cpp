@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:54:38 by twang             #+#    #+#             */
-/*   Updated: 2023/11/24 16:36:45 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/28 09:11:58 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,14 @@ unsigned int	Span::longestSpan( void )
 	return ( result );
 }
 
-/* fonction qui remplit mon container */
+void	Span::fillContainer( std::vector< int >::iterator start, std::vector< int >::iterator end )
+{
+	if ( ( end - start ) + _container.size( ) >= _n )
+		throw noSpaceException( );
+
+	for ( ; start != end ; ++start )
+	{
+		// std::cout << *start << std::endl;
+		_container.push_back( *start );
+	}
+}

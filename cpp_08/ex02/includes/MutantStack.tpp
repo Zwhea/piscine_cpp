@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 19:33:56 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/27 20:51:52 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/28 08:31:50 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class MutantStack ： public std::stack< T >
 
 	public:
 
-		MutantStack(/* args */);
+		MutantStack( void );
 		MutantStack( MutantStack const & copy );
 		MutantStack & operator=( MutantStack const & right_value );
 		~MutantStack();

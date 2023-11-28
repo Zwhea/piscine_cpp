@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:49:34 by twang             #+#    #+#             */
-/*   Updated: 2023/11/24 10:47:20 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/27 10:24:10 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class	Array
 		Array< T >( Array< T > const & copy );
 		Array< T >&	operator=( Array< T > const & right_value );
 		T &			operator[]( unsigned int index );
+		T &			operator[]( unsigned int index ) const;
 		~Array< T >( void );
 
 		std::size_t		size( void ) const;
@@ -103,6 +104,14 @@ Array< T >&	Array< T >::operator=( Array< T > const & right_value )
 
 template< typename T >
 T&	Array< T >::operator[]( unsigned int index )
+{
+	if ( index < 0 || index >= _size)
+		throw Array::OutOfBoundException( );
+	return ( _array[index] );
+}
+
+template< typename T >
+T&	Array< T >::operator[]( unsigned int index ) const
 {
 	if ( index < 0 || index >= _size)
 		throw Array::OutOfBoundException( );

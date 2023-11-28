@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:55:35 by twang             #+#    #+#             */
-/*   Updated: 2023/11/24 16:26:48 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/27 17:08:09 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class	Span
 
 		unsigned int				shortestSpan( void );
 		unsigned int				longestSpan( void );
+		void						fillContainer( std::vector< int >::iterator start, std::vector< int >::iterator end );
 
 	private :
 
@@ -45,6 +46,7 @@ class	Span
 		public :
 			virtual const char	*what() const throw();
 	};
+
 	class	noSpanException : public std::exception
 	{
 		public :
