@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 19:35:26 by wangthea          #+#    #+#             */
-/*   Updated: 2023/11/28 13:27:46 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/28 13:58:44 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,20 @@ int	main( void )
 
 	std::stack< int > s( mstack );
 	std::cout << "size : " << s.size( ) << std::endl;
+
+	MutantStack< char > sc;
+	sc.push('h');
+	sc.push('e');
+	sc.push('n');
+	sc.push('r');
+	sc.push('i');
+	sc.push('g');
+	sc.push('o');
+	sc.push('l');
+	sc.push('e');
+
+	mstack.displayStatus();
+	sc.displayStack( sc.begin(), sc.end() );
 
 	return ( 0 );
 }

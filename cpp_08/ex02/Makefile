@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+         #
+#    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/11/27 20:32:39 by wangthea         ###   ########.fr        #
+#    Updated: 2023/11/28 14:09:33 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -125,9 +125,9 @@ re:
 	$(MAKE) -j all
 
 clean:
+	$(RM) -rf $(OBJ_DIR)
 	$(RM) -rf $(OBJECTS)
 	$(RM) -rf $(DEPS)
-	$(RM) -rf $(OBJ_DIR)
 	$(PRINT_CLEAN)
 
 fclean:

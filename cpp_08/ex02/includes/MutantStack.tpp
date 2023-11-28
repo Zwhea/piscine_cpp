@@ -105,6 +105,7 @@ void	MutantStack< T >::displayStack ( MutantStack< T >::iterator start, MutantSt
 	{
 		std::cout << "[ " << i << " ] : ";
 		std::cout << PURPLE << *start << END << std::endl;
+		i++;
 	}
 	std::cout << std::endl;
 }

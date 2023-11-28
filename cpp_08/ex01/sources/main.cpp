@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:49:21 by twang             #+#    #+#             */
-/*   Updated: 2023/11/28 09:14:19 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/28 16:37:20 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,21 @@
 int	main( void )
 {
 	Span sp =			Span(5);
-	Span st =			Span(20);
+	Span st =			Span(10001);
 	std::vector< int >	test( 10 );
+	std::vector< int >	v;
+
 
 	try
 	{
+		for (int i = 0; i < 10000; i++)
+		{
+			v.push_back(2 * i);
+		}
+		st.fillContainer(v.begin(), v.end());
+
+		std::cout << YELLOW << st.shortestSpan() << END << std::endl;
+		std::cout << PURPLE << st.longestSpan() << END << std::endl;
 		sp.addNumber(6);
 		sp.addNumber(3);
 		sp.addNumber(18);
