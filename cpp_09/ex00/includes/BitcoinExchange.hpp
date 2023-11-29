@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:16 by twang             #+#    #+#             */
-/*   Updated: 2023/11/29 16:28:43 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/29 16:37:04 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 
 /*---- prototypes ------------------------------------------------------------*/
 
-std::string openFile( char* file );
-
+std::string	openFile( char* file );
+void		checkDatabase( std::string database );
+void		checkGivenDatabase( std::string database );
 
 #endif

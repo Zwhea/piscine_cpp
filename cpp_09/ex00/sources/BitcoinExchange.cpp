@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:29 by twang             #+#    #+#             */
-/*   Updated: 2023/11/29 16:30:22 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/29 16:36:50 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,14 @@ std::string	openFile( char* file )
 	delete[] buffer;
 
 	return ( new_buff );
+}
+
+void	checkDatabase( std::string database )
+{
+	std::cout << database << std::endl;
+}
+
+void	checkGivenDatabase( std::string database )
+{
+	std::cout << database << std::endl;
 }
