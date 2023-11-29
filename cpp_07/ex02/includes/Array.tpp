@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:49:34 by twang             #+#    #+#             */
-/*   Updated: 2023/11/28 09:50:40 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/29 10:09:08 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ Array< T >::Array( const unsigned int n )
 	_size = n;
 	_array = new T[n];
 	for ( unsigned int i = 0; i < n; i++ )
-		_array[i] = 0 ;
+		new ( &_array[i] ) T( );
 }
 
 template< typename T >
@@ -127,7 +127,7 @@ std::size_t	Array< T >::size( void ) const
 }
 
 /*---- exceptions ----*/
-::
+
 template< typename T >
 const char*	Array< T >::OutOfBoundException::what() const throw()
 {

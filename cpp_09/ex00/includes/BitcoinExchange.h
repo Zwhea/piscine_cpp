@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:40:42 by twang             #+#    #+#             */
-/*   Updated: 2023/11/28 16:59:48 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/29 16:07:20 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 /*---- librairies ------------------------------------------------------------*/
 
 # include <iostream>
+# include <sstream>
+# include <fstream>
 # include <map>
 # include <algorithm>
 
@@ -33,5 +35,14 @@
 # define ITALIC		"\001\033[3m\002"
 # define UNDERLINE	"\001\033[4m\002"
 # define DEL_LINE	"\001\033[2K\r\002"
+
+/*---- defines paths ---------------------------------------------------------*/
+
+# define DATABASE	"./data.csv"
+
+/*---- defines errors --------------------------------------------------------*/
+
+# define INV_ARG	"Error : invalid argument.\nUsage : ./btc input.txt"
+# define INV_FIL	"Error : invalid file: this program allows only < .csv > or < .txt > files type."
 
 #endif
