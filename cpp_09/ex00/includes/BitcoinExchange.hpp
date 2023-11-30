@@ -6,7 +6,7 @@
 /*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:16 by twang             #+#    #+#             */
-/*   Updated: 2023/11/30 21:41:19 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/11/30 21:53:20 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ class	BitcoinExchange
 
 			void	showDatabase( void );
 			void	checkDatabase( void );
+
+			void	checkDate( std::string date );
+			void	checkValue( double value );
 
 		private :
 
