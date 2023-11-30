@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:40:42 by twang             #+#    #+#             */
-/*   Updated: 2023/11/30 11:00:52 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/30 20:43:25 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 /*---- defines errors --------------------------------------------------------*/
 
 # define INV_ARG	"Error : invalid argument.\nUsage : ./btc input.txt"
-# define INV_FIL	"Error : invalid file: this program allows only < .csv > or < .txt > files type."
+# define EXT_FIL	"Error : invalid file: this program allows only < .csv > or < .txt > files type."
+# define INV_FIL	"Error : invalid file: the database is invalid, please check the file content again."
 
 #endif

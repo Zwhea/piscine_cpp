@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:16 by twang             #+#    #+#             */
-/*   Updated: 2023/11/30 11:30:02 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/30 21:41:19 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class	BitcoinExchange
 			BitcoinExchange & operator=( BitcoinExchange const & right_value );
 			~BitcoinExchange( void );
 
+			void	showDatabase( void );
 			void	checkDatabase( void );
 
 		private :

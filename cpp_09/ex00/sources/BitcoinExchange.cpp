@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:29 by twang             #+#    #+#             */
-/*   Updated: 2023/11/30 15:31:11 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/30 21:48:15 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,22 @@
 BitcoinExchange::BitcoinExchange( std::string file )
 {
 	std::string	extension = file.substr( file.length( ) - 4, file.length( ) );
-	if ( extension != ".csv" && extension != ".txt" )
-		throw std::invalid_argument( RED INV_FIL END );
+	if ( extension != ".csv" )
+		throw std::invalid_argument( RED EXT_FIL END );
 
 	std::ifstream	data( file.c_str( ), std::ios::in );
 	for ( std::string line; std::getline( data, line ); )
 	{
+		bool hasDigit = false;
+		for ( std::size_t i = 0; i < line.length( ); i++ )
+		{
+			if ( std::isdigit( line[i] ) )
+				hasDigit = true;
+			if (hasDigit && !std::isdigit(line[i]) && line[i] != '-' && line[i] != ',' && line[i] != '.')
+				throw std::invalid_argument(RED INV_FIL END);
+		}
+		if ( !hasDigit )
+			continue ;
 		std::string::size_type pos = line.find(',');
 		if ( pos != std::string::npos )
 		{
@@ -32,22 +42,28 @@ BitcoinExchange::BitcoinExchange( std::string file )
 		else
 			throw std::invalid_argument( RED INV_FIL END );
 	}
+	if ( _database.empty( ) )
+		throw std::invalid_argument( RED INV_FIL END );
 }
 
 BitcoinExchange::BitcoinExchange( BitcoinExchange const & copy )
 {
-	( void )copy;
+	_database = copy._database;
 }
 
 BitcoinExchange & BitcoinExchange::operator=( BitcoinExchange const & right_value )
 {
-	( void )right_value;
+	if ( this == &right_value )
+		return ( *this );
+
+	_database = right_value._database;
+
 	return ( *this );
 }
 
 BitcoinExchange::~BitcoinExchange( void ) { }
 
-void	BitcoinExchange::checkDatabase( void )
+void	BitcoinExchange::showDatabase( void )
 {
 	for(std::map<std::string, double>::iterator it = _database.begin(); it != _database.end(); ++it)
 	{
@@ -58,46 +74,7 @@ void	BitcoinExchange::checkDatabase( void )
 	}
 }
 
-
-// std::map< std::string, double >	getDatabase( void ) { }
-
-// std::string	openFile( char* file )
-// {
-// 	std::string	new_file = static_cast< std::string >( file );
-// 	std::string	extension = new_file.substr( new_file.length( ) - 4, new_file.length( ) );
-// 	if ( extension != ".csv" && extension != ".txt" )
-// 		throw std::invalid_argument( RED INV_FIL END );
-
-// 	std::ifstream	infile( file, std::ios::in );
-// 	if ( !infile )
-// 		throw std::invalid_argument( RED INV_FIL END );
-
-// 	char		*buffer;
-// 	std::size_t	length = 0;
-
-// 	infile.seekg( 0, infile.end );
-// 	length = infile.tellg( );
-
-// 	infile.seekg( 0, infile.beg );
-// 	buffer = new char[length + 1];
-// 	buffer[length] = '\0';
-
-// 	infile.read( buffer, length );
-// 	infile.close( );
-
-// 	buffer.strtok();
-// 	std::string	new_buff = buffer;
-// 	delete[] buffer;
-
-// 	return ( new_buff );
-// }
-
-// void	checkDatabase( std::string database )
-// {
-// 	std::cout << database << std::endl;
-// }
-
-// void	checkGivenDatabase( std::string database )
-// {
-// 	std::cout << database << std::endl;
-// }
+void	BitcoinExchange::checkDatabase( void )
+{
+	
+}
