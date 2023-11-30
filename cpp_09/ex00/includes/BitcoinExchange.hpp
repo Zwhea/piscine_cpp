@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:16 by twang             #+#    #+#             */
-/*   Updated: 2023/11/29 16:37:04 by twang            ###   ########.fr       */
+/*   Updated: 2023/11/30 11:30:02 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,26 @@
 
 /*---- prototypes ------------------------------------------------------------*/
 
-std::string	openFile( char* file );
-void		checkDatabase( std::string database );
-void		checkGivenDatabase( std::string database );
+// std::string	openFile( char* file );
+
+class	BitcoinExchange
+{
+
+		public :
+
+			BitcoinExchange( std::string file );
+			BitcoinExchange( BitcoinExchange const & copy );
+			BitcoinExchange & operator=( BitcoinExchange const & right_value );
+			~BitcoinExchange( void );
+
+			void	checkDatabase( void );
+
+		private :
+
+			BitcoinExchange( void );
+			std::map< std::string, double >	_database;
+
+};
+
 
 #endif
