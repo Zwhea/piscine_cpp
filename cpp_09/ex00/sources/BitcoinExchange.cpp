@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:29 by twang             #+#    #+#             */
-/*   Updated: 2023/12/01 10:57:26 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/01 16:39:36 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,93 @@ void	BitcoinExchange::showDatabase( void )
 	}
 }
 
-void	BitcoinExchange::checkDate( std::string date )
+bool	BitcoinExchange::showError( std::string error )
 {
-	std::cout << YELLOW << date << END << std::endl;
+	std::cout << RED << error << END << std::endl;
+	return ( false );
 }
-void	BitcoinExchange::checkValue( std::string value )
+
+bool	BitcoinExchange::checkMonth( std::size_t month )
+{
+	return ( true );
+}
+
+bool	BitcoinExchange::checkDay( std::size_t day )
+{
+	return ( true );
+}
+
+bool	BitcoinExchange::checkYear( std::size_t year )
+{
+	return ( true );
+}
+
+bool	BitcoinExchange::checkDate( std::string date )
+{
+	std::string::size_type year_pos = date.find('-');
+	if ( year_pos != std::string::npos )
+	{
+		std::string::size_type month_pos = date.find('-', year_pos + 1);
+		if ( month_pos != std::string::npos )
+		{
+			std::string strMonth = date.substr( year_pos + 1 , month_pos );
+			std::size_t	month = std::atoi( strMonth.c_str( ) );
+			if ( month < 1 || month > 12 )
+				return ( showError( INV_DATE ), showError( MON_ERR ) );
+			std::string strDay = date.substr( month_pos + 1 );
+			std::size_t	day = std::atoi( strDay.c_str( ) );
+			if ( day < 1 || day > 31 )
+				return ( showError( INV_DATE ), showError( DAY_ERR_1 ) );
+			if ( month < 7 )
+			{
+				if ( month % 2 == 0 )
+					if ( day > 30 )
+						return ( showError( INV_DATE ), showError( DAY_ERR_0 ) );
+			}
+			else if ( month > 7 )
+			{
+				if ( month % 2 != 0 )
+					if ( day > 30 )
+						return ( showError( INV_DATE ), showError( DAY_ERR_0 ) );
+			}
+			std::string strYear = date.substr( 0, year_pos );
+			std::size_t	year = std::atoi( strYear.c_str( ) );
+			if ( ( day < 3 && month == 1 && year == 2009 ) || year < 2009 )
+				return ( showError( INV_DATE ), showError( YEAR_ERR ) );
+			if ( ( day > 29 && month >= 3 && year == 2022 ) || year > 2022)
+			{
+				showError( INV_DATE );
+				showError( YEAR_WARN );
+			}
+			if ( month == 2 )
+			{
+				if ( ( year % 4 == 0 && year % 100 != 0 ) || year % 400 == 0 )
+				{
+					if ( day > 29 )
+						return ( showError( INV_DATE ), showError( DAY_ERR_3 ) );
+				}
+				else
+				{
+					if ( day > 28 )
+					return ( showError( INV_DATE ), showError( DAY_ERR_2 ) );
+				}
+			}
+		}
+		else
+			return ( showError( INV_DATE ), showError( MON_ERR ) );
+	}
+	return ( true );
+}
+
+bool	BitcoinExchange::checkValue( std::string value )
 {
 	double	val = std::atof( value.c_str( ) );
-	if ( val < 1 || val > 999 )
-		std::cout << RED << "Error : too large a number." << END << std::endl;
-	std::cout << PURPLE << val << END << std::endl;
+	if ( val < 0 )
+		return ( showError( ERR_INPUT ), showError( NOT_POS ) );
+	if ( val > 1000 )
+		return ( showError( ERR_INPUT ), showError( TOO_LARG ) );
+
+	return ( true );
 }
 
 std::string	BitcoinExchange::getInputData( std::string file )
@@ -106,12 +183,15 @@ std::string	BitcoinExchange::getInputData( std::string file )
 		{
 			std::string date = line.substr( 0, pos );
 			std::string value = line.substr( pos + 1, line.length( ) );
-			checkDate( date );
-			checkValue( value );
+			if ( checkDate( date ) && checkValue( value ) )
+			{
+				std::cout << date << std::endl;
+			}
 		}
 		else
 		{
-			std::cout << RED << ERR_INPUT << END << line << std::endl;
+			showError( ERR_INPUT );
+			std::cout << RED << BAD_INPUT << END << line << std::endl;
 			continue ;
 		}
 	}

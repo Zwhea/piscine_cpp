@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:40:42 by twang             #+#    #+#             */
-/*   Updated: 2023/12/01 10:45:58 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/01 15:31:35 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,25 @@
 
 # define INV_INPUT		"Error : invalid given file: the given database is invalid, please check the file content again."
 
-# define ERR_INPUT		"Error : bad input => "
+// # define VAL_RULES		"Error Type : A valid value must be either a float or a positive integer, between 0 and 1000."
+# define ERR_INPUT		"Error : invalid value: A valid value must be either a float or a positive integer, between 0 and 1000."
+# define BAD_INPUT		"Type : bad input => "
+# define NOT_POS		"Type : not a positive number."
+# define TOO_LARG		"Type : too large a number."
 
-# define INV_DATE		"Error : invalid given file: one of the date listed in the file is wrong, please check again.\n"
-# define INV_VALUE		"Error : invalid given file: one of the value listed in the file is wrong, please check again.\n"
+# define INV_VALUE		"Error : invalid given file: one of the value listed in the file is wrong, please check again."
 
-# define DATA_RULES		"Usage : < Year-Month-Day | value >. Ex: 2010-10-10 | 1 \n"
-# define YEAR_RULES		"Error Type : A valid year must be a positive integer.\n"
-# define YEAR_ERR		"Error Type : One of the given dates is before the creation of Bitcoin.\n"
-# define YEAR_WARN		"Error Type : One of the given dates is outside the range provided by the database, so we do not guarantee the accuracy of the results given.\n"
-# define MON_RULES		"Error Type : A valid month must a positive integer, between 01 and 12.\n"
-# define DAY_RULES_0	"Error Type : A valid day must a positive integer, between 01 and 30.\n"
-# define DAY_RULES_1	"Error Type : A valid day must a positive integer, between 01 and 31.\n"
+# define INV_DATE		"Error : invalid date: one of the date listed in the file is wrong, please check again."
+// # define DATA_RULES		"Usage : < Year-Month-Day | value >. Ex: 2010-10-10 | 1 "
+// # define YEAR_RULES		"Error Type : A valid year must be a positive integer."
+
+# define YEAR_WARN		"Warning : One of the given dates is outside the range provided by the database, so we do not guarantee the accuracy of the results given."
+# define YEAR_ERR		"Error : One of the given dates is before the creation of Bitcoin."
+# define MON_ERR		"Type : A valid month must a positive integer, between 01 and 12."
+# define DAY_ERR_0		"Type : A valid day must a positive integer, between 01 and 30."
+# define DAY_ERR_1		"Type : A valid day must a positive integer, between 01 and 31."
+# define DAY_ERR_2		"Type : A valid day must a positive integer, between 01 and 28, it's February."
+# define DAY_ERR_3		"Type : A valid day must a positive integer, between 01 and 29, it's February and it's a leap year."
 /* ne pas oublier Feb exception */
-# define VAL_RULES		"Error Type : A valid value must be either a float or a positive integer, between 0 and 1000.\n"
 
 #endif

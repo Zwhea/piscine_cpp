@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:16 by twang             #+#    #+#             */
-/*   Updated: 2023/12/01 10:42:00 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/01 16:19:13 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ class	BitcoinExchange
 			~BitcoinExchange( void );
 
 			void		showDatabase( void );
+			bool		showError( std::string error );
 
 			std::string	getInputData( std::string file );
 
-			void		checkDate( std::string date );
-			void		checkValue( std::string value );
+			bool		checkDate( std::string date );
+			bool		checkValue( std::string value );
 
 		private :
 
@@ -45,5 +46,9 @@ class	BitcoinExchange
 
 };
 
+enum e_error
+{
+	
+};
 
 #endif
