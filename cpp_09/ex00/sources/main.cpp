@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:48 by twang             #+#    #+#             */
-/*   Updated: 2023/11/30 21:45:42 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/12/01 10:06:14 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main( int ac, char **av )
 {
 	std::string		data = DATABASE;
-	( void )av;
+	std::string		inputData ;
 
 	try
 	{
@@ -23,8 +23,7 @@ int	main( int ac, char **av )
 		if ( ac != 2 )
 			throw std::invalid_argument( RED INV_ARG END );
 		BitcoinExchange	database( data );
-		database.checkDatabase( );
-
+		inputData = database.getInputData( av[1] );
 
 	}
 	catch ( std::invalid_argument const & error ) {

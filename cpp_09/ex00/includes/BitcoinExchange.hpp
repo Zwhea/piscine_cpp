@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:16 by twang             #+#    #+#             */
-/*   Updated: 2023/11/30 21:53:20 by wangthea         ###   ########.fr       */
+/*   Updated: 2023/12/01 10:42:00 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ class	BitcoinExchange
 			BitcoinExchange & operator=( BitcoinExchange const & right_value );
 			~BitcoinExchange( void );
 
-			void	showDatabase( void );
-			void	checkDatabase( void );
+			void		showDatabase( void );
 
-			void	checkDate( std::string date );
-			void	checkValue( double value );
+			std::string	getInputData( std::string file );
+
+			void		checkDate( std::string date );
+			void		checkValue( std::string value );
 
 		private :
 
