@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:29 by twang             #+#    #+#             */
-/*   Updated: 2023/12/01 16:39:36 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/04 11:27:38 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,16 +82,57 @@ bool	BitcoinExchange::showError( std::string error )
 
 bool	BitcoinExchange::checkMonth( std::size_t month )
 {
+	if ( month < 1 || month > 12 )
+		return ( false );
 	return ( true );
 }
 
-bool	BitcoinExchange::checkDay( std::size_t day )
+bool	BitcoinExchange::checkDay( std::size_t day, std::size_t month )
 {
+	if ( day < 1 || day > 31 )
+		return ( showError( INV_DATE ), showError( DAY_ERR_1 ) );
+	if ( month < 7 )
+	{
+		if ( month % 2 == 0 )
+			if ( day > 30 )
+				return ( showError( INV_DATE ), showError( DAY_ERR_0 ) );
+	}
+	else if ( month > 7 )
+	{
+		if ( month % 2 != 0 )
+			if ( day > 30 )
+				return ( showError( INV_DATE ), showError( DAY_ERR_0 ) );
+	}
 	return ( true );
 }
 
-bool	BitcoinExchange::checkYear( std::size_t year )
+bool	BitcoinExchange::checkYear( std::size_t day, std::size_t month, std::size_t year )
 {
+	if ( ( day < 3 && month == 1 && year == 2009 ) || year < 2009 )
+	{
+		showError( INV_DATE );
+		showError( YEAR_WARN_1 );
+		return ( true );
+	}
+	if ( ( day > 29 && month >= 3 && year == 2022 ) || year > 2022)
+	{
+		showError( INV_DATE );
+		showError( YEAR_WARN_0 );
+		return ( true );
+	}
+	if ( month == 2 )
+	{
+		if ( ( year % 4 == 0 && year % 100 != 0 ) || year % 400 == 0 )
+		{
+			if ( day > 29 )
+				return ( showError( INV_DATE ), showError( DAY_ERR_3 ) );
+		}
+		else
+		{
+			if ( day > 28 )
+			return ( showError( INV_DATE ), showError( DAY_ERR_2 ) );
+		}
+	}
 	return ( true );
 }
 
@@ -105,46 +146,16 @@ bool	BitcoinExchange::checkDate( std::string date )
 		{
 			std::string strMonth = date.substr( year_pos + 1 , month_pos );
 			std::size_t	month = std::atoi( strMonth.c_str( ) );
-			if ( month < 1 || month > 12 )
+			if ( !checkMonth( month ) )
 				return ( showError( INV_DATE ), showError( MON_ERR ) );
 			std::string strDay = date.substr( month_pos + 1 );
 			std::size_t	day = std::atoi( strDay.c_str( ) );
-			if ( day < 1 || day > 31 )
-				return ( showError( INV_DATE ), showError( DAY_ERR_1 ) );
-			if ( month < 7 )
-			{
-				if ( month % 2 == 0 )
-					if ( day > 30 )
-						return ( showError( INV_DATE ), showError( DAY_ERR_0 ) );
-			}
-			else if ( month > 7 )
-			{
-				if ( month % 2 != 0 )
-					if ( day > 30 )
-						return ( showError( INV_DATE ), showError( DAY_ERR_0 ) );
-			}
+			if ( !checkDay( day, month ) )
+				return ( false );
 			std::string strYear = date.substr( 0, year_pos );
 			std::size_t	year = std::atoi( strYear.c_str( ) );
-			if ( ( day < 3 && month == 1 && year == 2009 ) || year < 2009 )
-				return ( showError( INV_DATE ), showError( YEAR_ERR ) );
-			if ( ( day > 29 && month >= 3 && year == 2022 ) || year > 2022)
-			{
-				showError( INV_DATE );
-				showError( YEAR_WARN );
-			}
-			if ( month == 2 )
-			{
-				if ( ( year % 4 == 0 && year % 100 != 0 ) || year % 400 == 0 )
-				{
-					if ( day > 29 )
-						return ( showError( INV_DATE ), showError( DAY_ERR_3 ) );
-				}
-				else
-				{
-					if ( day > 28 )
-					return ( showError( INV_DATE ), showError( DAY_ERR_2 ) );
-				}
-			}
+			if ( !checkYear( day, month, year ) )
+				return ( false );
 		}
 		else
 			return ( showError( INV_DATE ), showError( MON_ERR ) );
@@ -163,8 +174,22 @@ bool	BitcoinExchange::checkValue( std::string value )
 	return ( true );
 }
 
-std::string	BitcoinExchange::getInputData( std::string file )
+bool	BitcoinExchange::checkDatabase( void )
 {
+	for(std::map<std::string, double>::iterator it = _database.begin(); it != _database.end(); ++it)
+	{
+		std::string date = it->first;
+		if ( !checkDate( date ) )
+			return ( false );
+	}
+
+	return ( true );
+}
+
+void	BitcoinExchange::getInputData( std::string file )
+{
+	if ( !checkDatabase() )
+		throw std::invalid_argument(RED INV_FIL END);
 	std::ifstream	data( file.c_str( ), std::ios::in );
 	for ( std::string line; std::getline( data, line ); )
 	{
@@ -173,7 +198,8 @@ std::string	BitcoinExchange::getInputData( std::string file )
 		{
 			if ( std::isdigit( line[i] ) )
 				hasDigit = true;
-			if (hasDigit && !std::isdigit(line[i]) && line[i] != '-' && line[i] != '|' && line[i] != '.' && line[i] != ' ' )
+			if (hasDigit && !std::isdigit(line[i]) && line[i] != '-' \
+					&& line[i] != '|' && line[i] != '.' && line[i] != ' ' )
 				throw std::invalid_argument(RED INV_INPUT END);
 		}
 		if ( !hasDigit )
@@ -195,6 +221,4 @@ std::string	BitcoinExchange::getInputData( std::string file )
 			continue ;
 		}
 	}
-	std::string	inputData = "heyo";
-	return ( inputData );
 }
