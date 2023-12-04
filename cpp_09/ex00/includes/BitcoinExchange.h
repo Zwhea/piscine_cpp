@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:40:42 by twang             #+#    #+#             */
-/*   Updated: 2023/12/04 14:19:24 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/04 16:15:15 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,13 @@
 # define INV_ARG		"Error : invalid argument.\nUsage : ./btc input.txt"
 # define EXT_FIL		"Error : invalid file: this program allows only < .csv > or < .txt > files type."
 # define INV_FIL		"Error : invalid file: the database is invalid, please check the file content again."
-
 # define INV_INPUT		"Error : invalid given file: the given database is invalid, please check the file content again."
-
-// # define VAL_RULES		"Error Type : A valid value must be either a float or a positive integer, between 0 and 1000."
 # define ERR_INPUT		"Error : invalid value: A valid value must be either a float or a positive integer, between 0 and 1000."
 # define BAD_INPUT		"Type : bad input → "
 # define NOT_POS		"Type : not a positive number."
 # define TOO_LARG		"Type : too large a number."
-
 # define INV_VALUE		"Error : invalid given file: one of the value listed in the file is wrong, please check again."
-
 # define INV_DATE		"Error : invalid date: one of the date listed in the file is wrong, please check again."
-
 # define YEAR_WARN_0	"Warning : One of the given dates is outside the range provided by the database, so we do not guarantee the accuracy of the results given."
 # define YEAR_WARN_1	"Warning : One of the given dates is before the creation of Bitcoin."
 # define MON_ERR		"Type : A valid month must a positive integer, between 01 and 12."
