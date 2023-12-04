@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:29 by twang             #+#    #+#             */
-/*   Updated: 2023/12/04 11:27:38 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/04 14:21:01 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,59 +80,71 @@ bool	BitcoinExchange::showError( std::string error )
 	return ( false );
 }
 
-bool	BitcoinExchange::checkMonth( std::size_t month )
+void	BitcoinExchange::getInputData( std::string file )
 {
-	if ( month < 1 || month > 12 )
-		return ( false );
-	return ( true );
-}
-
-bool	BitcoinExchange::checkDay( std::size_t day, std::size_t month )
-{
-	if ( day < 1 || day > 31 )
-		return ( showError( INV_DATE ), showError( DAY_ERR_1 ) );
-	if ( month < 7 )
+	if ( !checkDatabase() )
+		throw std::invalid_argument(RED INV_FIL END);
+	std::ifstream	data( file.c_str( ), std::ios::in );
+	for ( std::string line; std::getline( data, line ); )
 	{
-		if ( month % 2 == 0 )
-			if ( day > 30 )
-				return ( showError( INV_DATE ), showError( DAY_ERR_0 ) );
-	}
-	else if ( month > 7 )
-	{
-		if ( month % 2 != 0 )
-			if ( day > 30 )
-				return ( showError( INV_DATE ), showError( DAY_ERR_0 ) );
-	}
-	return ( true );
-}
-
-bool	BitcoinExchange::checkYear( std::size_t day, std::size_t month, std::size_t year )
-{
-	if ( ( day < 3 && month == 1 && year == 2009 ) || year < 2009 )
-	{
-		showError( INV_DATE );
-		showError( YEAR_WARN_1 );
-		return ( true );
-	}
-	if ( ( day > 29 && month >= 3 && year == 2022 ) || year > 2022)
-	{
-		showError( INV_DATE );
-		showError( YEAR_WARN_0 );
-		return ( true );
-	}
-	if ( month == 2 )
-	{
-		if ( ( year % 4 == 0 && year % 100 != 0 ) || year % 400 == 0 )
+		bool hasDigit = false;
+		for ( std::size_t i = 0; i < line.length( ); i++ )
 		{
-			if ( day > 29 )
-				return ( showError( INV_DATE ), showError( DAY_ERR_3 ) );
+			if ( std::isdigit( line[i] ) )
+				hasDigit = true;
+			if (hasDigit && !std::isdigit(line[i]) && line[i] != '-' \
+					&& line[i] != '|' && line[i] != '.' && line[i] != ' ' )
+				throw std::invalid_argument(RED INV_INPUT END);
+		}
+		if ( !hasDigit )
+			continue ;
+		std::string::size_type pos = line.find('|');
+		if ( pos != std::string::npos )
+		{
+			std::string date = line.substr( 0, pos );
+			std::string value = line.substr( pos + 1, line.length( ) );
+			if ( checkDate( date ) && checkValue( value ) )
+				dataConverter( date, value );
 		}
 		else
 		{
-			if ( day > 28 )
-			return ( showError( INV_DATE ), showError( DAY_ERR_2 ) );
+			showError( ERR_INPUT );
+			std::cout << RED << BAD_INPUT << END << line << std::endl;
+			continue ;
 		}
 	}
+}
+
+void	BitcoinExchange::dataConverter( std::string date, std::string value )
+{
+	std::map<std::string, double>::iterator	upper_bound = _database.upper_bound( date );
+	if ( upper_bound != _database.end( ) )
+	{
+		if ( upper_bound != _database.begin( ) )
+			upper_bound--;
+		double	val = std::atof( value.c_str( ) );
+		double result = val * upper_bound->second;
+		std::cout << BLUE << date << END << "→" << " ";
+		std::cout << YELLOW << val << END << " = ";
+		std::cout << PURPLE << result << END << std::endl;
+	}
+
+	// for(std::map<std::string, double>::iterator it = _database.begin(); it != _database.end(); ++it)
+	// {
+	// 	std::string date = it->first;
+	// 	std::cout << date << std::endl;
+	// }
+}
+
+bool	BitcoinExchange::checkDatabase( void )
+{
+	for(std::map<std::string, double>::iterator it = _database.begin(); it != _database.end(); ++it)
+	{
+		std::string date = it->first;
+		if ( !checkDate( date ) )
+			return ( false );
+	}
+
 	return ( true );
 }
 
@@ -174,51 +186,58 @@ bool	BitcoinExchange::checkValue( std::string value )
 	return ( true );
 }
 
-bool	BitcoinExchange::checkDatabase( void )
+bool	BitcoinExchange::checkDay( std::size_t day, std::size_t month )
 {
-	for(std::map<std::string, double>::iterator it = _database.begin(); it != _database.end(); ++it)
+	if ( day < 1 || day > 31 )
+		return ( showError( INV_DATE ), showError( DAY_ERR_1 ) );
+	if ( month < 7 )
 	{
-		std::string date = it->first;
-		if ( !checkDate( date ) )
-			return ( false );
+		if ( month % 2 == 0 )
+			if ( day > 30 )
+				return ( showError( INV_DATE ), showError( DAY_ERR_0 ) );
 	}
-
+	else if ( month > 7 )
+	{
+		if ( month % 2 != 0 )
+			if ( day > 30 )
+				return ( showError( INV_DATE ), showError( DAY_ERR_0 ) );
+	}
 	return ( true );
 }
 
-void	BitcoinExchange::getInputData( std::string file )
+bool	BitcoinExchange::checkMonth( std::size_t month )
 {
-	if ( !checkDatabase() )
-		throw std::invalid_argument(RED INV_FIL END);
-	std::ifstream	data( file.c_str( ), std::ios::in );
-	for ( std::string line; std::getline( data, line ); )
+	if ( month < 1 || month > 12 )
+		return ( false );
+	return ( true );
+}
+
+bool	BitcoinExchange::checkYear( std::size_t day, std::size_t month, std::size_t year )
+{
+	if ( ( day < 3 && month == 1 && year == 2009 ) || year < 2009 )
 	{
-		bool hasDigit = false;
-		for ( std::size_t i = 0; i < line.length( ); i++ )
+		showError( INV_DATE );
+		showError( YEAR_WARN_1 );
+		return ( true );
+	}
+	if ( ( day > 29 && month >= 3 && year == 2022 ) || year > 2022)
+	{
+		showError( INV_DATE );
+		showError( YEAR_WARN_0 );
+		return ( true );
+	}
+	if ( month == 2 )
+	{
+		if ( ( year % 4 == 0 && year % 100 != 0 ) || year % 400 == 0 )
 		{
-			if ( std::isdigit( line[i] ) )
-				hasDigit = true;
-			if (hasDigit && !std::isdigit(line[i]) && line[i] != '-' \
-					&& line[i] != '|' && line[i] != '.' && line[i] != ' ' )
-				throw std::invalid_argument(RED INV_INPUT END);
-		}
-		if ( !hasDigit )
-			continue ;
-		std::string::size_type pos = line.find('|');
-		if ( pos != std::string::npos )
-		{
-			std::string date = line.substr( 0, pos );
-			std::string value = line.substr( pos + 1, line.length( ) );
-			if ( checkDate( date ) && checkValue( value ) )
-			{
-				std::cout << date << std::endl;
-			}
+			if ( day > 29 )
+				return ( showError( INV_DATE ), showError( DAY_ERR_3 ) );
 		}
 		else
 		{
-			showError( ERR_INPUT );
-			std::cout << RED << BAD_INPUT << END << line << std::endl;
-			continue ;
+			if ( day > 28 )
+			return ( showError( INV_DATE ), showError( DAY_ERR_2 ) );
 		}
 	}
+	return ( true );
 }

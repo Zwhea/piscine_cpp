@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:40:42 by twang             #+#    #+#             */
-/*   Updated: 2023/12/04 11:14:51 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/04 14:19:24 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 
 // # define VAL_RULES		"Error Type : A valid value must be either a float or a positive integer, between 0 and 1000."
 # define ERR_INPUT		"Error : invalid value: A valid value must be either a float or a positive integer, between 0 and 1000."
-# define BAD_INPUT		"Type : bad input => "
+# define BAD_INPUT		"Type : bad input → "
 # define NOT_POS		"Type : not a positive number."
 # define TOO_LARG		"Type : too large a number."
 
