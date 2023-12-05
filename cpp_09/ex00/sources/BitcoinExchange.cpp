@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:29 by twang             #+#    #+#             */
-/*   Updated: 2023/12/04 14:21:01 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/05 16:20:32 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ BitcoinExchange::BitcoinExchange( std::string file )
 		throw std::invalid_argument( RED EXT_FIL END );
 
 	std::ifstream	data( file.c_str( ), std::ios::in );
+	if ( !data )
+		throw std::invalid_argument(RED INV_FIL END);
 	for ( std::string line; std::getline( data, line ); )
 	{
 		bool hasDigit = false;
@@ -85,6 +87,8 @@ void	BitcoinExchange::getInputData( std::string file )
 	if ( !checkDatabase() )
 		throw std::invalid_argument(RED INV_FIL END);
 	std::ifstream	data( file.c_str( ), std::ios::in );
+	if ( !data )
+		throw std::invalid_argument(RED INV_INPUT END);
 	for ( std::string line; std::getline( data, line ); )
 	{
 		bool hasDigit = false;
@@ -128,12 +132,6 @@ void	BitcoinExchange::dataConverter( std::string date, std::string value )
 		std::cout << YELLOW << val << END << " = ";
 		std::cout << PURPLE << result << END << std::endl;
 	}
-
-	// for(std::map<std::string, double>::iterator it = _database.begin(); it != _database.end(); ++it)
-	// {
-	// 	std::string date = it->first;
-	// 	std::cout << date << std::endl;
-	// }
 }
 
 bool	BitcoinExchange::checkDatabase( void )
@@ -161,6 +159,11 @@ bool	BitcoinExchange::checkDate( std::string date )
 			if ( !checkMonth( month ) )
 				return ( showError( INV_DATE ), showError( MON_ERR ) );
 			std::string strDay = date.substr( month_pos + 1 );
+			for ( std::size_t i = 0; i < strDay.size( ); i++ )
+			{
+				if ( !isdigit( strDay[i] ) && strDay[i] != ' ' )
+					return ( showError( INV_DATE ), showError( DAY_ERR_0 ) );
+			}
 			std::size_t	day = std::atoi( strDay.c_str( ) );
 			if ( !checkDay( day, month ) )
 				return ( false );
@@ -182,6 +185,12 @@ bool	BitcoinExchange::checkValue( std::string value )
 		return ( showError( ERR_INPUT ), showError( NOT_POS ) );
 	if ( val > 1000 )
 		return ( showError( ERR_INPUT ), showError( TOO_LARG ) );
+
+	for ( std::size_t i = 0; i < value.size(); i++ )
+	{
+		if ( !isdigit( value[i] ) && value[i] != ' ' && value[i] != '.' )
+			return ( showError( ERR_INPUT ), showError( INV_VALUE ) );
+	}
 
 	return ( true );
 }
@@ -214,8 +223,13 @@ bool	BitcoinExchange::checkMonth( std::size_t month )
 
 bool	BitcoinExchange::checkYear( std::size_t day, std::size_t month, std::size_t year )
 {
+	if ( year == 0 )
+		return ( showError( INV_DATE ), showError( YEAR_ERR ) );
+	if ( year < 2000 || year > 3000 )
+		return ( showError( INV_DATE ), showError( "TU FORCES" ) );
 	if ( ( day < 3 && month == 1 && year == 2009 ) || year < 2009 )
 	{
+		std::cout << day << " - " << month << " - " << year << std::endl;
 		showError( INV_DATE );
 		showError( YEAR_WARN_1 );
 		return ( true );
