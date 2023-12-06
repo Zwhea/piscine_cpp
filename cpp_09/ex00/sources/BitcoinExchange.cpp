@@ -6,11 +6,13 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:41:29 by twang             #+#    #+#             */
-/*   Updated: 2023/12/05 16:20:32 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/06 09:54:32 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+/*---- constructors & destructors --------------------------------------------*/
 
 BitcoinExchange::BitcoinExchange( std::string file )
 {
@@ -53,6 +55,10 @@ BitcoinExchange::BitcoinExchange( BitcoinExchange const & copy )
 	_database = copy._database;
 }
 
+BitcoinExchange::~BitcoinExchange( void ) { }
+
+/*---- overload operators ----------------------------------------------------*/
+
 BitcoinExchange & BitcoinExchange::operator=( BitcoinExchange const & right_value )
 {
 	if ( this == &right_value )
@@ -63,7 +69,7 @@ BitcoinExchange & BitcoinExchange::operator=( BitcoinExchange const & right_valu
 	return ( *this );
 }
 
-BitcoinExchange::~BitcoinExchange( void ) { }
+/*---- functions -------------------------------------------------------------*/
 
 void	BitcoinExchange::showDatabase( void )
 {
