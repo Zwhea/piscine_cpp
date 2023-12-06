@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 09:47:49 by twang             #+#    #+#             */
-/*   Updated: 2023/12/06 09:52:16 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/06 12:24:59 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 # include <iostream>
 # include <algorithm>
+# include <vector>
+# include <deque>
+# include <utility>
 
 /*---- defines ---------------------------------------------------------------*/
 
@@ -35,5 +38,8 @@
 
 /*---- defines errors --------------------------------------------------------*/
 
+# define INV_ARG	"Error : invalid argument.\nUsage : ./PmergeMe \" 3 5 9 7 4 \""
+# define INV_CHAR	"Error : invalid character\nUsage : ./PmergeMe \" 3 5 9 7 4 \""
+# define INV_NB		"Error : invalid number. This program use a positive integer sequence as argument."
 
 #endif
