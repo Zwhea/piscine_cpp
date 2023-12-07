@@ -6,7 +6,7 @@
 #    By: twang <twang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 14:09:46 by twang             #+#    #+#              #
-#    Updated: 2023/12/06 09:47:08 by twang            ###   ########.fr        #
+#    Updated: 2023/12/07 14:19:27 by twang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ HDR_DIR		=	includes
 SRC_DIR		=	sources
 
 HEADERS		=	$(HDR_DIR)/PmergeMe.h										\
-				$(HDR_DIR)/PmergeMe.hpp
+				$(HDR_DIR)/PmergeMe.hpp										\
+				$(HDR_DIR)/PmergeMe.tpp
 
 SOURCES		=	$(SRC_DIR)/PmergeMe.cpp										\
 				$(SRC_DIR)/main.cpp
