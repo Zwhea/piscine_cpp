@@ -6,7 +6,7 @@
 /*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:14:09 by twang             #+#    #+#             */
-/*   Updated: 2023/12/07 16:05:04 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/08 14:43:07 by twang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void	showPairedStash( T& stash )
 {
 	std::cout << std::endl;
 	for ( typename T::iterator it = stash.begin(); it != stash.end(); ++it )
-		std::cout << RED << "( " << ( *it ).first << ", " << ( *it ).second << " )" << END << std::endl;
+	{
+		std::cout << RED << "( " << ( *it ).first << ", ";
+		std::cout << ( *it ).second << " )" << END << std::endl;
+	}
 }
 
 template< typename T >
@@ -32,7 +35,23 @@ void	showStash( T & stash )
 {
 	std::cout << std::endl;
 	for ( typename T::iterator it = stash.begin(); it != stash.end(); ++it )
-		std::cout << RED << "( " << *it << " )" << END << std::endl;
+		std::cout << BLUE << "( " << *it << " )" << END << std::endl;
+}
+
+template< typename T >
+void	showResult( T& original, T& result, int type )
+{
+	std::cout << "Before\t: ";
+	for ( typename T::iterator it = original.begin(); it != original.end(); ++it )
+		std::cout << PURPLE << *it << " " << END;
+	std::cout << "\nAfter\t: ";
+	for ( typename T::iterator it = result.begin(); it != result.end(); ++it )
+		std::cout << BLUE << *it << " " << END;
+	std::cout << "\nTime to process a range of " << original.size();
+	if ( type )
+		std::cout << " elements with std::vector : " << std::endl;
+	else
+		std::cout << " elements with std::deque : " << std::endl;
 }
 
 template< typename T, typename U >
@@ -114,24 +133,36 @@ T	ernstJacobsthal( std::size_t size )
 template< typename T >
 T	insert( T lower, T upper )
 {
-	T	result;
-	T	pos = ernstJacobsthal< T >( upper.size() + lower.size() );
+	T	pos = ernstJacobsthal< T >( lower.size() );
+	typename T::iterator	itu = upper.begin();
+	typename T::iterator	itl = lower.begin();
+	std::size_t				border_min = 0;
+	std::size_t				border_max = 0;
+	std::size_t				middle = 0;
+	std::size_t				inserted = 0;
 
-	// showStash( pos );
-	for ( typename T::iterator it = pos.begin(); it != pos.end(); ++it )
+	for ( typename T::iterator itp = pos.begin(); itp != pos.end(); ++itp )
 	{
-		// std::cout << *it << std::endl;
-		for ( typename T::iterator ite = lower.begin(); ite != lower.end(); ite++ )
+		itl = lower.begin();
+		itu = upper.begin();
+		std::advance( itl, *itp - 1 );
+		border_min = 0;
+		border_max = *itp + inserted;
+		while ( border_max - border_min > 1 )
 		{
-			std::cout << *ite << " " << *it << std::endl;
-			if ( ite == it )
-				std::cout << *ite << std::endl; 
+			middle = ( border_min + border_max ) / 2;
+			if ( *itl < upper[middle] )
+				border_max = middle;
+			else
+				border_min = middle;
 		}
+		if ( *itl > upper[0] )
+			std::advance( itu, border_max );
+		itu = upper.insert( itu, *itl );
+		inserted++;
 	}
 
-	std::merge( lower.begin(), lower.end(), upper.begin(), upper.end(), std::back_inserter( result ) );
-
-	return( result );
+	return( upper );
 }
 
 #endif
