@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:14:09 by twang             #+#    #+#             */
-/*   Updated: 2023/12/08 14:43:07 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/08 17:19:45 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,38 @@ void	showStash( T & stash )
 }
 
 template< typename T >
-void	showResult( T& original, T& result, int type )
+void	showResult( T& original, T& result, int type, std::size_t time )
 {
 	std::cout << "Before\t: ";
-	for ( typename T::iterator it = original.begin(); it != original.end(); ++it )
-		std::cout << PURPLE << *it << " " << END;
+	if ( original.size() > 10 )
+	{
+		for ( typename T::iterator it = original.begin(); it != original.end() && std::distance( original.begin(), it ) < 10; ++it )
+			std::cout << PURPLE << *it << " " << END;
+		std::cout << "[...]";
+	}
+	else
+	{
+		for ( typename T::iterator it = original.begin(); it != original.end(); ++it )
+			std::cout << PURPLE << *it << " " << END;
+	}
 	std::cout << "\nAfter\t: ";
-	for ( typename T::iterator it = result.begin(); it != result.end(); ++it )
-		std::cout << BLUE << *it << " " << END;
+	if ( result.size() > 10 )
+	{
+		for ( typename T::iterator it = result.begin(); it != result.end() && std::distance( result.begin(), it ) < 10; ++it )
+			std::cout << BLUE << *it << " " << END;
+		std::cout << "[...]";
+	}
+	else
+	{
+		for ( typename T::iterator it = result.begin(); it != result.end(); ++it )
+			std::cout << BLUE << *it << " " << END;
+	}
 	std::cout << "\nTime to process a range of " << original.size();
 	if ( type )
-		std::cout << " elements with std::vector : " << std::endl;
+		std::cout << " elements with std::vector : ";
 	else
-		std::cout << " elements with std::deque : " << std::endl;
+		std::cout << " elements with std::deque : ";
+	std::cout << time << " ms" << std::endl;
 }
 
 template< typename T, typename U >
@@ -163,6 +182,17 @@ T	insert( T lower, T upper )
 	}
 
 	return( upper );
+}
+
+template < typename T >
+bool	isSorted( T & stash )
+{
+	for ( typename T::iterator it = stash.begin(); it != stash.end() - 1; ++it )
+	{
+		if ( *it > *( it + 1 ) )
+			return ( false );
+	}
+	return ( true );
 }
 
 #endif

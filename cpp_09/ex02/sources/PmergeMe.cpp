@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 09:48:21 by twang             #+#    #+#             */
-/*   Updated: 2023/12/08 15:49:19 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/08 17:20:21 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,37 @@ bool	parseArg( int ac, char **av )
 	return ( true );
 }
 
+std::size_t	getTimer( struct timeval start )
+{
+	struct timeval	current;
+	std::size_t		timer;
+
+	if ( gettimeofday( &current, NULL ) == -1 )
+		throw std::invalid_argument( RED "Error : gettimeofday failure." END );
+	timer = (current.tv_sec - start.tv_sec) * 1000000 + (current.tv_usec - start.tv_usec);
+
+	return (timer);
+}
+
 void	PmergeVector( int ac, char **av )
 {
 	std::vector< std::pair< int, int > >	stashV;
 	std::vector< int >						original;
-	int										i;
 	struct timeval							start;
+	int										i;
 
 	for ( i = 1; i < ac ; i ++ )
 	{
 		if ( atoi( av[i] ) < 0 )
-			throw std::invalid_argument( RED INV_CHAR END );
+			throw std::invalid_argument( RED INV_NB END );
 		original.push_back( atoi( av[i] ) );
 	}
 
-	gettimeofday( &start, NULL );
-	std::cout << start.tv_sec << std::endl;
+	if ( isSorted( original ) )
+		throw std::invalid_argument( RED "It is already sorted" END );
+
+	if ( gettimeofday( &start, NULL ) == -1 )
+		throw std::invalid_argument( RED "Error : gettimeofday failure." END );
 	for ( i = 1; i < ac - 1; i += 2 )
 	{
 		int min = std::min( atoi( av[i] ), atoi( av[i + 1] ) );
@@ -58,21 +73,30 @@ void	PmergeVector( int ac, char **av )
 
 	std::vector< int >	result = insert( lower, upper );
 
-	showResult( original, result, 1 );
+	std::size_t	timer = getTimer( start );
+
+	showResult( original, result, 1, timer );
 }
 
 void	PmergeDeque( int ac, char **av )
 {
 	std::deque< std::pair< int, int > >		stashD;
 	std::deque< int >						original;
+	struct timeval							start;
 	int										i;
 
 	for ( i = 1; i < ac ; i ++ )
 	{
-		original.push_back( atoi( av[i] ) );
 		if ( atoi( av[i] ) < 0 )
-			throw std::invalid_argument( RED INV_CHAR END );
+			throw std::invalid_argument( RED INV_NB END );
+		original.push_back( atoi( av[i] ) );
 	}
+
+	if ( isSorted( original ) )
+		throw std::invalid_argument( RED "It is already sorted" END );
+
+	if ( gettimeofday( &start, NULL ) == -1 )
+		throw std::invalid_argument( RED "Error : gettimeofday failure." END );
 	for ( i = 1; i < ac - 1; i += 2 )
 	{
 		int min = std::min( atoi( av[i] ), atoi( av[i + 1] ) );
@@ -89,5 +113,7 @@ void	PmergeDeque( int ac, char **av )
 
 	std::deque< int >	result = insert( lower, upper );
 
-	showResult( original, result, 0 );
+	std::size_t	timer = getTimer( start );
+
+	showResult( original, result, 0, timer );
 }
