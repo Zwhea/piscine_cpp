@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twang <twang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wangthea <wangthea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:53:12 by twang             #+#    #+#             */
-/*   Updated: 2023/10/26 15:14:23 by twang            ###   ########.fr       */
+/*   Updated: 2023/12/13 19:14:26 by wangthea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,3 @@ void	sed_is_for_losers( char *buffer, char *name, char *to_replace, char *replac
 	}
 	delete[] buffer;
 }
-
-/*
-
-find retourne -1 ou 0 si il trouve pas.
-boucler tant que found trouve.
-a la fin de la boucle rajouter a find,
-la longueur de la string que tu viens de remplacer
-
-*/
